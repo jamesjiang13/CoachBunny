@@ -14,9 +14,10 @@ export const login = user => (
   })
 )
 
-export const logout = () => (
+export const logout = (user) => (
   $.ajax({
     url: `/api/session`,
-    method: 'DELETE'
+    method: 'DELETE',
+    data: {user}
   })
 )
