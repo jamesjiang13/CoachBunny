@@ -1,0 +1,6 @@
+nav * {
+  display: flex;
+  color: #36b642;
+  justify-content: flex-end;
+  right: 50px;
+}

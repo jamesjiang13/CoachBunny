@@ -13,7 +13,7 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitForm(this.state.entities.users);
+    this.props.submitForm(this.state);
   }
 
   update(field) {
@@ -23,22 +23,23 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div>
-        <h3>{this.props.formType}</h3>
         <form onSubmit={this.handleSubmit}>
-          <label> Email Address
+          <label> Email Address </label>
+            <br />
             <input
               type='text'
-              value={this.state.entities.users.id.email_address}
-              onChange={this.update('email')}
+              value={this.state.email_address}
+              onChange={this.update('email_address')}
             />
-          </label>
-          <label> Password
+            <p />
+          <label> Password </label>
+            <br />
             <input
               type='password'
-              value={this.state.entities.users.id}
+              value={this.state.password}
               onChange={this.update('password')}
             />
-          </label>
+            <p />
           <button> Log in </button>
         </form>
       </div>
