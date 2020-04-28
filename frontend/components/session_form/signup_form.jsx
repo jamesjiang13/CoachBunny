@@ -62,6 +62,11 @@ class SignupForm extends React.Component {
             value={this.state.zip_code}
             onChange={this.update('zip_code')} />
           <p />
+          <input
+            type='text'
+            value={this.state.phone_number}
+            onChange={this.update('phone_number')} />
+          <p />
           <button> Create Account </button>
         </form>
       </div>

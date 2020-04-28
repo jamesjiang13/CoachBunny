@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Link, NavLink } from 'react-router-dom';
+import {logOut } from '../../actions/session_actions';
 
 class NavigationBar extends React.Component {
   constructor(props) {
@@ -9,9 +10,9 @@ class NavigationBar extends React.Component {
   render() {
     return (
       <nav>
-        this is the navbar
-
+        <Link to='/'> CoachBunny </Link>
         <Link to='/entrypage'> Log in </Link>
+        <Link to='/' onClick={logOut} > Log out </Link>
       </nav>
     )
   }

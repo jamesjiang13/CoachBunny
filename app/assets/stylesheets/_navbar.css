@@ -1,6 +1,6 @@
 nav * {
-  display: flex;
+  display: flexbox;
+  flex-direction: row;
+  justify-content: space-around;
   color: #36b642;
-  justify-content: flex-end;
-  right: 50px;
 }
