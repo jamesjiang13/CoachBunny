@@ -18,7 +18,7 @@ class Api::SessionsController < ApplicationController
     @user = current_user
     if @user
       log_out
-      render json: "/api/users/show"
+      render json: ["successfully logged out"]
     end
   end
 

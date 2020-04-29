@@ -22,7 +22,7 @@ export const logIn = (user) => (dispatch) => login(user)
   .then((user) => dispatch(receiveCurrentUser(user)),
     (errors) => dispatch(receiveErrors(errors.responseJSON)));
 
-export const logOut = (currentUser) => (dispatch) => logout(currentUser)
+export const logOut = () => (dispatch) => logout()
   .then(() => dispatch(logoutCurrentUser()));
 
 export const signUp = (user) => (dispatch) => signup(user)

@@ -1,44 +1,35 @@
 import React from 'react';
 import { Route, Link, NavLink } from 'react-router-dom';
-import { logOut } from '../../actions/session_actions';
-import { login } from '../../util/session_api_util';
+// import { logOut } from '../../actions/session_actions';
 
-class NavigationBar extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   // this.state = {
-  // }
+const NavigationBar = ({ currentUser, logout }) => {
+  const loggedInNav = () => (
+    <ul>
+      <li key="bookASession"> Book a Session</li>
+      <li key="mySession"> My Sessions</li>
+      <li key="account"> Account</li>
+      <li key="logoutButton">
+        <button type="button" onClick={logout}> Log out </button>
+      </li>
+    </ul>
+  );
 
+  const loggedOutNav = () => (
+    <ul>
+      <li key="sport">Sports</li>
+      <li>
+        <Link to="/entrypage"> Log in </Link>
+      </li>
+      <button type="button"> Become a Coach </button>
+    </ul>
+  );
 
-  loggedInNav() {
-    return (
-      <ul>
-        <li>Book a Session</li>
-        <li>My Sessions</li>
-        <li>Account</li>
-        <li><Link to="/" onClick={() => this.logout()}> Log out </Link></li>
-      </ul>
-    );
-  }
-
-  loggedOutNav() {
-    return (
-      <ul>
-        <li>Sports</li>
-        <li><Link to="/entrypage"> Log in </Link></li>
-      </ul>
-    );
-  }
-
-  render() {
-    return (
-      <nav>
-        nav bar
-        <Link to="/"> CoachBunny </Link>
-        {/* { props.currentUser ? loggedInNav() : loggedOutNav() } */}
-      </nav>
-    );
-  }
-}
+  return (
+    <nav className="navbar">
+      <Link to="/" className="logo-link"> CoachBunny </Link>
+      { currentUser ? loggedInNav() : loggedOutNav() }
+    </nav>
+  );
+};
 
 export default NavigationBar;

@@ -4,12 +4,12 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      first_name: '',
-      last_name: '',
-      email_address: '',
+      firstName: '',
+      lastName: '',
+      emailAddress: '',
       password: '',
-      phone_number: '',
-      zip_code: '',
+      phoneNumber: '',
+      zipCode: '',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,9 +26,8 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    const { } = this.props;
     const {
-      first_name, last_name, email_address, password, phone_number, zip_code,
+      firstName, lastName, emailAddress, password, phoneNumber, zipCode,
     } = this.state;
 
     return (
@@ -38,31 +37,31 @@ class SignupForm extends React.Component {
           <br />
           <input
             type="text"
-            value={ first_name }
-            onChange={this.update('first_name')}
+            value={firstName}
+            onChange={this.update('firstName')}
           />
           <p />
           <label> Last Name </label>
           <br />
           <input
             type="text"
-            value={this.state.last_name}
-            onChange={this.update('last_name')}
+            value={lastName}
+            onChange={this.update('lastName')}
           />
           <p />
           <label> Email Address </label>
           <br />
           <input
             type="text"
-            value={this.state.email_address}
-            onChange={this.update('email_address')}
+            value={emailAddress}
+            onChange={this.update('emailAddress')}
           />
           <p />
           <label> Password </label>
           <br />
           <input
             type="password"
-            value={this.state.password}
+            value={password}
             onChange={this.update('password')}
           />
           <p />
@@ -70,19 +69,19 @@ class SignupForm extends React.Component {
           <br />
           <input
             type="text"
-            value={this.state.zip_code}
-            onChange={this.update('zip_code')}
+            value={zipCode}
+            onChange={this.update('zipCode')}
           />
           <p />
           <label> Phone Number </label>
           <br />
           <input
             type="text"
-            value={this.state.phone_number}
-            onChange={this.update('phone_number')}
+            value={phoneNumber}
+            onChange={this.update('phoneNumber')}
           />
           <p />
-          <button> Create Account </button>
+          <button type="submit"> Create Account </button>
         </form>
       </div>
     );
