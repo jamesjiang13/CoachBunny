@@ -3,7 +3,7 @@ import { logOut } from '../../actions/session_actions';
 import UserShow from './user';
 
 const mapState = (state) => ({
-  currentUser: state.entities.currentUser.id,
+  currentUser: state.entities.users[state.session.currentUserId],
 });
 
 const mapDispatch = (dispatch) => ({

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Route, Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import classes from './nav_bar.module.css';
 
 const NavigationBar = ({ currentUser, logout }) => {
   const loggedInNav = () => (
@@ -24,8 +25,8 @@ const NavigationBar = ({ currentUser, logout }) => {
   );
 
   return (
-    <nav className="navbar">
-      <Link to="/" className="logo-link"> CoachBunny </Link>
+    <nav className={classes.navbar}>
+      <Link to="/" className={classes.logoLink}> CoachBunny </Link>
       { currentUser ? loggedInNav() : loggedOutNav() }
     </nav>
   );

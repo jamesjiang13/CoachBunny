@@ -1,0 +1,76 @@
+.entrypage {
+  background-image: url("https://www.thecoachingmanual.com/static/9a2fa82f3fc014e6a72c94ae9c81d28f/7ac0b/features-hero.jpg");
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-position: center;
+  background-repeat: stretch;
+  background-size: cover;
+}
+
+.entrypagePanel {
+  background-color: white;
+  border: 1px solid #dce0e6;
+  align-items: center;
+  max-width: 500px;
+  margin-bottom: 1em;
+  border-radius: 4px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  top: 2em;
+  padding: 1.5rem 2rem
+}
+
+/* link for demo user */
+.demoUserLogin {
+  display: flex;
+  justify-content: center;
+}
+
+.entrypageButtons {
+  display: flex;
+  justify-content: center;
+  color: #51af33;
+}
+
+.entrypageButtons button {
+  display: inline-block;
+  text-align: center;
+  padding: 0.5em 1.38em 0.5em;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  font-weight: normal;
+  /* color: #51af33; */
+  border: 1px solid #51af33;
+  background-color: white;
+  text-decoration: none;
+  transition-property: background-color, color;
+  transition-timing-function: ease;
+  transition-duration: 0.16s;
+}
+
+.entrypageButtons button:hover {
+  background-color: #51af33;
+  text-: white;
+  text-decoration: none;
+}
+
+.buttonFirst {
+  width: 47.5%;
+}
+
+.buttonSecond{
+  /* display: inline-block;
+  text-align: center;
+  padding: 0.5em 1.38em 0.5em;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: #51af33;
+  border: 1px solid #51af33;
+  background-color: white; */
+  margin-left: 5%;
+  width: 47.5%
+}
