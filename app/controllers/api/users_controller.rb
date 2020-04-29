@@ -10,15 +10,6 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def show
-    @user = User.find_by(email_address: params[:email_address])
-    if @user
-      render json: '/api/users/show'
-    else 
-      render json: {}
-    end
-  end
-
   private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :password, :email_address, :image_url, :zip_code, :phone_number)

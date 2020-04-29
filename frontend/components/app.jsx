@@ -7,6 +7,7 @@ import {
   HashRouter
 } from 'react-router-dom';
 
+import UserContainer from '../components/user_account/user_container';
 import LoginFormContainer from '../components/session_form/login_form_container';
 import SignupFormContainer from '../components/session_form/signup_form_container';
 
@@ -21,7 +22,9 @@ const App = () => (
 
     <Route exact path="/login" component={LoginFormContainer} />
     <Route exact path="/signup" component={SignupFormContainer} />
-    <Route path="/entrypage" component={ EntryPage } />
+    <Route path="/entrypage" component={EntryPage} />
+    <Route path="/user" component={UserContainer} />
+
   </div>
 )
 

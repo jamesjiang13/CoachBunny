@@ -4,9 +4,9 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email_address: "",
-      password: ""
-    }
+      email_address: '',
+      password: '',
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -17,7 +17,7 @@ class LoginForm extends React.Component {
   }
 
   update(field) {
-    return e => this.setState({ [field]: e.currentTarget.value });
+    return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
   render() {
@@ -25,21 +25,22 @@ class LoginForm extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <label> Email Address </label>
-            <br />
-            <input
-              type='text'
-              value={this.state.email_address}
-              onChange={this.update('email_address')}
-            />
-            <p />
+          <br />
+          <input
+            type="text"
+            value={this.state.email_address}
+            onChange={this.update('email_address')}
+          />
+          <p />
           <label> Password </label>
-            <br />
-            <input
-              type='password'
-              value={this.state.password}
-              onChange={this.update('password')}
-            />
-            <p />
+          <br />
+          <input
+            type="password"
+            value={this.state.password}
+            onChange={this.update('password')}
+          />
+          <p />
+          {this.props.errors.map((error) => <li>{error}</li>)}
           <button> Log in </button>
         </form>
       </div>

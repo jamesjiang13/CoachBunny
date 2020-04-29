@@ -5,10 +5,10 @@ class EntryPage extends React.Component {
   render() {
     return (
       <div>
-        <button><Link to='/login'> Log in </Link></button>
-        <button><Link to='/signup'> Sign up </Link></button>
+        <button><Link to="/login"> Log in </Link></button>
+        <button><Link to="/signup"> Sign up </Link></button>
       </div>
-    )
+    );
   }
 }
 
