@@ -6,7 +6,6 @@ import {
   Link,
   HashRouter
 } from 'react-router-dom';
-import { AuthRoute } from '../util/route_util';
 
 import LoginFormContainer from '../components/session_form/login_form_container';
 import SignupFormContainer from '../components/session_form/signup_form_container';
