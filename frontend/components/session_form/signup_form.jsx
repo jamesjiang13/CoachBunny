@@ -8,6 +8,7 @@ class SignupForm extends React.Component {
       last_name: "",
       email_address: "",
       password: "",
+      phone_number: "",
       zip_code: ""
     }
 
@@ -62,6 +63,8 @@ class SignupForm extends React.Component {
             value={this.state.zip_code}
             onChange={this.update('zip_code')} />
           <p />
+          <label> Phone Number </label>
+          <br />
           <input
             type='text'
             value={this.state.phone_number}
