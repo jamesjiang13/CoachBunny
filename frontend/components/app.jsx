@@ -2,10 +2,11 @@ import React from 'react';
 import {
   Route,
   // Redirect,
-  // Switch,
+  Switch,
   // Link,
   // HashRouter
 } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import UserContainer from './user_account/user_container';
 import LoginFormContainer from './session_form/login_form_container';
@@ -16,15 +17,13 @@ import EntryPage from './session_form/entry_page';
 
 const App = () => (
   <div>
-    <header>
-      <NavBarContainer />
-    </header>
-
-    <Route exact path="/login" component={LoginFormContainer} />
-    <Route exact path="/signup" component={SignupFormContainer} />
-    <Route path="/entrypage" component={EntryPage} />
-    <Route path="/user" component={UserContainer} />
-
+    <Switch>
+      <Route exact path="/entrypage" component={EntryPage} />
+      <AuthRoute exact path="/login" component={LoginFormContainer} />
+      <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <Route path="/" component={NavBarContainer} />
+      <Route path="/user" component={UserContainer} />
+    </Switch>
   </div>
 );
 

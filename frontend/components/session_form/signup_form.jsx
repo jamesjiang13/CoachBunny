@@ -4,12 +4,12 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: '',
-      lastName: '',
-      emailAddress: '',
+      first_name: '',
+      last_name: '',
+      email_address: '',
       password: '',
-      phoneNumber: '',
-      zipCode: '',
+      phone_number: '',
+      zip_code: '',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,7 +27,7 @@ class SignupForm extends React.Component {
 
   render() {
     const {
-      firstName, lastName, emailAddress, password, phoneNumber, zipCode,
+      first_name, last_name, email_address, password, phone_number, zip_code,
     } = this.state;
 
     return (
@@ -37,24 +37,24 @@ class SignupForm extends React.Component {
           <br />
           <input
             type="text"
-            value={firstName}
-            onChange={this.update('firstName')}
+            value={first_name}
+            onChange={this.update('first_name')}
           />
           <p />
           <label> Last Name </label>
           <br />
           <input
             type="text"
-            value={lastName}
-            onChange={this.update('lastName')}
+            value={last_name}
+            onChange={this.update('last_name')}
           />
           <p />
           <label> Email Address </label>
           <br />
           <input
             type="text"
-            value={emailAddress}
-            onChange={this.update('emailAddress')}
+            value={email_address}
+            onChange={this.update('email_address')}
           />
           <p />
           <label> Password </label>
@@ -69,16 +69,16 @@ class SignupForm extends React.Component {
           <br />
           <input
             type="text"
-            value={zipCode}
-            onChange={this.update('zipCode')}
+            value={zip_code}
+            onChange={this.update('zip_code')}
           />
           <p />
           <label> Phone Number </label>
           <br />
           <input
             type="text"
-            value={phoneNumber}
-            onChange={this.update('phoneNumber')}
+            value={phone_number}
+            onChange={this.update('phone_number')}
           />
           <p />
           <button type="submit"> Create Account </button>

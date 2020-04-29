@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Link, NavLink } from 'react-router-dom';
-// import { logOut } from '../../actions/session_actions';
 
 const NavigationBar = ({ currentUser, logout }) => {
   const loggedInNav = () => (
