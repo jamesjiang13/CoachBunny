@@ -10,8 +10,8 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import UserContainer from './user_account/user_container';
 import LoginFormContainer from './session_form/login_form/login_form_container';
-import SignupFormContainer from './session_form/signup_form_container';
-
+import SignupFormContainer from './session_form/signup_form/signup_form_container';
+import DashboardContainer from './dashboard/dashboard_container';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import EntryPage from './session_form/entry_page';
 
@@ -21,6 +21,7 @@ const App = () => (
       <Route exact path="/entrypage" component={EntryPage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
       <Route path="/" component={NavBarContainer} />
       <Route path="/user" component={UserContainer} />
     </Switch>

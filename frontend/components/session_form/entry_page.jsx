@@ -18,7 +18,7 @@ class EntryPage extends React.Component {
     e.preventDefault();
     const user = {
       email_address: 'demo@demo.com',
-      password: 'demouserlogin',
+      password: 'demouser',
     };
     const { submitForm } = this.props;
     submitForm(user);
@@ -28,12 +28,12 @@ class EntryPage extends React.Component {
     return (
       <div className={classes.mainLoginBackground}>
         <div className={classes.mainLoginPanel}>
-          <button className={classes.button1} type="button">Myspace (coming soon)</button>
-          <button className={classes.button2} type="button">Xanga (coming soon)</button>
-          <Link className={classes.demoUserLogin} to="/" onSubmit={this.handleClick}> Demo User </Link>
-          <div className={classes.entrypageButtons}>
+          <button className={classes.myspace} type="button">Myspace (coming soon)</button>
+          <button className={classes.xanga} type="button">Xanga (coming soon)</button>
+          <Link className={classes.demoUserLogin} to="/dashboard" onSubmit={this.handleClick}> Demo User </Link>
+          <div className={classes.entrypageLinks}>
             <Link to="/login" className={classes.buttonFirst}> Log in </Link>
-            <Link to="/login" className={classes.buttonSecond}> Sign up </Link>
+            <Link to="/signup" className={classes.buttonSecond}> Sign up </Link>
           </div>
         </div>
       </div>

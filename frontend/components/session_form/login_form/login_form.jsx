@@ -29,25 +29,25 @@ class LoginForm extends React.Component {
     return (
       <div className={classes.mainLoginBackground}>
         <div className={classes.mainLoginPanel}>
-          <form onSubmit={this.handleSubmit}>
+          <form className={classes.initialForm} onSubmit={this.handleSubmit}>
             <label> Email Address </label>
-            <br />
             <input
+              className={classes.loginInput}
               type="text"
               value={email_address}
               onChange={this.update('email_address')}
             />
             <p />
             <label> Password </label>
-            <br />
             <input
+              className={classes.loginInput}
               type="password"
               value={password}
               onChange={this.update('password')}
             />
             <p />
-            {errors.map((error) => <li>{error}</li>)}
-            <button type="submit"> Log in </button>
+            {errors.map((error,idx) => <li className={classes.errors} key={idx}>{error}</li>)}
+            <button className={classes.submitButton} type="submit"> Log in </button>
           </form>
         </div>
       </div>

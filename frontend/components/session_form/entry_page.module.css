@@ -1,3 +1,4 @@
+/* shared CSS classes */
 .mainLoginBackground {
   background-image: url("https://www.thecoachingmanual.com/static/9a2fa82f3fc014e6a72c94ae9c81d28f/7ac0b/features-hero.jpg");
   height: 100%;
@@ -12,7 +13,7 @@
   background-color: white;
   border: 1px solid #dce0e6;
   align-items: center;
-  max-width: 500px;
+  max-width: 468px;
   margin-bottom: 1em;
   border-radius: 4px;
   position: relative;
@@ -23,8 +24,7 @@
   padding: 1.5rem 2rem
 }
 
-.button1 {
-  background-color: #3B5998;
+.mainLoginPanel > button {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -36,17 +36,13 @@
   border-radius: 4px;
 }
 
-.button2 {
+/* only entry page css */
+.myspace {
+  background-color: #3B5998;
+}
+
+.xanga {
   background-color: #D73D32;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  align-items: center;
-  margin-bottom: 1em;
-  font-size: 1.2rem;  
-  color: white;
-  padding: 0.7em;
-  border-radius: 4px;
 }
 
 .demoUserLogin {
@@ -54,15 +50,17 @@
   justify-content: center;
   padding-bottom: 1em;
   font-size: 1.2rem;  
+  color: #51af33;
+
 }
 
-.entrypageButtons {
+.entrypageLinks {
   display: flex;
   justify-content: center;
   color: #51af33;
 }
 
-.entrypageButtons a {
+.entrypageLinks > a {
   display: inline-block;
   text-align: center;
   padding: 0.5em 1.38em 0.5em;
@@ -74,17 +72,13 @@
   transition-property: background-color, color;
   transition-timing-function: ease;
   transition-duration: 0.16s;
-  width: 47.5%
-}
-
-a {
+  width: 47.5%;
   color: hsl(105, 55%, 44%); 
-  text-decoration: none;
 }
 
-a:hover {
+.entrypageLinks > a:hover{
   color: white; 
-  color: #51af33;
+  background-color: #51af33;
   cursor: pointer;
 }
 
@@ -92,19 +86,71 @@ a:hover {
   margin-left: 5%;
 }
 
-label {
-  color: gray;
-  font-size: small;
+/* shared form CSS classes */
+.initialForm {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
 }
 
-input {
-  background-color: #E8F0FE;
-  padding: 10px 16px;
-}
-
-button {
+.initialForm > label {
   display: block;
+  color: #86919d;
+  margin-left: 3px;
+  margin-bottom: 0.275em;
+  font-size: 0.875em;
+  border: 0px 0px 3.85px 3px;
+  width: 100%;
+}
+
+.initialForm > input {
+  display: inline-block;
+  text-align: start;
+  height: 24px;
+  width: 100%;
+  font-size: 15px;
+  padding: 10px 16px;
+  border: 1px solid #86919d;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.initialForm > input:focus {
+  border: 1px solid #51af33;
+}
+
+.initialForm > button {
+  display: block;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
   background-color: #51af33;
+  padding: 9.6px 26.5px;
+  border-color: #86919d ;
+  width: 100%;
   color: white;
-  border-radius: 4px
+  border-radius: 4px;
+  font-size: 19.2px;
+} 
+
+.initialForm > button:hover {
+  background-color: #438e29;
+}
+
+.submitButton {
+  margin-top: 20px
+}
+
+.disclaimer {
+  display: block;
+  color: #86919d; 
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.errors {
+  list-style-type: none;
+  color: #349993;
 }

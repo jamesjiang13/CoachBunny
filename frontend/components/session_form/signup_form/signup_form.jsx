@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from '../entry_page.module.css';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -29,13 +30,13 @@ class SignupForm extends React.Component {
     const {
       first_name, last_name, email_address, password, phone_number, zip_code,
     } = this.state;
+    // const { errors } = this.props;
 
     return (
       <div className={classes.mainLoginBackground}>
         <div className={classes.mainLoginPanel}>
-          <form onSubmit={this.handleSubmit}>
+          <form className={classes.initialForm} onSubmit={this.handleSubmit}>
             <label> First Name </label>
-            <br />
             <input
               type="text"
               value={first_name}
@@ -43,7 +44,6 @@ class SignupForm extends React.Component {
             />
             <p />
             <label> Last Name </label>
-            <br />
             <input
               type="text"
               value={last_name}
@@ -51,7 +51,6 @@ class SignupForm extends React.Component {
             />
             <p />
             <label> Email Address </label>
-            <br />
             <input
               type="text"
               value={email_address}
@@ -59,7 +58,6 @@ class SignupForm extends React.Component {
             />
             <p />
             <label> Password </label>
-            <br />
             <input
               type="password"
               value={password}
@@ -67,7 +65,6 @@ class SignupForm extends React.Component {
             />
             <p />
             <label> Zip Code </label>
-            <br />
             <input
               type="text"
               value={zip_code}
@@ -75,14 +72,15 @@ class SignupForm extends React.Component {
             />
             <p />
             <label> Phone Number </label>
-            <br />
             <input
+              className={classes.signupPhoneInput}
               type="text"
               value={phone_number}
               onChange={this.update('phone_number')}
             />
-            <p />
-            <button type="submit"> Create Account </button>
+            <span className={classes.disclaimer}>By clicking below and creating an account, I acknowledge that I probably felt cute, idk, might delete later.</span>
+            {/* {errors.map((error) => <li className={classes.errors}>{error}</li>)} */}
+            <button className={classes.submitButton} type="submit"> Create Account </button>
           </form>
         </div>
       </div>
