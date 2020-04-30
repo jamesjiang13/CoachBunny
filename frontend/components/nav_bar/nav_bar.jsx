@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Switch } from 'react-router-dom';
 import UserContainer from '../user_account/user_container';
 import classes from './nav_bar.module.css';
 import { ProtectedRoute } from '../../util/route_util';
@@ -9,12 +9,12 @@ const LoggedInNav = ({ logout }) => (
     <li key="bookASession"> Book a Session</li>
     <li key="mySession"> My Sessions</li>
     <li key="account">
-      <ProtectedRoute path="/dashboard/user" component={UserContainer} />
-      <Link to="/dashboard/user"> Account </Link>
+        <Link to="/user"> Account </Link>
+        <ProtectedRoute path="/user" component={UserContainer} />
     </li>
-    {/* <li key="logoutButton">
+    <li key="logoutButton">
       <button type="button" onClick={logout}> Log out </button>
-    </li> */}
+    </li>
   </ul>
 );
 
@@ -32,7 +32,7 @@ const NavigationBar = ({ currentUser, logout }) => (
   <header className={classes.mainHeader}>
     <nav className={classes.navbar}>
       <Link to="/" className={classes.leftNav}>
-        <img className={classes.imgResponsive} src="assets/full_logo2.png" alt="logo" />
+        <img className={classes.imgResponsive} src={window.fullLogoURL} alt="logo" />
       </Link>
       <div className={classes.rightNav}>
         { currentUser ? <LoggedInNav logout={logout} /> : <LoggedOutNav /> }

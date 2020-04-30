@@ -24,8 +24,8 @@ class EntryPage extends React.Component {
     return (
       <div className={classes.mainLoginBackground}>
         <div className={classes.mainLoginPanel}>
-          <button className={classes.myspace} type="button">Myspace (already passed)</button>
-          <button className={classes.xanga} type="button">Xanga (also passed)</button>
+          <button className={classes.myspace} type="button">Myspace (coming soon)</button>
+          <button className={classes.xanga} type="button">Xanga (coming soon)</button>
           <Link
             className={classes.demoUserLogin}
             onClick={this.handleClick}

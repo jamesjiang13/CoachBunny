@@ -78,7 +78,7 @@ class SignupForm extends React.Component {
               value={phone_number}
               onChange={this.update('phone_number')}
             />
-            <span className={classes.disclaimer}>By clicking below and creating an account, I acknowledge that I probably felt cute, idk, might delete later.</span>
+            <span className={classes.disclaimer}>By clicking below and creating an account, I agree to CoachBunny's Terms of Service and Privacy Policy.</span>
             {/* {errors.map((error) => <li className={classes.errors}>{error}</li>)} */}
             <button className={classes.submitButton} type="submit"> Create Account </button>
           </form>

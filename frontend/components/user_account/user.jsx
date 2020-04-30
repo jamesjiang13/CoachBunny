@@ -1,19 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavigationBar from '../nav_bar/nav_bar_container';
 
 class UserShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = props.currentUser;
   }
 
   render() {
+    const { logout } = this.props;
     return (
       <div>
+        <NavigationBar />
         <h3>user show page</h3>
-        <Link to="/" onClick={this.props.logout}> Log out </Link>
+        <Link to="/" onClick={logout}> Log out </Link>
       </div>
-    )
+    );
   }
 }
 

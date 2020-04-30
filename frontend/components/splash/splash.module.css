@@ -1,12 +1,35 @@
-
-
-.mainDiv {
-  background-image: url("https://upl.stack.com/wp-content/uploads/2012/12/21164445/2-Great-Basketball-Drills-to-Do-on-Your-Own-stack.jpg");
+.mainSplashBackground {
+  background-image: url("https://changingthegameproject.com/wp-content/uploads/2017/03/Soccer-coach-watching-players-practice.jpg");
   height: 500px;
-  height: 100%;
   width: 100%;
   position: fixed;
-  background-position: center;
-  background-repeat: stretch;
+  background-repeat: no-repeat;
+  background-position: center top;
   background-size: cover;
+
 }
+
+.mainSplashText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  max-width: 468px;
+  width: 100%;
+  height: 250px;
+  padding: 40px;
+  margin-bottom: 1em;
+  border-radius: 4px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  top: 2em;
+}
+
+.main > h1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+

@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
         <div>
           {/* < Link to="/" onClick={logout}> Log out </Link> */}
           <h4>this is the users dashboard</h4>
-          <Link to="/user"> link to user show page </Link>
+          <Link to="/dashboard/user"> link to user show page </Link>
         </div>
       </div>
     );
