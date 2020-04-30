@@ -1,4 +1,4 @@
-.entrypage {
+.mainLoginBackground {
   background-image: url("https://www.thecoachingmanual.com/static/9a2fa82f3fc014e6a72c94ae9c81d28f/7ac0b/features-hero.jpg");
   height: 100%;
   width: 100%;
@@ -8,7 +8,7 @@
   background-size: cover;
 }
 
-.entrypagePanel {
+.mainLoginPanel {
   background-color: white;
   border: 1px solid #dce0e6;
   align-items: center;
@@ -23,10 +23,37 @@
   padding: 1.5rem 2rem
 }
 
-/* link for demo user */
+.button1 {
+  background-color: #3B5998;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 1em;
+  font-size: 1.2rem;  
+  color: white;
+  padding: 0.7em;
+  border-radius: 4px;
+}
+
+.button2 {
+  background-color: #D73D32;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 1em;
+  font-size: 1.2rem;  
+  color: white;
+  padding: 0.7em;
+  border-radius: 4px;
+}
+
 .demoUserLogin {
   display: flex;
   justify-content: center;
+  padding-bottom: 1em;
+  font-size: 1.2rem;  
 }
 
 .entrypageButtons {
@@ -35,42 +62,49 @@
   color: #51af33;
 }
 
-.entrypageButtons button {
+.entrypageButtons a {
   display: inline-block;
   text-align: center;
   padding: 0.5em 1.38em 0.5em;
   border-radius: 4px;
   font-size: 1.2rem;
   font-weight: normal;
-  /* color: #51af33; */
   border: 1px solid #51af33;
   background-color: white;
-  text-decoration: none;
   transition-property: background-color, color;
   transition-timing-function: ease;
   transition-duration: 0.16s;
+  width: 47.5%
 }
 
-.entrypageButtons button:hover {
-  background-color: #51af33;
-  text-: white;
+a {
+  color: hsl(105, 55%, 44%); 
   text-decoration: none;
 }
 
-.buttonFirst {
-  width: 47.5%;
+a:hover {
+  color: white; 
+  color: #51af33;
+  cursor: pointer;
 }
 
 .buttonSecond{
-  /* display: inline-block;
-  text-align: center;
-  padding: 0.5em 1.38em 0.5em;
-  border-radius: 4px;
-  font-size: 1.2rem;
-  font-weight: normal;
-  color: #51af33;
-  border: 1px solid #51af33;
-  background-color: white; */
   margin-left: 5%;
-  width: 47.5%
+}
+
+label {
+  color: gray;
+  font-size: small;
+}
+
+input {
+  background-color: #E8F0FE;
+  padding: 10px 16px;
+}
+
+button {
+  display: block;
+  background-color: #51af33;
+  color: white;
+  border-radius: 4px
 }

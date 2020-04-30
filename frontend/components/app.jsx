@@ -9,7 +9,7 @@ import {
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import UserContainer from './user_account/user_container';
-import LoginFormContainer from './session_form/login_form_container';
+import LoginFormContainer from './session_form/login_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 
 import NavBarContainer from './nav_bar/nav_bar_container';
