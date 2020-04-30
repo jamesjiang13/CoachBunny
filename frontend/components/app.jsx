@@ -2,15 +2,14 @@ import React from 'react';
 import {
   Route,
   Switch,
-  Redirect,
+  // Redirect,
 } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-import UserContainer from './user_account/user_container';
 import LoginFormContainer from './session_form/login_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form/signup_form_container';
 import DashboardContainer from './dashboard/dashboard_container';
-import NavBarContainer from './nav_bar/nav_bar_container';
+import Splash from './splash/splash';
 import EntryPage from './session_form/entry_page';
 
 // Redirect auto-takes the user to the selected page
@@ -18,18 +17,15 @@ import EntryPage from './session_form/entry_page';
 // Switch only takes the first valid route
 // HashRouter adds hashrouter
 
-
 const App = () => (
-  <div>
-    <NavBarContainer />
+  <div id="app">
     <Switch>
-      <AuthRoute exact path="/entrypage" component={EntryPage} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <Route path="/user" component={UserContainer} />
-      {/* <Route path="/" component={NavBarContainer} /> */}
-      <Redirect exact path="/" to="/" />
+      <AuthRoute exact path="/entrypage" component={EntryPage} />
+      <ProtectedRoute path="/dashboard" component={DashboardContainer} />
+      <AuthRoute path="/" component={Splash} />
+      {/* <Redirect exact path="/" to="/" /> */}
     </Switch>
   </div>
 );

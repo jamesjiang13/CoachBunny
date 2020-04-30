@@ -1,0 +1,12 @@
+
+
+.mainDiv {
+  background-image: url("https://upl.stack.com/wp-content/uploads/2012/12/21164445/2-Great-Basketball-Drills-to-Do-on-Your-Own-stack.jpg");
+  height: 500px;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-position: center;
+  background-repeat: stretch;
+  background-size: cover;
+}

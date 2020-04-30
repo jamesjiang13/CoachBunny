@@ -11,7 +11,7 @@ class UserShow extends React.Component {
     return (
       <div>
         <h3>user show page</h3>
-        <Link to="/" onClick={this.logout()}> Log out </Link>
+        <Link to="/" onClick={this.props.logout}> Log out </Link>
       </div>
     )
   }

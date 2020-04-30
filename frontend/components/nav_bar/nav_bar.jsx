@@ -1,16 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import UserContainer from '../user_account/user_container';
 import classes from './nav_bar.module.css';
-
+import { ProtectedRoute } from '../../util/route_util';
 
 const LoggedInNav = ({ logout }) => (
   <ul className={classes.navBarUl}>
     <li key="bookASession"> Book a Session</li>
     <li key="mySession"> My Sessions</li>
-    <li key="account"> Account</li>
-    <li key="logoutButton">
-      <button type="button" onClick={logout}> Log out </button>
+    <li key="account">
+      <ProtectedRoute path="/dashboard/user" component={UserContainer} />
+      <Link to="/dashboard/user"> Account </Link>
     </li>
+    {/* <li key="logoutButton">
+      <button type="button" onClick={logout}> Log out </button>
+    </li> */}
   </ul>
 );
 
@@ -36,6 +40,5 @@ const NavigationBar = ({ currentUser, logout }) => (
     </nav>
   </header>
 );
-
 
 export default NavigationBar;

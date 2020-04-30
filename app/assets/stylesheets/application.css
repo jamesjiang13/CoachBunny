@@ -18,13 +18,13 @@
   font-family: 'Oxygen', sans-serif;
 }
 
-body {
+body { 
   background: #f9fafb;
-  position: absolute;
+  /* position: absolute;
   height: 100%;
   width: 100%;
   padding: 0;
   margin: 0;
   top: 0;
-  left: 0;
+  left: 0; */
 }
