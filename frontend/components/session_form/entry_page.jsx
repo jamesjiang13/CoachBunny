@@ -4,14 +4,10 @@ import { connect } from 'react-redux';
 import { logIn } from '../../actions/session_actions';
 import classes from './entry_page.module.css';
 
-const mapDispatch = (dispatch) => ({
-  submitForm: (user) => dispatch(logIn(user)),
-});
-
 class EntryPage extends React.Component {
   constructor(props) {
     super(props);
-    this.form = null;
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
@@ -28,9 +24,15 @@ class EntryPage extends React.Component {
     return (
       <div className={classes.mainLoginBackground}>
         <div className={classes.mainLoginPanel}>
-          <button className={classes.myspace} type="button">Myspace (coming soon)</button>
-          <button className={classes.xanga} type="button">Xanga (coming soon)</button>
-          <Link className={classes.demoUserLogin} to="/dashboard" onSubmit={this.handleClick}> Demo User </Link>
+          <button className={classes.myspace} type="button">Myspace (already passed)</button>
+          <button className={classes.xanga} type="button">Xanga (also passed)</button>
+          <Link
+            className={classes.demoUserLogin}
+            onClick={this.handleClick}
+            to="/dashboard"
+          >
+            Demo user
+          </Link>
           <div className={classes.entrypageLinks}>
             <Link to="/login" className={classes.buttonFirst}> Log in </Link>
             <Link to="/signup" className={classes.buttonSecond}> Sign up </Link>
@@ -41,6 +43,15 @@ class EntryPage extends React.Component {
   }
 }
 
+const mapDispatch = (dispatch) => ({
+  submitForm: (user) => dispatch(logIn(user)),
+});
+
 export default connect(
   null, mapDispatch,
 )(EntryPage);
+
+// selectively render loging page instead of posts dependings on login/logout
+// route utils - auth y protected
+// same process except instead of redirecting when theyre not logged in, return empty <div></div>
+// export that

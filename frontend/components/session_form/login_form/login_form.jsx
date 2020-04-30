@@ -46,7 +46,7 @@ class LoginForm extends React.Component {
               onChange={this.update('password')}
             />
             <p />
-            {errors.map((error,idx) => <li className={classes.errors} key={idx}>{error}</li>)}
+            {errors.map((error, idx) => <li className={classes.errors} key={idx}>{error}</li>)}
             <button className={classes.submitButton} type="submit"> Log in </button>
           </form>
         </div>
