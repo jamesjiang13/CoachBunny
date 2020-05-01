@@ -16,8 +16,11 @@ class Coach < ApplicationRecord
 
   has_many :coaching_sessions
   
-  has_many :availabilities,
+  has_many :session_details,
     foreign_key: :coach_id,
-    class_name: :AvailableCoach
+    class_name: :SessionDetail
+  
+  has_many :sports,
+    through: :availabilities,
 
-end
+  end

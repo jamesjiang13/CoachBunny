@@ -12,13 +12,13 @@
 
 .mainSplashText {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: white;
-  max-width: 468px;
-  width: 100%;
+  max-width: 508px;
   height: 250px;
-  padding: 40px;
+  padding: 20px 40px;
   border-radius: 4px;
   position: relative;
   margin-left: auto;
@@ -31,5 +31,6 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  font-size: 30px;
 }
 

@@ -9,8 +9,8 @@ const Splash = () => (
     <NavigationBar />
     <div className={classes.mainSplashBackground}>
       <div className={classes.mainSplashText}>
-        <h1> Coaches when you need them,</h1>
-        <h1> at your fingertips </h1>
+        <h1> Coaches at your fingertips,</h1>
+        <h1> when you need them </h1>
         <form className={classes.searchForm}>
           <input type="text" placeholder="I want to work on..." />
           <button type="button"> Train today </button>

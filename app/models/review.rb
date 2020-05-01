@@ -10,6 +10,7 @@
 #  coach_id            :integer          not null
 #  coaching_session_id :integer
 #
+
 class Review < ApplicationRecord
   validates :user_id, :sport_id, :coach_id, :coaching_session_id, presence: true
 
