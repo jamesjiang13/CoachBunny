@@ -1,12 +1,13 @@
 import React from 'react';
-import NavigationBar from '../nav_bar/nav_bar_container';
+import NavigationBarContainer from '../nav_bar/nav_bar_container';
+import Footer from '../footer/footer';
 // import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 import classes from './splash.module.css';
 
 const Splash = () => (
   <div>
-    <NavigationBar />
+    <NavigationBarContainer />
     <div className={classes.mainSplashBackground}>
       <div className={classes.mainSplashText}>
         <h1> Coaches at your fingertips,</h1>
@@ -17,6 +18,7 @@ const Splash = () => (
         </form>
       </div>
     </div>
+    <Footer />
   </div>
 );
 

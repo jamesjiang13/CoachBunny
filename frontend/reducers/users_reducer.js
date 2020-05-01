@@ -9,8 +9,8 @@ const usersReducer = (state = {}, action) => {
     case LOGOUT_CURRENT_USER:
       return {};
     default:
-      return state
+      return state;
   }
-}
+};
 
 export default usersReducer;

@@ -12,7 +12,7 @@
 #  updated_at        :datetime         not null
 #
 class Coach < ApplicationRecord
-  validates :first_name, :last_name, :image_url, :zip_code, :coach_description, presence: true
+  validates :first_name, :last_name, :zip_code, :coach_description, presence: true
 
   has_many :coaching_sessions
   
@@ -21,6 +21,7 @@ class Coach < ApplicationRecord
     class_name: :SessionDetail
   
   has_many :sports,
-    through: :availabilities,
+    through: :coaching_sessions,
+    source: :sport
 
   end

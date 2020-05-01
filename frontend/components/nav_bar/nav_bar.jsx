@@ -32,7 +32,7 @@ const NavigationBar = ({ currentUser, logout }) => (
   <header className={classes.mainHeader}>
     <nav className={classes.navbar}>
       <Link to="/" className={classes.leftNav}>
-        <img className={classes.imgResponsive} src={window.fullLogoURL} alt="logo" />
+        <img className={classes.imgResponsive} src={window.fullLogo2} alt="logo" />
       </Link>
       <div className={classes.rightNav}>
         { currentUser ? <LoggedInNav logout={logout} /> : <LoggedOutNav /> }

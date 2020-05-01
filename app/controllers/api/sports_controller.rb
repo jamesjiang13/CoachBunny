@@ -1,6 +1,5 @@
 class Api::SportsController < ApplicationController
   def index
-    @sports = Sports.all
+    @sports = Sport.all
   end
-
 end

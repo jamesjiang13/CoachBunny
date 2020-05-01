@@ -11,8 +11,10 @@ class Sport < ApplicationRecord
   validates :sport, presence: true
 
   has_many :session_details
-  has_many :coaches
-
   
+  has_many :coaches,
+    through: :session_details,
+    source: :coach
+
 end
 
