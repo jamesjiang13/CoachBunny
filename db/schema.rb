@@ -10,27 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_005858) do
+ActiveRecord::Schema.define(version: 2020_05_01_040747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "available_coaches", force: :cascade do |t|
-    t.integer "coach_id", null: false
-    t.integer "sport_id", null: false
-    t.integer "duration", null: false
-    t.integer "frequency", null: false
-    t.boolean "elite_coach", default: false, null: false
-    t.boolean "equipment", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["coach_id", "sport_id"], name: "index_available_coaches_on_coach_id_and_sport_id", unique: true
-    t.index ["coach_id"], name: "index_available_coaches_on_coach_id"
-    t.index ["duration"], name: "index_available_coaches_on_duration"
-    t.index ["elite_coach"], name: "index_available_coaches_on_elite_coach"
-    t.index ["frequency"], name: "index_available_coaches_on_frequency"
-    t.index ["sport_id"], name: "index_available_coaches_on_sport_id"
-  end
 
   create_table "coaches", force: :cascade do |t|
     t.string "first_name", null: false
@@ -59,9 +42,31 @@ ActiveRecord::Schema.define(version: 2020_05_01_005858) do
     t.integer "user_id", null: false
     t.integer "sport_id", null: false
     t.integer "coach_id", null: false
+    t.integer "coaching_session_id"
     t.index ["coach_id"], name: "index_reviews_on_coach_id"
+    t.index ["coaching_session_id"], name: "index_reviews_on_coaching_session_id"
     t.index ["sport_id"], name: "index_reviews_on_sport_id"
+    t.index ["user_id", "coaching_session_id"], name: "index_reviews_on_user_id_and_coaching_session_id", unique: true
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "session_details", force: :cascade do |t|
+    t.integer "coach_id", null: false
+    t.integer "sport_id", null: false
+    t.integer "duration", null: false
+    t.integer "frequency", null: false
+    t.boolean "elite_coach", default: false, null: false
+    t.boolean "equipment", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "coaching_rate"
+    t.index ["coach_id", "sport_id"], name: "index_session_details_on_coach_id_and_sport_id", unique: true
+    t.index ["coach_id"], name: "index_session_details_on_coach_id"
+    t.index ["coaching_rate"], name: "index_session_details_on_coaching_rate"
+    t.index ["duration"], name: "index_session_details_on_duration"
+    t.index ["elite_coach"], name: "index_session_details_on_elite_coach"
+    t.index ["frequency"], name: "index_session_details_on_frequency"
+    t.index ["sport_id"], name: "index_session_details_on_sport_id"
   end
 
   create_table "sports", force: :cascade do |t|

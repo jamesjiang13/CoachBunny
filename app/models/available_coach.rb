@@ -1,2 +1,0 @@
-class AvailableCoach < ApplicationRecord
-end
