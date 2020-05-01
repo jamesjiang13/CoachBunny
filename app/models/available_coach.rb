@@ -1,0 +1,2 @@
+class AvailableCoach < ApplicationRecord
+end

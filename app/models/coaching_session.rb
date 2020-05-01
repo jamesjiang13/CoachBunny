@@ -1,0 +1,2 @@
+class CoachingSession < ApplicationRecord
+end
