@@ -1,4 +1,3 @@
-export const allsports = () => ($.ajax({
-    url: '/api/sports',
-  })
-);
+export const allSports = () => $.ajax({
+  url: '/api/sports',
+});

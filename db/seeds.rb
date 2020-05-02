@@ -9,8 +9,7 @@
 
 # create sports
 ["football","basketball","soccer","tennis","golf"].each do {|sportname|
-  Sport.create(sport: sportname)
-}
+  Sport.create(sport: sportname) }
 
 # create coaches
 Coach.create(first_name: "Steve", last_name: "Nash", zip_code: "85002", 
@@ -31,14 +30,31 @@ Coach.create(first_name: "Charles", last_name: "Woodson", zip_code: "94501",
 Coach.create(first_name: "Vince", last_name: "Young", zip_code: "85002", 
   coach_description: "The real Vince Young National Champion, 2X Pro Bowler, 06 ROY")
 
-Coach.create(first_name: "Andy", last_name: "Roddick", zip_code: "85002", 
+Coach.create(first_name: "Andy", last_name: "Roddick", zip_code: "68022", 
   coach_description: "I used to play tennis....")
 
+Coach.create(first_name: "Lorena", last_name: "Ochoa", zip_code: "22434", 
+  coach_description: "Retired at #1")
+
+Coach.create(first_name: "Mia", last_name: "Hamm", zip_code: "36701", 
+  coach_description: "2x Olympic gold medalist!")
+
 Coach.create(first_name: "Lorena", last_name: "Ochoa", zip_code: "85002", 
   coach_description: "Retired at #1")
 
-Coach.create(first_name: "Mia", last_name: "Hamm", zip_code: "85002", 
-  coach_description: "Retired at #1")
+# create users
+User.create(first_name: "Demo", last_name: "User", password: "demouser", email_address: "demo@demo.com", zip_code: "95070")
+User.create(first_name: "test", last_name: "test", password: "password", email_address: "test@test.com", zip_code: "95070")
 
-Coach.create(first_name: "Lorena", last_name: "Ochoa", zip_code: "85002", 
-  coach_description: "Retired at #1")
+# create coach details
+#  coach_id      :integer          not null
+#  sport_id      :integer          not null
+#  duration      :integer          not null
+#  elite_coach   :boolean          default(FALSE), not null
+#  equipment     :boolean          default(FALSE), not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  coaching_rate :integer
+
+# create coach sessions
+

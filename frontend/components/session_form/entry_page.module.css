@@ -86,6 +86,13 @@
   margin-left: 5%;
 }
 
+.textLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
 /* shared form CSS classes */
 .initialForm {
   display: flex;

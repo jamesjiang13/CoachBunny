@@ -22,10 +22,10 @@ class User < ApplicationRecord
 
   has_many :coaching_sessions
   has_many :coaches,
-    through: :coaching_sessions
-  
+    through: :coaching_sessions,
+    source: :coach
+
   before_validation :ensure_session_token
-  
   attr_reader :password
 
   def self.find_by_credentials(email, pw)
