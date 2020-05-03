@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_02_012537) do
+ActiveRecord::Schema.define(version: 2020_05_03_015621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(version: 2020_05_02_012537) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "training_date", null: false
-    t.time "training_time", null: false
+    t.datetime "training_date", null: false
     t.integer "training_duration", null: false
     t.text "training_description", null: false
+    t.integer "training_rate"
     t.index ["coach_id"], name: "index_coaching_sessions_on_coach_id"
     t.index ["sport_id"], name: "index_coaching_sessions_on_sport_id"
     t.index ["user_id"], name: "index_coaching_sessions_on_user_id"
@@ -86,11 +86,9 @@ ActiveRecord::Schema.define(version: 2020_05_02_012537) do
     t.string "email_address", null: false
     t.string "image_url"
     t.string "zip_code", null: false
-    t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
-    t.index ["phone_number"], name: "index_users_on_phone_number", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
 

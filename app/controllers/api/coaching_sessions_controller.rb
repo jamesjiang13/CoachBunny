@@ -1,13 +1,14 @@
 class Api::CoachingSessionsController < ApplicationController
   def index # return all sessions for the current user
-    @coaching_sessions = CoachingSession.findby(user_id: params[:id])
-    render :index
+    @coaching_sessions = CoachingSession.where(user_id: current_user.id)
+    # @coaching_sessions = CoachingSession.all
+    render json: @coaching_sessions
   end
 
   # show fulls details for one coaching session 
   # inc: coach details and sports name
   def show   
-    @session = CoachingSession.find_by()
+    # @session = CoachingSession.find_by()
   end
 
   def create # create a new coaching session
@@ -35,7 +36,8 @@ class Api::CoachingSessionsController < ApplicationController
 
   private
   def coaching_session_params
-    params.require(:coaching_sessions).permit(:sport_id, :coach_id, :user_id)
+    params.require(:coaching_sessions).permit(:sport_id, :coach_id, :user_id, 
+      :training_date, :training_duration, :training_rate, :training_description)
   end
 
 end

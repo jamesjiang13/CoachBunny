@@ -13,7 +13,7 @@
 #  coaching_rate :integer
 #
 class CoachDetail < ApplicationRecord
-  validates :coach_id, :sport_id, :duration, :frequency, :coaching_rate, presence: true
+  validates :coach_id, :sport_id, :duration, :coaching_rate, presence: true
   validates :elite_coach, :equipment, inclusion: {in: [true, false]}
 
   belongs_to :coach

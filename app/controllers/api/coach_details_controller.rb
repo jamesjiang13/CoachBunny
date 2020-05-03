@@ -1,6 +1,6 @@
 class Api::CoachDetailsController < ApplicationController
   def index # get all the coach details for a specific sport
-    found_sport = Sport.find(params[:sport_id])
+    found_sport = Sport.find_by(id: params[:sport_id])
 
     @coaches = found_sport.coach_details 
     render :index

@@ -10,13 +10,12 @@
 #  email_address   :string           not null
 #  image_url       :string
 #  zip_code        :string           not null
-#  phone_number    :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
 class User < ApplicationRecord
   validates :first_name, :last_name, :password_digest, :session_token, :email_address, :zip_code, presence: true
-  validates :session_token, :email_address, :phone_number, uniqueness: true
+  validates :session_token, :email_address, uniqueness: true
   validates :email_address, format: { with: URI::MailTo::EMAIL_REGEXP } 
   validates :password, length: {minimum: 6, allow_nil: true}
 

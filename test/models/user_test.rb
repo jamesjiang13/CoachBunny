@@ -10,7 +10,6 @@
 #  email_address   :string           not null
 #  image_url       :string
 #  zip_code        :string           not null
-#  phone_number    :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #

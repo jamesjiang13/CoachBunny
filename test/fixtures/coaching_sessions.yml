@@ -8,10 +8,10 @@
 #  user_id              :integer          not null
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
-#  training_date        :date             not null
-#  training_time        :time             not null
+#  training_date        :datetime         not null
 #  training_duration    :integer          not null
 #  training_description :text             not null
+#  training_rate        :integer
 #
 
 # This model initially had no columns defined. If you add columns to the

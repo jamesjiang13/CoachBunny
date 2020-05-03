@@ -1,18 +1,19 @@
 class Api::CoachesController < ApplicationController
-  def index # get all coaches that match sport ID
+  # get all coaches that match sport ID 
+  def index
     found_sport = Sport.find(params[:sport_id]) # finds sport based on passed ID
-
     @coaches = found_sport.coaches 
-    # render json: apple
     render :index
   end
 
-  def show # show detail for one coach
+  # show details (all coachable sports) for one coach.
+  # i don't think i need this now, would come in handy if a 
+  # user wants to show all a coaches other sessions
+  def show  
     coach = Coach.find_by(id: params[:id])
     @details = coach.details
     render :show
-  end
-  
+  end  
 end
 
 # @coaches = Coach.where(sport_id: passed_sport_id)
