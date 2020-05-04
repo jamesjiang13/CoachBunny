@@ -33,7 +33,7 @@ class EntryPage extends React.Component {
           <Link
             className={classes.demoUserLogin}
             onClick={this.handleClick}
-            to="/dashboard"
+            to="/main"
           >
             Demo user
           </Link>

@@ -6,7 +6,6 @@ import Root from './components/root';
 // for testing
 import { logIn, logOut, signUp } from './actions/session_actions';
 import {
-  fetchCoachingSession,
   fetchCoachingSessions,
   deleteCoachingSession,
 } from './actions/coaching_session_actions';
@@ -35,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.signUp = signUp;
   window.logIn = logIn;
   window.logOut = logOut;
-  window.fetchCoachingSession = fetchCoachingSession;
   window.fetchCoachingSessions = fetchCoachingSessions;
   window.deleteCoachingSession = deleteCoachingSession;
 

@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Sport.destroy_all
+Coach.destroy_all
+User.destroy_all
+CoachDetail.destroy_all
+CoachingSession.destroy_all
+
+
 # create sports
 sport1 = Sport.create(sport: "football")
 sport2 = Sport.create(sport: "basketball")

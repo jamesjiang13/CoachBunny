@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { logOut } from '../../actions/session_actions';
-import UserShow from './user';
+import Account from './account';
 
 const mapState = (state) => ({
-  currentUser: state.entities.users[state.session.currentUserId],
+  currentUser: state.entities.user[state.session.currentUserId],
 });
 
 const mapDispatch = (dispatch) => ({
@@ -12,4 +12,4 @@ const mapDispatch = (dispatch) => ({
 
 export default connect(
   mapState, mapDispatch,
-)(UserShow);
+)(Account);

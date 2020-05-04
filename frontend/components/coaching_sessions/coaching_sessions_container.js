@@ -6,7 +6,7 @@ import {
 } from '../../actions/coaching_session_actions';
 
 const mapState = (state) => ({
-  coachingSessions: Object.keys(state.coachingSessions),
+  coachingSessions: Object.values(state.coachingSessions),
 });
 
 const mapDispatch = (dispatch) => ({

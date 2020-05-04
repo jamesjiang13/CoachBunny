@@ -8,19 +8,21 @@ const Auth = ({
   <Route
     path={path}
     exact={exact}
-    render={(props) => (!loggedIn ? <Component {...props} /> : <Redirect to="/dashboard" />)}
-  /> // if not logged in, view component rendering
+    render={(props) => (!loggedIn ? <Component {...props} /> : <Redirect to="/main" />)}
+  /> // if logged in, view component rendering
 );
 
 const Protected = ({
   component: Component, path, loggedIn, exact,
-}) => (
+}) => {
+  return (
   <Route
-    path={path}
-    exact={exact}
-    render={(props) => (loggedIn ? (<Component {...props} />) : (<Redirect to="/" />))}
-  /> // has to be logged in to view, else redirect
-);
+      path={path}
+      exact={exact}
+      render={(props) => (loggedIn ? (<Component {...props} />) : (<Redirect to="/" />))}
+    /> // has to be logged in to view, else redirect
+  );
+};
 
 const mapStateToProps = (state) => ({
   loggedIn: Boolean(state.session.currentUserId),

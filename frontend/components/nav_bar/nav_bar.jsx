@@ -1,16 +1,15 @@
 import React from 'react';
-import { Link, Switch } from 'react-router-dom';
-import UserContainer from '../user_account/user_container';
+import { Link } from 'react-router-dom';
 import classes from './nav_bar.module.css';
-import { ProtectedRoute } from '../../util/route_util';
 
 const LoggedInNav = ({ logout }) => (
   <ul className={classes.navBarUl}>
     <li key="bookASession"> Book a Session</li>
-    <li key="mySession"> My Sessions</li>
+    <li key="mySession">
+      <Link to="/main"> My Sessions </Link>
+    </li>
     <li key="account">
-        <Link to="/user"> Account </Link>
-        <ProtectedRoute path="/user" component={UserContainer} />
+        <Link to="/main/account"> Account </Link>
     </li>
     <li key="logoutButton">
       <button type="button" onClick={logout}> Log out </button>

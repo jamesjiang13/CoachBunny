@@ -2,13 +2,13 @@ import React from 'react';
 import {
   // Route,
   Switch,
-  // Redirect,
+  Redirect,
 } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import LoginFormContainer from './session_form/login_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form/signup_form_container';
-import DashboardContainer from './dashboard/dashboard_container';
+import Main from './main';
 import Splash from './splash/splash';
 import EntryPage from './session_form/entry_page';
 
@@ -23,9 +23,8 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/entrypage" component={EntryPage} />
-      <ProtectedRoute path="/dashboard" component={DashboardContainer} />
+      <ProtectedRoute path="/main" component={Main} />
       <AuthRoute path="/" component={Splash} />
-      {/* <Redirect exact path="/" to="/" /> */}
     </Switch>
   </div>
 );
