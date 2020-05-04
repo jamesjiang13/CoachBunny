@@ -1,0 +1,21 @@
+import {
+  RECEIVE_COACHING_SESSIONS,
+  DELETE_COACHING_SESSION,
+} from '../actions/coaching_session_actions';
+
+const coachingSessionReducer = (state = {}, action) => {
+  Object.freeze(state);
+
+  switch (action.type) {
+    case RECEIVE_COACHING_SESSIONS:
+      return Object.assign({}, action.coachingSessions);
+    case DELETE_COACHING_SESSION: // have not tested the delete function
+      let nextState = Object.assign({}, state);
+      delete nextState.coachingSessions[action.id];
+      return nextState;
+    default:
+      return state;
+  }
+};
+
+export default coachingSessionReducer;

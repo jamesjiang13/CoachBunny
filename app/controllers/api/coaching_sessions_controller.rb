@@ -1,14 +1,18 @@
 class Api::CoachingSessionsController < ApplicationController
   def index # return all sessions for the current user
     @coaching_sessions = CoachingSession.where(user_id: current_user.id)
-    # @coaching_sessions = CoachingSession.all
-    render json: @coaching_sessions
+    render :index
   end
 
   # show fulls details for one coaching session 
-  # inc: coach details and sports name
+  # should this include coach name and sports name ?
   def show   
-    # @session = CoachingSession.find_by()
+    @coaching_session = CoachingSession.where(user_id: current_user.id).where(id: params[:id])
+    if @coaching_session
+      render :show
+    else
+      render :index
+    end
   end
 
   def create # create a new coaching session
@@ -24,14 +28,20 @@ class Api::CoachingSessionsController < ApplicationController
   # get one session by ID, update params for that session
   # 
   def update 
-    coaching_session = CoachingSession.find_by(id: params[:id])
+    @coaching_session = CoachingSession.where(user_id: current_user.id).where(id: params[:id])
 
-    if @coaching_session.save
+    if @coaching_session.update(coaching_session_params)
       render :index
     else
       render json: @coaching_session.errors.full_messages, status: 422
     end
 
+  end
+
+  def destroy
+    coaching_session = CoachingSession.where(user_id: current_user.id).where(id: params[:id])
+    coaching_session.destroy
+    render :index
   end
 
   private

@@ -3,7 +3,7 @@ import NavigationBar from './nav_bar';
 import { logOut } from '../../actions/session_actions';
 
 const mapState = (state) => ({
-  currentUser: state.entities.users[state.session.currentUserId],
+  currentUser: state.entities.user[state.session.currentUserId],
 });
 
 const mapDispatch = (dispatch) => ({

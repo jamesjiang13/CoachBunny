@@ -26,6 +26,11 @@
   top: 2em;
 }
 
+.searchForm {
+
+}
+
+
 .main > h1 {
   display: flex;
   flex-wrap: wrap;
@@ -34,3 +39,8 @@
   font-size: 30px;
 }
 
+/* input{    
+  background: url('https://cdn3.iconfinder.com/data/icons/gray-toolbar-5/512/locate-512.png');
+  height:10px;
+  padding-left:25px;   
+} */

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :coaches, only: [:index, :show]
     resources :sports, only: [:index]
     resources :coach_details, only: [:index, :show]
-    resources :coaching_sessions, only: [:index, :create, :show, :update]
+    resources :coaching_sessions, only: [:index, :create, :show, :update, :destroy]
     # resources :reviews, only: [:index, :create]
     
     resource :session, only: [:create, :destroy]              

@@ -47,6 +47,11 @@ class LoginForm extends React.Component {
             />
             <p />
             {errors.map((error, idx) => <li className={classes.errors} key={idx}>{error}</li>)}
+            {/* <Link
+              className={classes.demoUserLogin}
+              onClick={this.handleClick}
+              to="/dashboard"
+            > */}
             <button className={classes.submitButton} type="submit"> Log in </button>
           </form>
         </div>
