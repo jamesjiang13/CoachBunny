@@ -1,13 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import classes from './coaching_sessions.module.css';
 
 class CoachingSessions extends React.Component {
   render() {
     return (
-      <div>
+      <div className={classes.coachingSessionsMain}>
         {this.props.coachingSessions.map( (session) => (
-          <div className={classes.trainingSession}>
+          <div className={classes.coachingSessions}>
             <ul>
               {/* <li key="date">Date: {(new Date(session.training_date)).toLocaleDateString}</li>
               <li key="time">Time: {(new Date(session.training_date)).toLocaleTimeString}</li> */}

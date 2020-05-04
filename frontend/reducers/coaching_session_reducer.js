@@ -2,6 +2,7 @@ import {
   RECEIVE_COACHING_SESSIONS,
   DELETE_COACHING_SESSION,
 } from '../actions/coaching_session_actions';
+import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
 
 const coachingSessionReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -13,6 +14,8 @@ const coachingSessionReducer = (state = {}, action) => {
       let nextState = Object.assign({}, state);
       delete nextState.coachingSessions[action.id];
       return nextState;
+    case LOGOUT_CURRENT_USER:
+      return {};
     default:
       return state;
   }

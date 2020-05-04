@@ -11,9 +11,9 @@ const LoggedInNav = ({ logout }) => (
     <li key="account">
         <Link to="/main/account"> Account </Link>
     </li>
-    <li key="logoutButton">
+    {/* <li key="logoutButton">
       <button type="button" onClick={logout}> Log out </button>
-    </li>
+    </li> */}
   </ul>
 );
 
@@ -21,9 +21,11 @@ const LoggedOutNav = () => (
   <ul className={classes.navBarUl}>
     <li key="sport">Sports</li>
     <li key="login">
-      <Link to="/entrypage"> Log in </Link>
+      <button type="button">
+        <Link to="/entrypage"> Log in </Link>
+      </button>
     </li>
-    <button type="button"> Become a Coach </button>
+    {/* <button type="button"> Become a Coach </button> */}
   </ul>
 );
 

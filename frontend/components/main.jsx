@@ -8,6 +8,7 @@ import { ProtectedRoute } from '../util/route_util';
 import AccountContainer from './account/account_container';
 import { fetchCoachingSessions } from '../actions/coaching_session_actions';
 import { logOut } from '../actions/session_actions';
+import classes from './main.module.css';
 
 
 class Main extends React.Component {
@@ -20,7 +21,7 @@ class Main extends React.Component {
     return (
       <div>
         <NavigationBar />
-        <div>
+        <div className={classes.main}>
           <Switch>
             <ProtectedRoute path="/main/account" component={AccountContainer} />
             <ProtectedRoute path="/main" component={CoachingSessionsContainer} />

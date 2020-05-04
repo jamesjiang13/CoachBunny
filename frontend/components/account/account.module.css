@@ -1,0 +1,39 @@
+.mainAccount {
+  /* display: flex;
+  justify-content: center; */
+  border: 1px solid gray;
+  border-radius: 4px;
+  margin: 50px;
+  width: 700px;
+  padding: 15px 0px 15px 0px;
+}
+
+.mainAccount > H2 {
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+  /* padding-top: 15px; */
+}
+
+.userDetails {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  margin-top: 20px;
+}
+.profilePhoto > img {
+  border-radius: 50%;
+  border: 1px solid gray;
+}
+
+.userAccount {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 15px;
+}
+
+.userAccount {
+  font-size: 16px;
+  line-height: 1.5;
+}
