@@ -18,9 +18,6 @@ export const removeCoachingSession = () => ({
   type: DELETE_COACHING_SESSION,
 });
 
-// export const fetchCoachingSession = (id) => (dispatch) => APIUtil.fetchCoachingSession(id)
-//   .then((session) => dispatch(receiveCoachingSession(session)));
-
 export const fetchCoachingSessions = () => (dispatch) => APIUtil.fetchCoachingSessions()
   .then((sessions) => dispatch(receiveCoachingSessions(sessions)));
 

@@ -1,6 +1,11 @@
 class Api::CoachingSessionsController < ApplicationController
-  def index # return all sessions for the current user
-    @coaching_sessions = CoachingSession.where(user_id: current_user.id)
+  def index # return all ___ sessions
+    # if params[:coaching_sessions][:sport_id]
+    #   @coaching_sessions = CoachingSession.where(sport_id: params[:coaching_sessions][:sport_id])
+    # else # return all sessions for the current user
+      @coaching_sessions = CoachingSession.where(user_id: current_user.id)
+    # end
+
     render :index
   end
 

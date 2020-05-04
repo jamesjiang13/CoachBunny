@@ -32,7 +32,7 @@
   text-align: center;
   padding: 0.5em 1.38em 0.5em;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 18px;
   border: 1px solid #51af33;
   background-color: white;
   transition-property: background-color, color;
@@ -48,7 +48,7 @@
 
 .navBarUl > li {
   padding-right: 20px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .navBarUl a {

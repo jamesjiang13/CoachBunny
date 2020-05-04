@@ -19,12 +19,12 @@ export const receiveErrors = (errors) => ({
 });
 
 export const logIn = (user) => (dispatch) => login(user)
-  .then((user) => dispatch(receiveCurrentUser(user)),
+  .then((currentuser) => dispatch(receiveCurrentUser(currentuser)),
     (errors) => dispatch(receiveErrors(errors.responseJSON)));
 
 export const logOut = () => (dispatch) => logout()
   .then(() => dispatch(logoutCurrentUser()));
 
 export const signUp = (user) => (dispatch) => signup(user)
-  .then((user) => dispatch(receiveCurrentUser(user)),
+  .then((currentuser) => dispatch(receiveCurrentUser(currentuser)),
     (errors) => dispatch(receiveErrors(errors.responseJSON)));

@@ -15,7 +15,9 @@
  */
 
 * {
-  font-family: 'Oxygen', sans-serif;
+  /* font-family: 'Oxygen', sans-serif; */
+  font-family: 'Source Sans Pro', sans-serif;
+  /* font-family: 'Yantramanav', sans-serif; */
 }
 
 body { 

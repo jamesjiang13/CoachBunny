@@ -2,18 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classes from './nav_bar.module.css';
 
-const LoggedInNav = ({ logout }) => (
+const LoggedInNav = () => (
   <ul className={classes.navBarUl}>
-    <li key="bookASession"> Book a Session</li>
+    <li key="findACoach">
+      <Link to="/main/search"> Find a Coach </Link>
+    </li>
     <li key="mySession">
       <Link to="/main"> My Sessions </Link>
     </li>
     <li key="account">
-        <Link to="/main/account"> Account </Link>
+      <Link to="/main/account"> Account </Link>
     </li>
-    {/* <li key="logoutButton">
-      <button type="button" onClick={logout}> Log out </button>
-    </li> */}
   </ul>
 );
 

@@ -9,7 +9,7 @@ import AccountContainer from './account/account_container';
 import { fetchCoachingSessions } from '../actions/coaching_session_actions';
 import { logOut } from '../actions/session_actions';
 import classes from './main.module.css';
-
+import CoachingSessionSearchContainer from './coaching_session_search/coaching_session_search_container';
 
 class Main extends React.Component {
   componentDidMount() {
@@ -24,6 +24,7 @@ class Main extends React.Component {
         <div className={classes.main}>
           <Switch>
             <ProtectedRoute path="/main/account" component={AccountContainer} />
+            <ProtectedRoute path="/main/search" component={CoachingSessionSearchContainer} />
             <ProtectedRoute path="/main" component={CoachingSessionsContainer} />
           </Switch>
         </div>
@@ -34,9 +35,9 @@ class Main extends React.Component {
 }
 
 const mapState = (state) => {
-  return {
+  return ({
     currentUser: state.entities.user[state.session.currentUserId],
-  };
+  });
 };
 
 const mapDispatch = (dispatch) => ({
