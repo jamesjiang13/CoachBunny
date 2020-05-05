@@ -5,7 +5,7 @@ import classes from './nav_bar.module.css';
 const LoggedInNav = () => (
   <ul className={classes.navBarUl}>
     <li key="findACoach">
-      <Link to="/main/search"> Find a Coach </Link>
+      <Link to="/main"> Find a Coach </Link>
     </li>
     <li key="mySession">
       <Link to="/main/mysessions"> My Sessions </Link>

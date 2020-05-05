@@ -13,7 +13,7 @@ class EntryPage extends React.Component {
   handleClick(e) {
     e.preventDefault();
     const user = {
-      email_address: 'demo@demo.com',
+      emailAddress: 'demo@demo.com',
       password: 'demouser',
     };
     const { submitForm } = this.props;

@@ -1,7 +1,7 @@
 .mainSplashBackground {
   display: flex;
-  background-image: url("https://changingthegameproject.com/wp-content/uploads/2017/03/Soccer-coach-watching-players-practice.jpg");
-  height: 500px;
+  background-image: url("https://images.unsplash.com/flagged/photo-1568733278674-2de10ea3ded1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80");
+  height: 600px;
   width: 100%;
   position: absolute;
   background-repeat: no-repeat;
@@ -16,7 +16,7 @@
   justify-content: center;
   align-items: center;
   background-color: white;
-  max-width: 700px;
+  width: 500px;
   height: 250px;
   padding: 20px 40px;
   border-radius: 4px;
@@ -27,19 +27,20 @@
 }
 
 .searchForm {
+  display: inline;
   margin-top: 30px;
+
 }
 
 .searchForm > input {
   padding: 10px 10px 10px 48px;
   font-size: 16px;
   border-radius: 4px;
-  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSmL2YbVcM4okAWz5mRbVdrhxDY9yk6_hYNrKdd3CYp7MMPfv1L&usqp=CAU');
+  /* background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSmL2YbVcM4okAWz5mRbVdrhxDY9yk6_hYNrKdd3CYp7MMPfv1L&usqp=CAU'); */
   height: 20px;
 }
 
-
-.main > h1 {
+.mainSplashText > h1 {
   display: flex;
   flex-wrap: wrap;
   font-weight: bolder;
@@ -48,13 +49,14 @@
   font-size: 30px;
 }
 
-.main > h4 {
+.mainSplashText > h4 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   font-size: 18px;
-  padding: 30px;
+  /* padding: 30px; */
+  /* margin-top: 20px; */
 }
 
 .mainReviewSection {
@@ -62,4 +64,26 @@
   justify-content: space-around;
   height: 100%;
   width: 100%;
+}
+
+.searchForm > button {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5em 1.38em 0.5em;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  font-weight: normal;
+  border: 1px solid #51af33;
+  background-color: white;
+  transition-property: background-color, color;
+  transition-timing-function: ease;
+  transition-duration: 0.16s;
+  width: 47.5%;
+  color: hsl(105, 55%, 44%); 
+}
+
+.searchForm > button:hover {
+  color: white; 
+  background-color: #51af33;
+  cursor: pointer;
 }

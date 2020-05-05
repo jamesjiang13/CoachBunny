@@ -5,11 +5,11 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      first_name: '',
-      last_name: '',
-      email_address: '',
+      firstName: '',
+      lastName: '',
+      emailAddress: '',
       password: '',
-      zip_code: '',
+      zipCode: '',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,7 +27,7 @@ class SignupForm extends React.Component {
 
   render() {
     const {
-      first_name, last_name, email_address, password, zip_code,
+      firstName, lastName, emailAddress, password, zipCode,
     } = this.state;
     // const { errors } = this.props;
 
@@ -38,22 +38,22 @@ class SignupForm extends React.Component {
             <label> First Name </label>
             <input
               type="text"
-              value={first_name}
-              onChange={this.update('first_name')}
+              value={firstName}
+              onChange={this.update('firstName')}
             />
             <p />
             <label> Last Name </label>
             <input
               type="text"
-              value={last_name}
-              onChange={this.update('last_name')}
+              value={lastName}
+              onChange={this.update('lastName')}
             />
             <p />
             <label> Email Address </label>
             <input
               type="text"
-              value={email_address}
-              onChange={this.update('email_address')}
+              value={emailAddress}
+              onChange={this.update('emailAddress')}
             />
             <p />
             <label> Password </label>
@@ -66,8 +66,8 @@ class SignupForm extends React.Component {
             <label> Zip Code </label>
             <input
               type="text"
-              value={zip_code}
-              onChange={this.update('zip_code')}
+              value={zipCode}
+              onChange={this.update('zipCode')}
             />
             <p />
             <span className={classes.disclaimer}>By clicking below and creating an account, I agree to CoachBunny's Terms of Service and Privacy Policy.</span>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import NavigationBar from './nav_bar/nav_bar_container';
 import Footer from './footer/footer';
 import CoachingSessionsContainer from './coaching_sessions/coaching_sessions_container';
@@ -10,7 +10,7 @@ import { fetchCoachingSessions } from '../actions/coaching_session_actions';
 import { logOut } from '../actions/session_actions';
 import classes from './main.module.css';
 import CoachingSessionSearchContainer from './coaching_session_search/coaching_session_search_container';
-import SearchFields from './search_main';
+import SearchFields from './search/search_fields';
 
 class Main extends React.Component {
   componentDidMount() {
@@ -25,9 +25,9 @@ class Main extends React.Component {
         <div className={classes.main}>
           <Switch>
             <ProtectedRoute path="/main/account" component={AccountContainer} />
-            <ProtectedRoute path="/main/search" component={SearchFields} />
             <ProtectedRoute path="/main/mysessions" component={CoachingSessionsContainer} />
-            <ProtectedRoute path="/main" component={CoachingSessionSearchContainer} />
+            <ProtectedRoute path="/sports/1" component={CoachingSessionSearchContainer} />
+            <ProtectedRoute path="/main" component={SearchFields} />
           </Switch>
         </div>
         <Footer />

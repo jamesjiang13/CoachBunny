@@ -12,7 +12,8 @@ const Splash = () => (
       <div className={classes.mainSplashText}>
         <h1> Find the best coaches </h1>
         <h1> to unlock your potential </h1>
-        <h4> Perfect your game with help from thousands of trusted CoachRabbits </h4>
+        <h4> Perfect your game with help from </h4>
+        <h4> thousands of trusted CoachRabbits </h4>
         <form className={classes.searchForm}>
           <input type="text" placeholder="I want to work on..." />
           <button type="button"> Train today </button>

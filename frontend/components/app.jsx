@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  // Route,
   Switch,
 } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
@@ -29,8 +28,3 @@ const App = () => (
 );
 
 export default App;
-
-// app -> dashboard -> all other user components, including navbar
-// app -> entrypage -> login exactpath
-// app -> entrypage -> signup exactpath
-// app -splash //contain navbar

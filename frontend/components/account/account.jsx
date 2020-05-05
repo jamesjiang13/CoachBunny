@@ -5,7 +5,7 @@ import classes from './account.module.css';
 class Account extends React.Component {
   render() {
     const { logout } = this.props;
-    const { email_address, first_name, last_name, zip_code } = this.props.currentUser;
+    const { emailAddress, firstName, lastName, zipCode } = this.props.currentUser;
     return (
       <div className={classes.mainAccount}>
         <h2>Account</h2>
@@ -16,16 +16,13 @@ class Account extends React.Component {
           </div>
           <div className={classes.userAccount}>
             <p>
-              {first_name}
-              {last_name}
+              {firstName} {lastName}
             </p>
             <p>
-              Email:
-              {email_address}
+              Email: {emailAddress}
             </p>
             <p>
-              Zip Code:
-              {zip_code}
+              Zip Code: {zipCode}
             </p>
             <Link to="/" onClick={logout}> Log out </Link>
           </div>

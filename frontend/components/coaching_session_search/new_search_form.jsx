@@ -6,7 +6,7 @@ class NewSearchForm extends React.Component {
     super(props);
     this.state = {
       duration: '',
-      elite_coach: '',
+      eliteCoach: '',
       equipment: '',
     };
   }
@@ -18,6 +18,7 @@ class NewSearchForm extends React.Component {
   }
 
   render() {
+    debugger
     return (
       <div className={classes.newCoachingSessionMain}>
   
@@ -32,14 +33,14 @@ class NewSearchForm extends React.Component {
         </section>
 
         <section>
-          <label for="location">
+          <label>
             Your training location:
             <input type="text" name="location" />
           </label>
         </section>
 
         <section>
-          <label for="duration">
+          <label>
             Duration:
             <input type="radio" name="duration" value="30mins - 45mins" />
             <input type="radio" name="duration" value="45mins - 1.5hrs" />

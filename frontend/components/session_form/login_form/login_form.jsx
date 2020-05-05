@@ -5,7 +5,7 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email_address: '',
+      emailAddress: '',
       password: '',
     };
 
@@ -23,7 +23,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    const { email_address, password } = this.state;
+    const { emailAddress, password } = this.state;
     const { errors } = this.props;
 
     return (
@@ -34,8 +34,8 @@ class LoginForm extends React.Component {
             <input
               className={classes.loginInput}
               type="text"
-              value={email_address}
-              onChange={this.update('email_address')}
+              value={emailAddress}
+              onChange={this.update('emailAddress')}
             />
             <p />
             <label> Password </label>
