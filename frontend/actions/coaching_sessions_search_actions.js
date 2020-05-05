@@ -1,13 +1,13 @@
-import coachingSessionSearch from '../util/coaching_sessions_search';
+import * as SearchAPIUtil from '../util/coaching_sessions_search';
 
 export const RECEIVE_COACH_SEARCH = 'RECEIVE_COACH_SEARCH';
 
-const receiveCoachSearch = (sportId) => ({
+const receiveCoachSearch = (coaches) => ({
   type: RECEIVE_COACH_SEARCH,
-  sportId,
+  coaches,
 });
 
 export const fetchCoachSearch = (sportId) => (dispatch) => (
-  coachingSessionSearch.coachingSessionSearch(sportId)
-    .then((coaches) => dispatch(receiveCoachSearch(coaches)))
+  SearchAPIUtil.coachingSessionSearch(sportId)
+    .then((id) => dispatch(receiveCoachSearch(id)))
 );

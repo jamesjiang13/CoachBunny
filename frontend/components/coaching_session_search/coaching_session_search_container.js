@@ -2,15 +2,14 @@ import { connect } from 'react-redux';
 import NewSearchForm from './new_search_form';
 import { fetchCoachSearch } from '../../actions/coaching_sessions_search_actions';
 
-const mapState = (state, { match }) => {
-  debugger
+const mapState = (state, ownProps) => {
   return ({
-    sportId: parseInt(match.params.sportId),
+    sportId: ownProps.match.params.id,
   });
 };
 
 const mapDispatch = (dispatch) => ({
-  fetchCoaches: (sportId) => dispatch(fetchCoachSearch(sportId)),
+  submitSearch: (sportId) => dispatch(fetchCoachSearch(sportId)),
 });
 
 export default connect(

@@ -9,6 +9,7 @@ import SignupFormContainer from './session_form/signup_form/signup_form_containe
 import Main from './main';
 import Splash from './splash/splash';
 import EntryPage from './session_form/entry_page';
+import CoachingSessionSearchContainer from './coaching_session_search/coaching_session_search_container';
 
 // Redirect auto-takes the user to the selected page
 // Link takes a user to the select page onClick
@@ -22,6 +23,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/entrypage" component={EntryPage} />
       <ProtectedRoute path="/main" component={Main} />
+      <ProtectedRoute path="/sports/:id" component={CoachingSessionSearchContainer} />
       <AuthRoute path="/" component={Splash} />
     </Switch>
   </div>

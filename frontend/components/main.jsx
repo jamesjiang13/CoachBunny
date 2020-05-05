@@ -9,7 +9,6 @@ import AccountContainer from './account/account_container';
 import { fetchCoachingSessions } from '../actions/coaching_session_actions';
 import { logOut } from '../actions/session_actions';
 import classes from './main.module.css';
-import CoachingSessionSearchContainer from './coaching_session_search/coaching_session_search_container';
 import SearchFields from './search/search_fields';
 
 class Main extends React.Component {
@@ -26,7 +25,6 @@ class Main extends React.Component {
           <Switch>
             <ProtectedRoute path="/main/account" component={AccountContainer} />
             <ProtectedRoute path="/main/mysessions" component={CoachingSessionsContainer} />
-            <ProtectedRoute path="/sports/1" component={CoachingSessionSearchContainer} />
             <ProtectedRoute path="/main" component={SearchFields} />
           </Switch>
         </div>
