@@ -31,7 +31,7 @@ const Splash = () => (
         <p>Partnered with MLS</p>
       </div>
       <div className={classes.mainAppStore}>
-        {/* <img src="https://pluspng.com/img-png/download-on-app-store-png-open-2000.png" alt="appstore"></img> */}
+        <img src="https://pluspng.com/img-png/download-on-app-store-png-open-2000.png" alt="appstore"></img>
       </div>
     </section>
     <Footer />

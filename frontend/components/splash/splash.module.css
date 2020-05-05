@@ -34,8 +34,10 @@
   padding: 10px 10px 10px 48px;
   font-size: 16px;
   border-radius: 4px;
-  background: url('https://cdn3.iconfinder.com/data/icons/gray-toolbar-5/512/locate-512.png');
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSmL2YbVcM4okAWz5mRbVdrhxDY9yk6_hYNrKdd3CYp7MMPfv1L&usqp=CAU');
+  height: 20px;
 }
+
 
 .main > h1 {
   display: flex;
@@ -58,11 +60,6 @@
 .mainReviewSection {
   display: flex;
   justify-content: space-around;
-  height: 100px;
-}
-
-.mainReviews > img {
-  display: inline-block;
-  width: auto;
-  height: auto;
+  height: 100%;
+  width: 100%;
 }

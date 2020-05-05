@@ -8,7 +8,7 @@ const LoggedInNav = () => (
       <Link to="/main/search"> Find a Coach </Link>
     </li>
     <li key="mySession">
-      <Link to="/main"> My Sessions </Link>
+      <Link to="/main/mysessions"> My Sessions </Link>
     </li>
     <li key="account">
       <Link to="/main/account"> Account </Link>
