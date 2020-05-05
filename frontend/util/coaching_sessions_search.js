@@ -1,9 +1,8 @@
-export const coachingSessionSearch = (sportId) => (
-  $.ajax({
-    url: `/api/coach_details?sport_id=${sportId}`,
-    method: 'GET',
-
-  })
-);
-
-// export default coachingSessionSearch;
+export const coachingSessionSearch = ({ sportId, duration }) => {
+  return (
+    $.ajax({
+      url: `/api/coach_details?sport_id=${sportId}&duration=${duration}`,
+      method: 'GET',
+    })
+  );
+};

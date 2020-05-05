@@ -9,7 +9,7 @@ const mapState = (state, ownProps) => {
 };
 
 const mapDispatch = (dispatch) => ({
-  submitSearch: (sportId) => dispatch(fetchCoachSearch(sportId)),
+  submitSearch: ({ sportId, duration }) => dispatch(fetchCoachSearch({ sportId, duration })),
 });
 
 export default connect(

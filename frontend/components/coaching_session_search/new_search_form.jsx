@@ -9,11 +9,10 @@ class NewSearchForm extends React.Component {
     this.state = {
       description: '',
       location: '',
-      // duration: '',
-      // eliteCoach: '',
-      // equipment: '',
+      duration: '',
     };
     this.submitSearch = this.submitSearch.bind(this);
+    this.handleOptionChange = this.handleOptionChange.bind(this);
   }
 
   update(field) {
@@ -22,12 +21,20 @@ class NewSearchForm extends React.Component {
     });
   }
 
-  submitSearch(e) {
+  handleOptionChange(e) {
+    this.setState({
+      duration: e.target.value,
+    });
+  }
+
+  submitSearch() {
     const { submitSearch, sportId } = this.props;
-    submitSearch(sportId);
+    const { duration } = this.state;
+    submitSearch({ sportId, duration });
   }
 
   render() {
+    const { location, duration, description } = this.state;
     return (
       <div className={classes.newCoachingSessionMain}>
         <div className={classes.statusBar}>
@@ -52,24 +59,41 @@ class NewSearchForm extends React.Component {
         <section className={classes.location}>
           <label>
             Your training location:
-            <input type="text" onChange={this.update("location")} value={this.state.location}/>
+            <input type="text" onChange={this.update('location')} value={location} />
           </label>
         </section>
 
         <section className={classes.duration}>
           <label>
             Duration:
-            <input type="radio" name="duration" value="0-45" /> -45mins
-            <input type="radio" name="duration" value="45-90" /> 45mins - 1.5hrs
-            <input type="radio" name="duration" value="90-1000" /> +1.5hrs
+            <input
+              type="radio"
+              name="duration"
+              value="0-45"
+              checked={duration === '0-45'}
+              onChange={this.handleOptionChange}
+            /> under 45mins
+            <input
+              type="radio"
+              name="duration"
+              value="45-90"
+              checked={duration === '45-90'}
+              onChange={this.handleOptionChange}
+            /> 45-90 minutes
+            <input
+              type="radio"
+              name="duration"
+              value="90-500"
+              checked={duration === '90-500'}
+              onChange={this.handleOptionChange}
+            /> +90 minutes
           </label>
         </section>
         <section>
           Description:
-          <textarea onChange={this.update("description")} value={this.state.description} />
+          <textarea onChange={this.update('description')} value={description} />
         </section>
         <button type="button" onClick={this.submitSearch}> Find a Coach </button>
-
       </div>
     );
   }
