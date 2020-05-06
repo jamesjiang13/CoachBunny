@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import classes from './new_search_form.module.css';
+import { Link, Redirect } from 'react-router-dom';
+import classes from './search_form.module.css';
 
-
-class NewSearchForm extends React.Component {
+class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,6 +30,7 @@ class NewSearchForm extends React.Component {
     const { submitSearch, sportId } = this.props;
     const { duration } = this.state;
     submitSearch({ sportId, duration });
+    <Redirect to={"/sports/:id/results"} />;
   }
 
   render() {
@@ -99,4 +99,4 @@ class NewSearchForm extends React.Component {
   }
 }
 
-export default NewSearchForm;
+export default SearchForm;

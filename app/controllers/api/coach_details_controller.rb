@@ -5,7 +5,7 @@ class Api::CoachDetailsController < ApplicationController
     duration_ending = params[:duration].split("-")[1]
     @coaches = found_sport.coach_details.where("duration >= #{duration_beginning}")
                                         .where("duration <= #{duration_ending}")
-    render json: @coaches
+    render :index
   end
   
   def show # show all the details for a specific coach

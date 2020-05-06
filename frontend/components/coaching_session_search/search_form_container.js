@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import NewSearchForm from './new_search_form';
+import SearchForm from './search';
 import { fetchCoachSearch } from '../../actions/coaching_sessions_search_actions';
 
 const mapState = (state, ownProps) => {
@@ -14,4 +14,4 @@ const mapDispatch = (dispatch) => ({
 
 export default connect(
   mapState, mapDispatch,
-)(NewSearchForm);
+)(SearchForm);
