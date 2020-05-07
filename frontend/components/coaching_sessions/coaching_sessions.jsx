@@ -2,31 +2,29 @@ import React from 'react';
 import classes from './coaching_sessions.module.css';
 
 class CoachingSessions extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-
     this.extractDate = this.extractDate.bind(this);
     this.extractTime = this.extractTime.bind(this);
   }
 
   extractDate(fullDateTime) {
-    const dateTimeObj = new Date(fullDateTime);
-    const month = dateTimeObj.getMonth();
-    const day = dateTimeObj.getDay();
-    // const months = ['Jan', 'Feb,', 'Mar', 'Apr', 'May',
-    //   'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-    // debugger;
-    return (
-      [month, day]
-    );
+    const month = parseInt(fullDateTime.slice(5, 7), 10);
+    const day = parseInt(fullDateTime.slice(8, 10), 10);
+    // const day = dateTimeObj.getDay();
+    const months = ['nil', 'Jan', 'Feb,', 'Mar', 'Apr', 'May',
+      'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+    return [months[month], day];
   }
 
   extractTime(fullDateTime) {
-    let time = fullDateTime.slice(11, 16);
-    const hours = parseInt(time.slice(0, 2));
-    debugger;
-    if (hours > 12) {
-      return (time = `${hours % 12}:00PM`);
+    const hours = parseInt(fullDateTime.slice(11, 16), 10);
+    // const minutes = fullDateTime.slice(14, 16);
+
+    if (hours > 12 ) {
+      return (`${hours % 12}:00PM`);
+    } else if ( hours == 12 ) {
+      return (`${hours}:00PM`)
     }
     return (`${hours}:00AM`);
   }
@@ -38,18 +36,15 @@ class CoachingSessions extends React.Component {
         {coachingSessions.map((session) => (
           <div className={classes.coachingSessions}>
             <ul>
-              <li key="date">
-                Month:
+              <li key="date" className={classes.trainingMonth}>
                 {this.extractDate(session.trainingDate)[0]}
               </li>
-              <li key="date">
-                Day:
+              <li key="date" className={classes.trainingDay}>
                 {this.extractDate(session.trainingDate)[1]}
               </li>
 
-              <li key="time">
-                Time:
-                {() => extractTime(session.trainingDate)}
+              <li key="time" className={classes.trainingTime}>
+                {this.extractTime(session.trainingDate)}
               </li>
             </ul>
             <ul>

@@ -6,7 +6,7 @@ import Footer from '../footer/footer';
 import classes from './splash.module.css';
 
 const Splash = () => (
-  <div>
+  <div className={classes.splashContainer}>
     <NavigationBarContainer />
     <div className={classes.mainSplashBackground}>
       <div className={classes.mainSplashText}>
@@ -21,19 +21,18 @@ const Splash = () => (
       </div>
     </div>
     <section className={classes.mainReviewSection}>
-      <div className={classes.mainReviews}>
-        <div className={classes.mainReviewsStars}>
-          <img src="http://clipart-library.com/new_gallery/104-1043568_5-star-rating-png.png"></img>
-        </div>
+      <div className={classes.reviewStars}>
+        <img
+          className={classes.mainReviewsStars}
+          src="http://clipart-library.com/new_gallery/104-1043568_5-star-rating-png.png" />
         <p>1.1+ Million Reviews</p>
       </div>
       <div className={classes.mainPartner}>
-
         <p>Partnered with MLS</p>
       </div>
-      <div className={classes.mainAppStore}>
-        <img src="https://pluspng.com/img-png/download-on-app-store-png-open-2000.png" alt="appstore"></img>
-      </div>
+      <img 
+        className={classes.mainAppStore} 
+        src="https://pluspng.com/img-png/download-on-app-store-png-open-2000.png" alt="appstore" />
     </section>
     <Footer />
   </div>

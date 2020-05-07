@@ -1,0 +1,11 @@
+.searchMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.searchFields {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

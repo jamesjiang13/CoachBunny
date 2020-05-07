@@ -19,7 +19,7 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={classes.mainContainer}>
         <NavigationBar />
         <div className={classes.main}>
           <Switch>

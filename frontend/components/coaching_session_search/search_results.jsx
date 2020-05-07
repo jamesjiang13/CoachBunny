@@ -1,33 +1,31 @@
 import React from 'react';
-import SearchResultItem from './search_result_item';
 import { connect } from 'react-redux';
+import classes from './search_results.module.css';
+import SearchResultItem from './search_result_item';
 
 class SearchResults extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   render() {
-    debugger
+    const { results } = this.props;
+    if (!results) return 'no results';
     return (
       <div>
-        {/* search bar header? */}
-        <div>
-          {this.state.results.map((coach) =>
-            <SearchResultItem coach={coach} />)}
+        <div className={classes.searchResults}>
+          {results.map((result) => <SearchResultItem result={result} />)}
         </div>
       </div>
     );
   }
 }
 
-const mapState = (state, ownProps) => ({
-  results: Object.values(state.search.searchResults),
-  sportId: this.props.match.params.id,
-});
+const mapState = (state) => {
+  return ({
+    results: Object.values(state.search.searchResults),
+  });
+};
 
 export default connect(
   mapState,

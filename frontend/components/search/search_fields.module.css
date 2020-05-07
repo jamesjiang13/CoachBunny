@@ -3,7 +3,7 @@
   background-image: url("https://images.unsplash.com/photo-1521731978332-9e9e714bdd20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80");
   height: 600px;
   width: 100%;
-  position: absolute;
+  /* position: absolute; */
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -31,14 +31,13 @@
   justify-content: center;  */
 }
 
-.searchFieldBox a {
+.searchFieldButtons> a {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
   flex-direction: row;
-  justify-content: space-between;
 }
 
-.searchFieldBox a {
+.searchFieldButtons a {
   padding: 0.5em 1.38em 0.5em;
   border-radius: 4px;
   font-size: 1.2rem;
@@ -48,12 +47,23 @@
   transition-property: background-color, color;
   transition-timing-function: ease;
   transition-duration: 0.16s;
-  /* width: 47.5%; */
   color: hsl(105, 55%, 44%); 
 }
 
-.searchFieldBox > a:hover {
+.searchFieldButtons a:hover {
   color: white; 
   background-color: #51af33;
   cursor: pointer;
+}
+
+.buttonsR1 {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+
+.buttonsR2 {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 15px;
 }
