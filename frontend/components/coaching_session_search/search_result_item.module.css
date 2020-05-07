@@ -24,3 +24,37 @@
   font-weight: bolder;
   color: green;
 }
+.coachDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.trainNow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* margin: 3px; */
+}
+
+.trainNow > button {
+  display: block;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  background-color: #51af33;
+  padding: 7px 22px;
+  border-color: #86919d ;
+  width: 100%;
+  color: white;
+  border-radius: 4px;
+  margin-top: 7px;
+  font-size: 17px;
+  transition-property: background-color, color;
+  transition-timing-function: ease;
+  transition-duration: 0.16s;
+}
+
+.trainNow > button:hover {
+  background-color: #438e29;
+  cursor: pointer;
+}

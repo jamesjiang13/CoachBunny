@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import NavigationBar from './nav_bar/nav_bar_container';
 import Footer from './footer/footer';
 import CoachingSessionsContainer from './coaching_sessions/coaching_sessions_container';

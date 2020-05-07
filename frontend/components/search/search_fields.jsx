@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import classes from './search_fields.module.css';
-// import { connect } from 'react-redux';
-// import { fetchCoachSearch } from '../actions/coaching_sessions_search_actions';
 
 const SearchFields = () => (
   <div className={classes.searchFieldMain}>

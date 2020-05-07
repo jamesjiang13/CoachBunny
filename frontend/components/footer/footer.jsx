@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import classes from './footer.module.css';
 
 const Footer = () => (
@@ -15,6 +14,5 @@ const Footer = () => (
     </div>
   </footer>
 );
-
 
 export default Footer;

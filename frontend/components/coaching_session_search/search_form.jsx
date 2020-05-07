@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import classes from './search_form.module.css';
 
 class SearchForm extends React.Component {
@@ -29,16 +29,17 @@ class SearchForm extends React.Component {
 
   handleSearch() {
     const { submitSearch, sportId, history } = this.props;
-    const { duration } = this.state;
+    const { duration, location } = this.state;
     if (duration === '') {
       this.setState({
-        errors: 'Must have a duration',
-      });
+        errors: 'Must have a duration'});
+    } else if (location.length !== 5) {
+      this.setState({
+        errors: 'Please enter a valid 5-digit zip code.'});
     } else {
       submitSearch({ sportId, duration })
         .then(history.push('/results'));
     }
-    // <Redirect to="/results" />
   }
 
   render() {
@@ -47,42 +48,45 @@ class SearchForm extends React.Component {
       <div className={classes.searchMain}>
         <div className={classes.searchFields}>
 
-          <div className={classes.statusBar}>
+          {/* <div className={classes.statusBar}>
             status bar
-          </div>
-          <div>
+          </div> */}
+          <div className={classes.textLogo}>
             <Link to="/main" className={classes.leftNav}>
               <img className={classes.imgResponsive} src={window.textLogo} alt="logo" />
             </Link>
           </div>
           <section className={classes.interest}>
+            <h4>Training interest:</h4>
+            <span>What brings you here today?</span>
             <label>
-              Training interest:
-              <p>What brings you here today?</p>
               <input type="radio" name="interest" value="ready" /> I'm ready to book now
+            </label>
+            <label>
               <input type="radio" name="interest" value="interested" /> I'm interested in booking soon
+            </label>
+            <label>
               <input type="radio" name="interest" value="browsing" /> I'm just browsing
             </label>
-            {/* <button type="button">Continue</button> */}
           </section>
 
           <section className={classes.location}>
-            <label>
-              Your training location:
-              <input type="text" onChange={this.update('location')} value={location} />
-            </label>
+            <label> Your training location: </label>
+            <input type="text" onChange={this.update('location')} value={location} />
           </section>
 
           <section className={classes.duration}>
+            <span> How long would you like to train for: </span>
             <label>
-              Duration:
               <input
                 type="radio"
                 name="duration"
                 value="0-45"
                 checked={duration === '0-45'}
                 onChange={this.handleOptionChange}
-              /> under 45mins
+              /> 45 minutes or less
+            </label>
+            <label>
               <input
                 type="radio"
                 name="duration"
@@ -90,6 +94,8 @@ class SearchForm extends React.Component {
                 checked={duration === '45-90'}
                 onChange={this.handleOptionChange}
               /> 45-90 minutes
+            </label>
+            <label>
               <input
                 type="radio"
                 name="duration"
@@ -99,11 +105,11 @@ class SearchForm extends React.Component {
               /> +90 minutes
             </label>
           </section>
-          <section>
-            Description:
+          <section className={classes.description}>
+            Please add a short description of what you'd like to work on:
             <textarea onChange={this.update('description')} value={description} />
           </section>
-          {this.state.errors}
+          <span className={classes.errors}>{this.state.errors}</span>
           <button type="button" onClick={this.handleSearch}> Find a Coach </button>
         </div>
       </div>

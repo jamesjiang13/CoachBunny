@@ -9,7 +9,6 @@
   background-image: url("https://images.unsplash.com/flagged/photo-1568733278674-2de10ea3ded1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80");
   height: 600px;
   width: 100%;
-  /* position: absolute; */
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -22,11 +21,11 @@
   justify-content: center;
   align-items: center;
   background-color: white;
+  opacity: 95%;
   width: 500px;
   height: 250px;
   padding: 20px 40px;
   border-radius: 4px;
-  /* position: relative; */
   margin-left: auto;
   margin-right: auto;
   top: 2em;
@@ -34,25 +33,28 @@
 
 .searchForm {
   display: flex;
+  justify-content: center;
   margin-top: 30px;
-
+  width: 100%;
 }
 
-.searchForm > input {
-  padding: 10px 10px 10px 48px;
+.searchForm input {
+  padding: 10px 10px 10px 40px;
   font-size: 16px;
   border-radius: 4px;
   /* background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSmL2YbVcM4okAWz5mRbVdrhxDY9yk6_hYNrKdd3CYp7MMPfv1L&usqp=CAU'); */
-  height: 20px;
+  height: 18px;
+  width: 50%;
 }
 
 .mainSplashText > h1 {
   display: flex;
   flex-wrap: wrap;
-  font-weight: bolder;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
+  font-weight: bolder;
+  max-width: 360px;
+  text-align: center;
 }
 
 .reviewStars {
@@ -66,20 +68,32 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
-  /* padding: 30px; */
-  /* margin-top: 20px; */
+  max-width: 360px;
+  margin-top: 15px;
+  text-align: center;
+  line-height: 1.2;
 }
 
 .mainReviewSection {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px 15px 10px;
+}
+
+.mainReviewSection p {
+  margin-left: 10px;
+}
+
+.mainPartner {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.mainReviewsStars, .mainAppStore {
-  width: 120px;
-  height: auto;
+.reviewPhoto {
+  width: auto;
+  height: 30px;
 }
 
 .searchForm > button {
@@ -88,14 +102,13 @@
   padding: 0.5em 1.38em 0.5em;
   border-radius: 4px;
   font-size: 1.2rem;
-  font-weight: normal;
   border: 1px solid #51af33;
   background-color: white;
   transition-property: background-color, color;
   transition-timing-function: ease;
   transition-duration: 0.16s;
-  width: 47.5%;
   color: hsl(105, 55%, 44%); 
+  margin-left: 15px;
 }
 
 .searchForm > button:hover {
