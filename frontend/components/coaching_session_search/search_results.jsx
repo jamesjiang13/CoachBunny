@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import classes from './search_results.module.css';
 import SearchResultItem from './search_result_item';
+import { OPEN_MODAL, CLOSE_MODAL } from '../../actions/modal_actions';
+
 
 class SearchResults extends React.Component {
 render() {
@@ -19,7 +21,7 @@ render() {
           {results.map((result) => <SearchResultItem result={result} />)}
         </div>
         <div className={classes.redoSearch}>
-
+          <Link to="/main" className={classes.redoSearchLink} />
         </div>
       </div>
     );

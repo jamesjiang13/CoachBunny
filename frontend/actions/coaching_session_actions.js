@@ -14,8 +14,9 @@ export const receiveCoachingSessions = (coachingSessions) => ({
   coachingSessions,
 });
 
-export const removeCoachingSession = () => ({
+export const removeCoachingSession = (id) => ({
   type: DELETE_COACHING_SESSION,
+  id,
 });
 
 export const fetchCoachingSessions = () => (dispatch) => APIUtil.fetchCoachingSessions()
@@ -26,3 +27,7 @@ export const editCoachingSession = () => (dispatch) => APIUtil.fetchCoachingSess
 
 export const deleteCoachingSession = (id) => (dispatch) => APIUtil.deleteCoachingSession(id)
   .then(() => dispatch(removeCoachingSession(id)));
+
+export const createCoachingSession = (coachingSession) => (dispatch) =>
+  APIUtil.createCoachingSession(coachingSession)
+    .then((session) => dispatch(receiveCoachingSession(session)));

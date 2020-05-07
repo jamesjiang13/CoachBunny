@@ -10,7 +10,7 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
-  deleteSession: () => dispatch(deleteCoachingSession()),
+  deleteSession: (id) => dispatch(deleteCoachingSession(id)),
   editSession: (coachingSessionId) => dispatch(editCoachingSession(coachingSessionId)),
 });
 

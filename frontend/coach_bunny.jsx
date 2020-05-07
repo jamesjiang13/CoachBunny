@@ -8,11 +8,11 @@ import { logIn, logOut, signUp } from './actions/session_actions';
 import {
   fetchCoachingSessions,
   deleteCoachingSession,
+  createCoachingSession,
 } from './actions/coaching_session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
-  // const store = configureStore();
 
   let store;
   if (window.currentUser) {
@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.logOut = logOut;
   window.fetchCoachingSessions = fetchCoachingSessions;
   window.deleteCoachingSession = deleteCoachingSession;
+  window.createCoachingSession = createCoachingSession;
 
   // end testing
   ReactDOM.render(<Root store={store} />, root);

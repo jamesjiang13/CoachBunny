@@ -40,16 +40,6 @@
   transition-property: background-color, color;
   transition-timing-function: ease;
   transition-duration: 0.16s;
-
-  /* padding: 0.5em 1.38em 0.5em;
-  border-radius: 4px;
-  font-size: 1.2rem;
-  font-weight: normal;
-  border: 1px solid #51af33;
-  color: hsl(105, 55%, 44%); 
-  background-color: white;
-
-   */
 }
 
 .searchFields > button:hover {

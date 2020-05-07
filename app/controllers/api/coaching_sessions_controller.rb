@@ -24,14 +24,15 @@ class Api::CoachingSessionsController < ApplicationController
     @coaching_session = CoachingSession.new(coaching_session_params)
 
     if @coaching_session.save
-      render :index
+      # @coaching_sessions = CoachingSession.where(user_id: current_user.id)
+      # render :index
+      redirect_to api_coaching_sessions # basically to render index
     else
       render json: @coaching_session.errors.full_messages, status: 422
     end
   end
 
   # get one session by ID, update params for that session
-  # 
   def update 
     @coaching_session = CoachingSession.where(user_id: current_user.id).where(id: params[:id])
 
@@ -44,9 +45,11 @@ class Api::CoachingSessionsController < ApplicationController
   end
 
   def destroy
-    coaching_session = CoachingSession.where(user_id: current_user.id).where(id: params[:id])
-    coaching_session.destroy
+    coaching_session = CoachingSession.where(user_id: current_user.id).find_by(id: params[:id])
+    coaching_session.delete
+    @coaching_sessions = CoachingSession.where(user_id: current_user.id)
     render :index
+    # redirect_to api_coaching_sessions # basically to render index
   end
 
   private

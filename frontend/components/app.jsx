@@ -9,9 +9,11 @@ import Splash from './splash/splash';
 import EntryPage from './session_form/entry_page';
 import CoachingSessionSearchContainer from './coaching_session_search/search_form_container';
 import SearchResultsContainer from './coaching_session_search/search_results';
+import Modal from '../components/modal/modal';
 
 const App = () => (
   <div id="app">
+    <Modal />
     <Switch>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />

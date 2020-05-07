@@ -12,7 +12,7 @@ const coachingSessionReducer = (state = {}, action) => {
       return Object.assign({}, action.coachingSessions);
     case DELETE_COACHING_SESSION: // have not tested the delete function
       let nextState = Object.assign({}, state);
-      delete nextState.coachingSessions[action.id];
+      delete nextState[action.id];
       return nextState;
     case LOGOUT_CURRENT_USER:
       return {};
