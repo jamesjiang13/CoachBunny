@@ -18,7 +18,7 @@ const LoggedInNav = () => (
 
 const LoggedOutNav = () => (
   <ul className={classes.navBarUl}>
-    <li key="sport">Sports</li>
+    {/* <li key="sport">Sports</li> */}
     <li key="login">
       <button type="button">
         <Link to="/entrypage"> Log in </Link>

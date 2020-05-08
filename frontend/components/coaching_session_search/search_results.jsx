@@ -3,11 +3,10 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import classes from './search_results.module.css';
 import SearchResultItem from './search_result_item';
-import { OPEN_MODAL, CLOSE_MODAL } from '../../actions/modal_actions';
-
+// import { OPEN_MODAL, CLOSE_MODAL } from '../../actions/modal_actions';
 
 class SearchResults extends React.Component {
-render() {
+  render() {
     const { results } = this.props;
     if (!results) return 'no results';
     return (

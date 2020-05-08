@@ -10,7 +10,7 @@ const coachingSessionReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_COACHING_SESSIONS:
       return Object.assign({}, action.coachingSessions);
-    case DELETE_COACHING_SESSION: // have not tested the delete function
+    case DELETE_COACHING_SESSION:
       let nextState = Object.assign({}, state);
       delete nextState[action.id];
       return nextState;

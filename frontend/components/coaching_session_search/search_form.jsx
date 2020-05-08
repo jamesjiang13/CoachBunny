@@ -29,28 +29,25 @@ class SearchForm extends React.Component {
 
   handleSearch() {
     const { submitSearch, sportId, history } = this.props;
-    const { duration, location } = this.state;
-    if (duration === '') {
-      this.setState({
-        errors: 'Must have a duration'});
-    } else if (location.length !== 5) {
-      this.setState({
-        errors: 'Please enter a valid 5-digit zip code.'});
-    } else {
-      submitSearch({ sportId, duration })
+    const { duration, location, description } = this.state;
+    // if (duration === '') {
+    //   this.setState({
+    //     errors: 'Must have a duration'});
+    // } else if (location.length !== 5) {
+    //   this.setState({
+    //     errors: 'Please enter a valid 5-digit zip code.'});
+    // } else {
+      submitSearch({ sportId, duration, description })
         .then(history.push('/results'));
     }
-  }
+  // }
+
 
   render() {
     const { location, duration, description } = this.state;
     return (
       <div className={classes.searchMain}>
         <div className={classes.searchFields}>
-
-          {/* <div className={classes.statusBar}>
-            status bar
-          </div> */}
           <div className={classes.textLogo}>
             <Link to="/main" className={classes.leftNav}>
               <img className={classes.imgResponsive} src={window.textLogo} alt="logo" />
@@ -118,5 +115,3 @@ class SearchForm extends React.Component {
 }
 
 export default withRouter(SearchForm);
-
-// so we can use route props

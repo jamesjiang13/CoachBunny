@@ -6,7 +6,6 @@ class CoachingSessions extends React.Component {
     super(props);
     this.extractDate = this.extractDate.bind(this);
     this.extractTime = this.extractTime.bind(this);
-    // this.handleClick = this.handleClick.bind(this);
   }
 
   extractDate(fullDateTime) {
@@ -28,7 +27,7 @@ class CoachingSessions extends React.Component {
   }
 
   render() {
-    const { coachingSessions } = this.props;
+    const { coachingSessions, deleteSession } = this.props;
     return (
       <div className={classes.coachingSessionsMain}>
         {coachingSessions.map((session) => (
@@ -74,7 +73,7 @@ class CoachingSessions extends React.Component {
               </li>
               <button
                 type="button"
-                onClick={() => this.props.deleteSession(session.id)}
+                onClick={() => deleteSession(session.id)}
               >
                 Cancel
               </button>

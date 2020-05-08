@@ -9,6 +9,7 @@ import Splash from './splash/splash';
 import EntryPage from './session_form/entry_page';
 import CoachingSessionSearchContainer from './coaching_session_search/search_form_container';
 import SearchResultsContainer from './coaching_session_search/search_results';
+import SearchSelectItemContainer from './coaching_session_search/search_select_item';
 import Modal from '../components/modal/modal';
 
 const App = () => (
@@ -19,6 +20,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/entrypage" component={EntryPage} />
       <ProtectedRoute path="/main" component={Main} />
+      <ProtectedRoute path="/results/select" component={SearchSelectItemContainer} />
       <ProtectedRoute path="/results" component={SearchResultsContainer} />
       <ProtectedRoute exact path="/sports/:id" component={CoachingSessionSearchContainer} />
       <AuthRoute path="/" component={Splash} />
