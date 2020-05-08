@@ -7,7 +7,6 @@ import SearchResultItem from './search_result_item';
 
 class SearchResults extends React.Component {
   render() {
-
     const { results } = this.props;
     if (results.length === 0) return 'no results';
     return (

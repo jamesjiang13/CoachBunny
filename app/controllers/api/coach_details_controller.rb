@@ -4,7 +4,7 @@ class Api::CoachDetailsController < ApplicationController
     duration_beginning = params[:duration].split("-")[0]
     duration_ending = params[:duration].split("-")[1]
     @coaches = found_sport.coach_details
-      .where("duration >= #{duration_beginning} AND duration <= #{duration_ending}")
+      .where("duration BETWEEN #{duration_beginning} AND #{duration_ending}")
     render :index
   end
   

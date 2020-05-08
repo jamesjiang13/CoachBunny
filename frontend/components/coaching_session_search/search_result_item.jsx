@@ -43,7 +43,7 @@ class SearchResultItem extends React.Component {
         </div>
         <div className={classes.coachDetails}>
           <ul>
-            <li key={`${coachId}name`}>{coach.firstName} {coach.lastName} </li>
+            <li key={`${coachId}name`}>{coach.firstName} {coach.lastName[0]} </li>
             <li key={`${coachId}rate`}>Session Rate: ${coachingRate}</li>
             <li key={`${coachId}dur`}>Session Duration: {duration}mins</li>
             <li key={`${coachId}elite`} className={classes.eliteStatus}>{(eliteCoach)? "Elite": null}</li>

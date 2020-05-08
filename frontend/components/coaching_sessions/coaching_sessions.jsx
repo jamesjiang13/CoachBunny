@@ -32,14 +32,11 @@ class CoachingSessions extends React.Component {
       <div className={classes.coachingSessionsMain}>
         {coachingSessions.map((session) => (
           <div className={classes.coachingSessions}>
-            <ul>
+            <ul className={classes.dateTime}>
               <li key={`${session.id}month`} className={classes.trainingMonth}>
-                {this.extractDate(session.trainingDate)[0]}
-              </li>
-              <li key={`${session.id}day`} className={classes.trainingDay}>
+                {this.extractDate(session.trainingDate)[0]}{' '}
                 {this.extractDate(session.trainingDate)[1]}
               </li>
-
               <li key={`${session.id}time`} className={classes.trainingTime}>
                 {this.extractTime(session.trainingDate)}
               </li>
@@ -47,10 +44,12 @@ class CoachingSessions extends React.Component {
             <ul>
               <li key={`${session.id}sport`}>
                 Sport:
+                {' '}
                 {session.coach.sport}
               </li>
               <li key={`${session.id}name`}>
                 Coach:
+                {' '}
                 {session.coach.firstName}
                 {' '}
                 {session.coach.lastName[0]}

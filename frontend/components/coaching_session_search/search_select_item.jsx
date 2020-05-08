@@ -24,9 +24,9 @@ class SearchSelectItem extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.state.trainingDate === '') {
-      this.setState({
-        errors: 'Must select a time'});
+    const { trainingDate } = this.state;
+    if (trainingDate === '') {
+      this.setState({ errors: 'Must select a time' });
     } else {
       const { submitForm } = this.props;
       submitForm(this.state);
