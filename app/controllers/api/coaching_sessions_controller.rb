@@ -1,10 +1,6 @@
 class Api::CoachingSessionsController < ApplicationController
   def index # return all ___ sessions
-    # if params[:coaching_sessions][:sport_id]
-    #   @coaching_sessions = CoachingSession.where(sport_id: params[:coaching_sessions][:sport_id])
-    # else # return all sessions for the current user
       @coaching_sessions = CoachingSession.where(user_id: current_user.id)
-    # end
 
     render :index
   end
@@ -24,9 +20,8 @@ class Api::CoachingSessionsController < ApplicationController
     @coaching_session = CoachingSession.new(coaching_session_params)
 
     if @coaching_session.save
-      # @coaching_sessions = CoachingSession.where(user_id: current_user.id)
-      # render :index
-      redirect_to api_coaching_sessions # basically to render index
+      @coaching_sessions = CoachingSession.where(user_id: current_user.id)
+      render :index
     else
       render json: @coaching_session.errors.full_messages, status: 422
     end
@@ -49,7 +44,6 @@ class Api::CoachingSessionsController < ApplicationController
     coaching_session.delete
     @coaching_sessions = CoachingSession.where(user_id: current_user.id)
     render :index
-    # redirect_to api_coaching_sessions # basically to render index
   end
 
   private

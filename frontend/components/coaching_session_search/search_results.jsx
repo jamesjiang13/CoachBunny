@@ -17,7 +17,7 @@ class SearchResults extends React.Component {
           </Link>
         </div>
         <div className={classes.searchResults}>
-          {results.map((result) => <SearchResultItem result={result} />)}
+          {results.map((result) => <SearchResultItem result={result} key={result.id} />)}
         </div>
         <div className={classes.redoSearch}>
           <Link to="/main" className={classes.redoSearchLink} />
@@ -27,11 +27,9 @@ class SearchResults extends React.Component {
   }
 }
 
-const mapState = (state) => {
-  return ({
-    results: Object.values(state.search.searchResults),
-  });
-};
+const mapState = (state) => ({
+  results: Object.values(state.search.searchResults),
+});
 
 export default connect(
   mapState,

@@ -30,17 +30,17 @@ class SearchForm extends React.Component {
   handleSearch() {
     const { submitSearch, sportId, history } = this.props;
     const { duration, location, description } = this.state;
-    // if (duration === '') {
-    //   this.setState({
-    //     errors: 'Must have a duration'});
-    // } else if (location.length !== 5) {
-    //   this.setState({
-    //     errors: 'Please enter a valid 5-digit zip code.'});
-    // } else {
+    if (duration === '') {
+      this.setState({
+        errors: 'Must have a duration'});
+    } else if (location.length !== 5) {
+      this.setState({
+        errors: 'Please enter a valid 5-digit zip code.'});
+    } else {
       submitSearch({ sportId, duration, description })
         .then(history.push('/results'));
     }
-  // }
+  }
 
 
   render() {

@@ -30,4 +30,4 @@ export const deleteCoachingSession = (id) => (dispatch) => APIUtil.deleteCoachin
 
 export const createCoachingSession = (coachingSession) => (dispatch) =>
   APIUtil.createCoachingSession(coachingSession)
-    .then((session) => dispatch(receiveCoachingSession(session)));
+    .then((session) => dispatch(receiveCoachingSessions(session)));

@@ -13,22 +13,18 @@ export const fetchCoachingSessions = () => (
 );
 
 // delete an existing session
-export const deleteCoachingSession = (id) => {
-  return (
-    $.ajax({
-      url: `/api/coaching_sessions/${id}`,
-      method: 'DELETE',
-    })
-  );
-};
+export const deleteCoachingSession = (id) => (
+  $.ajax({
+    url: `/api/coaching_sessions/${id}`,
+    method: 'DELETE',
+  })
+);
 
 // create a new session
-export const createCoachingSession = (coachingSession) => {
-  return (
-    $.ajax({
-      url: '/api/coaching_sessions',
-      method: 'POST',
-      data: { coachingSession },
-    })
-  );
-};
+export const createCoachingSession = (coachingSessions) => (
+  $.ajax({
+    url: '/api/coaching_sessions',
+    method: 'POST',
+    data: { coachingSessions },
+  })
+);

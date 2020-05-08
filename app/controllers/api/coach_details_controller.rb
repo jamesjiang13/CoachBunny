@@ -3,8 +3,8 @@ class Api::CoachDetailsController < ApplicationController
     found_sport = Sport.find_by(id: params[:sport_id])
     duration_beginning = params[:duration].split("-")[0]
     duration_ending = params[:duration].split("-")[1]
-    @coaches = found_sport.coach_details.where("duration >= #{duration_beginning}")
-                                        .where("duration <= #{duration_ending}")
+    @coaches = found_sport.coach_details
+      .where("duration >= #{duration_beginning} AND duration <= #{duration_ending}")
     render :index
   end
   
@@ -18,3 +18,4 @@ class Api::CoachDetailsController < ApplicationController
     params.require(:coach_details).permit(:sport_id, :duration)
   end
 end
+

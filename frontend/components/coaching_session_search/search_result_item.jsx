@@ -25,7 +25,16 @@ class SearchResultItem extends React.Component {
       coachId, coach, coachingRate, duration, eliteCoach, equipment,
     } = this.props.result;
     const { selected } = this.state;
-    if (selected) return <Redirect to={{ pathname: '/results/select', state: { id: this.props.result.duration } }} />;
+    if (selected) return <Redirect to={{ pathname: '/results/select', state: { 
+      id: this.props.result.id,
+      sportId: this.props.result.sportId,
+      firstName: this.props.result.coach.firstName,
+      lastName: this.props.result.coach.lastName,
+      duration: this.props.result.duration,
+      coachingRate: this.props.result.coachingRate,
+      eliteCoach: this.props.result.eliteCoach,
+      equipment: this.props.result.equipment,
+    }}} />;
 
     return (
       <div className={classes.coachMain}>
