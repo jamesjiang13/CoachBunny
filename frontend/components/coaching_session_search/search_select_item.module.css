@@ -1,0 +1,76 @@
+.selectMainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.selectCoachContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid gray;
+  border-radius: 4px;
+  margin-top: 30px;
+  width: 400px;
+  background-color: white;
+}
+
+.textLogo {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.coachProfile img{
+  border: 1px solid gray;
+  border-radius: 50%;
+  margin-right: 30px;
+}
+
+.coachConfirmDetails div{
+  padding: 4px 0px;
+}
+
+.trainingTime {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.trainingTime {
+  margin-top: 7px;
+}
+
+.mainSelect > button {
+  display: block;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  background-color: #51af33;
+  padding: 7px 22px;
+  border-color: #86919d ;
+  width: 100%;
+  color: white;
+  border-radius: 4px;
+  margin: 15px 0px;
+  font-size: 17px;
+  transition-property: background-color, color;
+  transition-timing-function: ease;
+  transition-duration: 0.16s;
+}
+
+.mainSelect > button:hover {
+  background-color: #438e29;
+  cursor: pointer;
+}
+
+.coachName {
+  font-weight: bolder;
+}
+.coachElite {
+  font-weight: bolder;
+  color: green;
+}
+
+.errors {
+  color: red;
+}

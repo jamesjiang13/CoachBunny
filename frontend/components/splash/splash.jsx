@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import NavigationBarContainer from '../nav_bar/nav_bar_container';
 import Footer from '../footer/footer';
-// import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 import classes from './splash.module.css';
 
@@ -14,7 +14,9 @@ const Splash = () => (
         <h4> Perfect your game with an assist from thousands of trusted CoachBunnies </h4>
         <form className={classes.searchForm}>
           <input type="text" placeholder="I want to work on..." />
-          <button type="button"> Train today </button>
+          <button type="button">
+            <Link to="/entrypage"> Train today </Link>
+          </button>
         </form>
       </div>
     </div>

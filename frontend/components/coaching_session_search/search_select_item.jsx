@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import classes from './search_select_item.module.css';
 
 import { createCoachingSession } from '../../actions/coaching_session_actions';
@@ -16,6 +16,7 @@ class SearchSelectItem extends React.Component {
       trainingDuration: this.props.coach.duration,
       trainingRate: this.props.coach.coachingRate,
       trainingDescription: 'need to work on this',
+      errors: '',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,9 +24,14 @@ class SearchSelectItem extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { submitForm } = this.props;
-    submitForm(this.state);
-    location.href = "/#/main/mysessions";
+    if (this.state.trainingDate === '') {
+      this.setState({
+        errors: 'Must select a time'});
+    } else {
+      const { submitForm } = this.props;
+      submitForm(this.state);
+      location.href = '/#/main/mysessions';
+    }
   }
 
   update(field) {
@@ -37,20 +43,33 @@ class SearchSelectItem extends React.Component {
     } = this.props.coach;
 
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div className={classes.coachConfirmDetails}>
-            <div>{firstName} {lastName[0]}</div>
-            <div>{(eliteCoach ? "Elite" : null)}</div>
-            <div>Price: ${coachingRate}/session</div>
-            <div>Duration: {duration}</div>
-            <div>Has equipment: {(equipment ? "yes" : "no")}</div>
+      <div className={classes.selectMainContainer}>
+        <div className={classes.selectCoachContainer}>
+          <div className={classes.textLogo}>
+            <Link to="/main">
+              <img className={classes.imgResponsive} src={window.textLogo} alt="logo" />
+            </Link>
           </div>
-          <div>
-            <input type="datetime-local" value={this.state.trainingDate} onChange={this.update("trainingDate")} />
-          </div>
-          <button type="submit"> Reserve this Coach </button>
-        </form>
+          <form onSubmit={this.handleSubmit} className={classes.mainSelect}>
+            <div className={classes.coachConfirmDetails}>
+              <div className={classes.coachProfile}>
+                <img src="https://res.cloudinary.com/taskrabbit-com/image/upload/c_fill,g_faces,h_108,w_108/v1408385393/default_avatar.jpg" alt="profile" />
+              </div>
+              <div className={classes.coachName}>{firstName} {lastName[0]}</div>
+              {/* <div className={classes.coachElite}>{(eliteCoach ? 'Elite' : null)}</div> */}
+              {(!eliteCoach ? null : <div className={classes.coachElite}>Elite</div> )}
+              
+              <div>Price: ${coachingRate}/session</div>
+              <div>Duration: {duration}mins</div>
+              <div>Has equipment: {(equipment ? 'yes' : 'no')}</div>
+            </div>
+            <div className={classes.trainingTime}> Ideal training time:
+              <input type="datetime-local" value={this.state.trainingDate} onChange={this.update("trainingDate")} />
+            </div>
+            <div className={classes.errors}>{this.state.errors}</div>
+            <button type="submit"> Reserve this Coach </button>
+          </form>
+        </div>
       </div>
     );
   }
@@ -60,6 +79,7 @@ const mapState = (state, ownProps) => ({
   coach: ownProps.history.location.state,
   userId: state.session.currentUserId,
 });
+
 
 const mapDispatch = (dispatch) => ({
   submitForm: (coachingSession) => dispatch(createCoachingSession(coachingSession)),

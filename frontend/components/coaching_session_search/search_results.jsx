@@ -7,8 +7,9 @@ import SearchResultItem from './search_result_item';
 
 class SearchResults extends React.Component {
   render() {
+
     const { results } = this.props;
-    if (!results) return 'no results';
+    if (results.length === 0) return 'no results';
     return (
       <div>
         <div className={classes.textLogo}>
@@ -20,7 +21,9 @@ class SearchResults extends React.Component {
           {results.map((result) => <SearchResultItem result={result} key={result.id} />)}
         </div>
         <div className={classes.redoSearch}>
-          <Link to="/main" className={classes.redoSearchLink} />
+          <button type="button">
+            <Link to="/main" className={classes.redoSearchLink} />
+          </button>
         </div>
       </div>
     );

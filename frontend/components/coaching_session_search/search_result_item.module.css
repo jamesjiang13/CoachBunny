@@ -25,6 +25,7 @@
   font-weight: bolder;
   color: green;
 }
+
 .coachDetails {
   display: flex;
   flex-direction: column;
@@ -34,7 +35,6 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /* margin: 3px; */
 }
 
 .trainNow > button {

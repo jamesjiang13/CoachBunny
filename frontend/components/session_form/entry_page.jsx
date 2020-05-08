@@ -28,8 +28,8 @@ class EntryPage extends React.Component {
             <img className={classes.imgResponsive} src={window.textLogo} alt="textLogo" />
           </div>
 
-          <button className={classes.myspace} type="button"> Myspace (coming soon)</button>
-          <button className={classes.xanga} type="button"> Xanga (coming soon)</button>
+          <button className={classes.myspace} type="button"> Facebook (coming soon)</button>
+          <button className={classes.xanga} type="button"> Google (coming soon)</button>
           <Link
             className={classes.demoUserLogin}
             onClick={this.handleClick}

@@ -2,7 +2,6 @@ import { RECEIVE_COACH_SEARCH } from '../actions/coaching_sessions_search_action
 
 const searchParamsReducer = (state = {}, action) => {
   Object.freeze(state);
-  // debugger;
   switch (action.type) {
     // case RECEIVE_COACH_SEARCH:
     //   return null;
