@@ -97,7 +97,7 @@
   height: 30px;
 }
 
-.searchForm > button {
+.deadButton {
   display: flex;
   justify-content: space-around;
   padding: 0.5em 1.38em 0.5em;
@@ -112,7 +112,7 @@
   margin-left: 15px;
 }
 
-.searchForm > button:hover {
+.deadButton:hover {
   color: white; 
   background-color: #51af33;
   cursor: pointer;

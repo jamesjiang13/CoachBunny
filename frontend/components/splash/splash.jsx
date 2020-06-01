@@ -14,8 +14,10 @@ const Splash = () => (
         <h4> Perfect your game with an assist from thousands of trusted CoachBunnies </h4>
         <form className={classes.searchForm}>
           <input type="text" placeholder="I want to work on..." />
-          <button type="button">
-            <Link to="/entrypage"> Train today </Link>
+          <button className={classes.deadButton} type="button">
+            {/* <Link to="/entrypage">  */}
+            Train today
+            {/* </Link> */}
           </button>
         </form>
       </div>
@@ -24,7 +26,7 @@ const Splash = () => (
       <div className={classes.reviewStars}>
         <img
           className={classes.reviewPhoto}
-          src="http://clipart-library.com/new_gallery/104-1043568_5-star-rating-png.png"
+          src={window.reviewStars}
           alt="stars"
         />
         <p>1.1+ Million Reviews</p>
@@ -32,14 +34,14 @@ const Splash = () => (
       <div className={classes.mainPartner}>
         <img
           className={classes.reviewPhoto}
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/MLS_crest_logo_RGB_gradient.svg/1200px-MLS_crest_logo_RGB_gradient.svg.png"
+          src={window.mlsLogo}
           alt="partner"
         />
         <p>Partnered with MLS</p>
       </div>
       <img
         className={classes.reviewPhoto}
-        src="https://pluspng.com/img-png/download-on-app-store-png-open-2000.png"
+        src={window.appStore}
         alt="appstore"
       />
     </section>
