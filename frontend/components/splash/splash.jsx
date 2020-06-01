@@ -13,11 +13,11 @@ const Splash = () => (
         <h1> Find the best coaches to unlock your potential </h1>
         <h4> Perfect your game with an assist from thousands of trusted CoachBunnies </h4>
         <form className={classes.searchForm}>
-          <input type="text" placeholder="I want to work on..." />
+          {/* <input type="text" placeholder="I want to work on..." /> */}
           <button className={classes.deadButton} type="button">
-            {/* <Link to="/entrypage">  */}
-            Train today
-            {/* </Link> */}
+            <Link to="/entrypage">
+              Train today
+            </Link>
           </button>
         </form>
       </div>
