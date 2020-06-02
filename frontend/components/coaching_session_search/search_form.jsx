@@ -23,18 +23,25 @@ class SearchForm extends React.Component {
 
   handleSearch() {
     const { submitSearch, sportId, history } = this.props;
-    const { duration, location, description, interest } = this.state;
-    if (duration === '') {
+    const {
+      duration, location, description, interest,
+    } = this.state;
+
+    if (interest === '') {
       this.setState({
-        errors: 'Must have a duration',
+        errors: 'Please enter an interest level.',
       });
     } else if (location.length !== 5) {
       this.setState({
         errors: 'Please enter a valid 5-digit zip code.',
       });
-    } else if (interest.length === 0) {
+    } else if (duration === '') {
       this.setState({
-        errors: 'Please enter an interest level.',
+        errors: 'Must have a duration',
+      });
+    } else if (description === '') {
+      this.setState({
+        errors: 'Please enter a description to help us show you the best coaches.',
       });
     } else {
       submitSearch({ sportId, duration, description })
@@ -48,6 +55,15 @@ class SearchForm extends React.Component {
     } = this.state;
     return (
       <div className={classes.searchMain}>
+        <div className={classes.searchHeader}>
+          <Link to="/main" className={classes.bunnyLogo}>
+            <img className={classes.imgResponsive} src={window.bunnyLogo} alt="logo" />
+          </Link>
+          <span>
+            Tell us what you want to work on. We'll use these
+            details to show you Coaches in your area who fit your needs
+          </span>
+        </div>
         <div className={classes.searchFields}>
           <div className={classes.textLogo}>
             <Link to="/main" className={classes.leftNav}>
@@ -88,7 +104,6 @@ class SearchForm extends React.Component {
               I'm just browsing
             </label>
           </section>
-
           <section className={classes.location}>
             <label htmlFor="location"> Your training location: </label>
             <input
@@ -98,7 +113,6 @@ class SearchForm extends React.Component {
               value={location}
             />
           </section>
-
           <section className={classes.duration}>
             <span> How long would you like to train for: </span>
             <label htmlFor="duration">

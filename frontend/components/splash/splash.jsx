@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import NavigationBarContainer from '../nav_bar/nav_bar_container';
 import Footer from '../footer/footer';
-// import { connect } from 'react-redux';
 import classes from './splash.module.css';
 
 const Splash = () => (
@@ -14,11 +13,9 @@ const Splash = () => (
         <h4> Perfect your game with an assist from thousands of trusted CoachBunnies </h4>
         <form className={classes.searchForm}>
           {/* <input type="text" placeholder="I want to work on..." /> */}
-          <button className={classes.deadButton} type="button">
-            <Link to="/entrypage">
-              Train today
-            </Link>
-          </button>
+          <Link className={classes.deadButton} to="/entrypage">
+            Train today
+          </Link>
         </form>
       </div>
     </div>

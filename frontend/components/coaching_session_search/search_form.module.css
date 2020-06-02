@@ -8,11 +8,25 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 500px
+  width: 520px
 }
 
 .textLogo {
   margin-top: 40px;
+}
+
+.searchHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  height: 100px;
+}
+
+.bunnyLogo img {
+  height: 60px;
+  padding-right: 10px;
 }
 
 .searchFields > section {
@@ -21,7 +35,7 @@
   margin: 7px 0px;
   padding: 20px;
   background-color: white;
-  width: 100%;
+  width: 480px;
 }
 
 .searchFields > button {
@@ -35,7 +49,7 @@
   width: 100%;
   color: white;
   border-radius: 4px;
-  margin-top: 7px;
+  margin: 7px 0 10em 0;
   font-size: 19.2px;
   transition-property: background-color, color;
   transition-timing-function: ease;
@@ -78,4 +92,8 @@
 
 .errors {
   color: red;
+}
+
+.searchFields > button {
+
 }
