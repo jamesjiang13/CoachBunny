@@ -39,5 +39,6 @@
 
 .coachingSessions button:hover {
   background-color: #438e29;
+  color: white;
   cursor: pointer;
 }

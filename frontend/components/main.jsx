@@ -34,11 +34,9 @@ class Main extends React.Component {
   }
 }
 
-const mapState = (state) => {
-  return ({
-    currentUser: state.entities.user[state.session.currentUserId],
-  });
-};
+const mapState = (state) => ({
+  currentUser: state.entities.user[state.session.currentUserId],
+});
 
 const mapDispatch = (dispatch) => ({
   logout: () => dispatch(logOut()),

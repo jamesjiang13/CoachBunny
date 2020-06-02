@@ -1,10 +1,10 @@
-import { RECEIVE_COACH_SEARCH } from '../actions/coaching_sessions_search_actions';
+import { RECEIVE_SEARCH_CRITERIA } from '../actions/coaching_sessions_search_actions';
 
 const searchParamsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
-    // case RECEIVE_COACH_SEARCH:
-    //   return null;
+    case RECEIVE_SEARCH_CRITERIA:
+      return action.criteria;
     default:
       return state;
   }

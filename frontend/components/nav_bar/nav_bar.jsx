@@ -20,9 +20,7 @@ const LoggedOutNav = () => (
   <ul className={classes.navBarUl}>
     {/* <li key="sport">Sports</li> */}
     <li key="login">
-      <button type="button">
-        <Link to="/entrypage"> Log in </Link>
-      </button>
+      <Link className={classes.navBarLogInButton} to="/entrypage"> Log in </Link>
     </li>
     {/* <button type="button"> Become a Coach </button> */}
   </ul>

@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 import classes from './search_select_item.module.css';
-
 import { createCoachingSession } from '../../actions/coaching_session_actions';
 
 class SearchSelectItem extends React.Component {

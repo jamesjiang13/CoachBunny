@@ -9,7 +9,7 @@ const mapState = (state, ownProps) => ({
 });
 
 const mapDispatch = (dispatch) => ({
-  submitSearch: ({ sportId, duration }) => dispatch(fetchCoachSearch({ sportId, duration })),
+  submitSearch: ({ sportId, duration, description }) => dispatch(fetchCoachSearch({ sportId, duration, description })),
 
 });
 
