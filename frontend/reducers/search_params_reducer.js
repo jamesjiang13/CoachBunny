@@ -4,7 +4,6 @@ const searchParamsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_SEARCH_CRITERIA:
-      debugger;
       return action.criteria;
     default:
       return state;
