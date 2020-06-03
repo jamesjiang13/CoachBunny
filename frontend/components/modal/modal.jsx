@@ -5,14 +5,12 @@ import SearchSelectItemContainer from '../coaching_session_search/search_select_
 import classes from './modal.module.css';
 
 function Modal({ modal, closeModal }) {
-  if (!modal) {
-    return null;
-  }
+  if (!modal) return null;
 
   let component;
-  switch (modal) {
+  switch (Object.keys(modal)[0]) {
     case 'select':
-      component = <SearchSelectItemContainer />;
+      component = <SearchSelectItemContainer coach={modal.select.coach} />;
       break;
     default:
       return null;

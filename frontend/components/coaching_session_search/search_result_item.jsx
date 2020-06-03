@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { openModal } from '../../actions/modal_actions';
 import classes from './search_result_item.module.css';
 
 class SearchResultItem extends React.Component {
@@ -15,26 +16,27 @@ class SearchResultItem extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-    this.setState({
-      selected: true,
-    });
+    const { openModal } = this.props;
+    const selected = {
+      coach: {
+        id: this.props.result.id,
+        sportId: this.props.result.sportId,
+        firstName: this.props.result.coach.firstName,
+        lastName: this.props.result.coach.lastName,
+        duration: this.props.result.duration,
+        coachingRate: this.props.result.coachingRate,
+        eliteCoach: this.props.result.eliteCoach,
+        equipment: this.props.result.equipment,
+      },
+    };
+
+    openModal({ select: selected });
   }
 
   render() {
     const {
       coachId, coach, coachingRate, duration, eliteCoach, equipment,
     } = this.props.result;
-    const { selected } = this.state;
-    if (selected) return <Redirect to={{ pathname: '/results/select', state: { 
-      id: this.props.result.id,
-      sportId: this.props.result.sportId,
-      firstName: this.props.result.coach.firstName,
-      lastName: this.props.result.coach.lastName,
-      duration: this.props.result.duration,
-      coachingRate: this.props.result.coachingRate,
-      eliteCoach: this.props.result.eliteCoach,
-      equipment: this.props.result.equipment,
-    }}} />;
 
     return (
       <div className={classes.coachMain}>
@@ -46,8 +48,8 @@ class SearchResultItem extends React.Component {
             <li key={`${coachId}name`}>{coach.firstName} {coach.lastName[0]} </li>
             <li key={`${coachId}rate`}>Session Rate: ${coachingRate}</li>
             <li key={`${coachId}dur`}>Session Duration: {duration}mins</li>
-            <li key={`${coachId}elite`} className={classes.eliteStatus}>{(eliteCoach)? "Elite": null}</li>
-            <li key={`${coachId}equip`}>{(equipment) ? "Has Equipment" : null }</li>
+            <li key={`${coachId}elite`} className={classes.eliteStatus}>{(eliteCoach) ? 'Elite' : null}</li>
+            <li key={`${coachId}equip`}>{(equipment) ? 'Has Equipment' : null }</li>
           </ul>
           <div className={classes.trainNow}>
             <button type="button" onClick={this.handleClick}> Train now </button>
@@ -63,7 +65,7 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
-
+  openModal: (modal) => dispatch(openModal(modal)),
 });
 
 export default connect(
