@@ -71,6 +71,10 @@
   color: green;
 }
 
+.trainingTime > input {
+  margin-top: 7px;
+  padding: 1px;
+}
 .errors {
   color: red;
 }
