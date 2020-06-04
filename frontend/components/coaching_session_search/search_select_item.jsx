@@ -1,19 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import classes from './search_select_item.module.css';
-import { createCoachingSession } from '../../actions/coaching_session_actions';
 
 class SearchSelectItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sportId: this.props.coach.sportId,
-      coachId: this.props.coach.id,
-      userId: this.props.userId,
       trainingDate: '',
-      trainingDuration: this.props.coach.duration,
-      trainingRate: this.props.coach.coachingRate,
       trainingDescription: this.props.description,
       errors: '',
     };
@@ -23,12 +16,25 @@ class SearchSelectItem extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { trainingDate } = this.state;
+    const { trainingDate, trainingDescription } = this.state;
     if (trainingDate === '') {
       this.setState({ errors: 'Must select a time' });
     } else {
-      const { submitForm } = this.props;
-      submitForm(this.state);
+      const {
+        submitForm, closeModal, coach, userId,
+      } = this.props;
+
+      const finalSessionDetails = {
+        sportId: coach.sportId,
+        coachId: coach.id,
+        trainingDuration: coach.duration,
+        trainingRate: coach.coachingRate,
+        userId,
+        trainingDate,
+        trainingDescription,
+      };
+      submitForm(finalSessionDetails);
+      closeModal();
       location.href = '/#/main/mysessions';
     }
   }
@@ -41,7 +47,7 @@ class SearchSelectItem extends React.Component {
     const {
       firstName, lastName, coachingRate, duration, eliteCoach, equipment,
     } = this.props.coach;
-
+    const { errors, trainingDate, trainingDescription } = this.state;
     return (
       <div className={classes.selectMainContainer}>
         <div className={classes.selectCoachContainer}>
@@ -61,7 +67,6 @@ class SearchSelectItem extends React.Component {
                 {lastName[0]}
               </div>
               {(!eliteCoach ? null : <div className={classes.coachElite}>Elite</div>)}
-
               <div>
                 Price: $
                 {coachingRate}
@@ -74,17 +79,26 @@ class SearchSelectItem extends React.Component {
                 mins
               </div>
               <div>
-                Has equipment:
+                <span>Has equipment:</span>
                 {' '}
                 {(equipment ? 'yes' : 'no')}
               </div>
             </div>
             <div className={classes.trainingTime}>
               {' '}
-              Ideal training time:
-              <input type="datetime-local" value={this.state.trainingDate} onChange={this.update('trainingDate')} />
+              <span>Ideal training time:</span>
+              <input type="datetime-local" value={trainingDate} onChange={this.update('trainingDate')} />
             </div>
-            <div className={classes.errors}>{this.state.errors}</div>
+            <div className={classes.trainingDescription}>
+              <span>Confirm training details:</span>
+              <br />
+              <textarea
+                value={trainingDescription}
+                onChange={this.update('trainingDescription')}
+                className={classes.trainingDescriptionText}
+              />
+            </div>
+            <div className={classes.errors}>{errors}</div>
             <button type="submit"> Reserve this Coach </button>
           </form>
         </div>

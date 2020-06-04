@@ -21,13 +21,13 @@
   margin-top: 40px;
 }
 
-.coachProfile img{
+.coachProfile img {
   border: 1px solid gray;
   border-radius: 50%;
   margin-right: 30px;
 }
 
-.coachConfirmDetails div{
+.mainSelect div {
   padding: 4px 0px;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .trainingTime {
-  margin-top: 7px;
+  margin-top: 8px;
 }
 
 .mainSelect > button {
@@ -73,9 +73,17 @@
 }
 
 .trainingTime > input {
-  margin-top: 7px;
+  margin-top: 8px;
   padding: 1px;
+  width: 100%;
 }
 .errors {
   color: red;
+}
+
+.trainingDescription > textarea {
+  min-height: 100px;
+  width: 100%;
+  margin-top: 8px;
+  padding: 5px;
 }

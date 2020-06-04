@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
-import SearchSelectItemContainer from '../coaching_session_search/search_select_item';
+import SearchSelectItemContainer from '../coaching_session_search/search_select_item_container';
 import classes from './modal.module.css';
 
 function Modal({ modal, closeModal }) {
