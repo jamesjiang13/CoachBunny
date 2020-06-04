@@ -1,15 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
 import classes from './search_result_item.module.css';
 
 class SearchResultItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      selected: false,
-    };
 
     this.handleClick = this.handleClick.bind(this);
   }
