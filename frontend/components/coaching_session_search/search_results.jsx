@@ -73,7 +73,7 @@ class SearchResults extends React.Component {
             <span>Coach Type</span>
             <label
               className={classes.checkboxContainer}
-              onChange={this.toggle('eliteFilter')}
+              onClick={this.toggle('eliteFilter')}
               htmlFor="equipment"
             >
               <span>Elite Coach</span>
@@ -82,7 +82,7 @@ class SearchResults extends React.Component {
             </label>
             <label
               className={classes.checkboxContainer}
-              onChange={this.toggle('equipmentFilter')}
+              onClick={this.toggle('equipmentFilter')}
               htmlFor="equipment"
             >
               <span>Has Equipment</span>
