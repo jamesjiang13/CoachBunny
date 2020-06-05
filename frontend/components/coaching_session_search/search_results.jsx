@@ -42,7 +42,7 @@ class SearchResults extends React.Component {
   filterSearchResults() {
     const { eliteFilter, equipmentFilter } = this.state;
     const { results } = this.props;
-    
+
     switch (true) {
       case eliteFilter && equipmentFilter:
         return results.filter((coach) => coach.eliteCoach && coach.equipment);
@@ -58,7 +58,8 @@ class SearchResults extends React.Component {
   render() {
     const coaches = this.filterSearchResults();
     const { eliteFilter, equipmentFilter } = this.state;
-    if (coaches.length === 0) return this.noResults();
+    const { results } = this.props;
+    if (results.length === 0) return this.noResults();
 
     return (
       <div>
@@ -70,14 +71,22 @@ class SearchResults extends React.Component {
         <div className={classes.searchContainer}>
           <div className={classes.filterContainer}>
             <span>Coach Type</span>
-            <label className={classes.checkboxContainer} onChange={this.toggle('eliteFilter')} >
-              Elite Coach
-              <input type="checkbox" checked={eliteFilter} />
+            <label
+              className={classes.checkboxContainer}
+              onChange={this.toggle('eliteFilter')}
+              htmlFor="equipment"
+            >
+              <span>Elite Coach</span>
+              <input type="checkbox" name="elite" checked={eliteFilter} />
               <span className={classes.checkmark} />
             </label>
-            <label className={classes.checkboxContainer} onChange={this.toggle('equipmentFilter')}>
-              Has Equipment
-              <input type="checkbox" checked={equipmentFilter} />
+            <label
+              className={classes.checkboxContainer}
+              onChange={this.toggle('equipmentFilter')}
+              htmlFor="equipment"
+            >
+              <span>Has Equipment</span>
+              <input type="checkbox" name="equipment" checked={equipmentFilter} />
               <span className={classes.checkmark} />
             </label>
           </div>
