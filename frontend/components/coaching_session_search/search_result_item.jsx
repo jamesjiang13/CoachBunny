@@ -56,14 +56,10 @@ class SearchResultItem extends React.Component {
   }
 }
 
-const mapState = (state) => ({
-
-});
-
 const mapDispatch = (dispatch) => ({
   openModal: (modal) => dispatch(openModal(modal)),
 });
 
 export default connect(
-  mapState, mapDispatch,
+  null, mapDispatch,
 )(SearchResultItem);
