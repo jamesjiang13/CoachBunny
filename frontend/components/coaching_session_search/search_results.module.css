@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 440px;
   margin-top: 40px;
 }
 
@@ -46,11 +47,25 @@
   background-color: #438e29;
   cursor: pointer;
 }
+
+.searchLeft {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 250px;
+}
+
+.searchRight {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
 .searchContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
+
 .filterContainer {
   display: flex;
   flex-direction: column;

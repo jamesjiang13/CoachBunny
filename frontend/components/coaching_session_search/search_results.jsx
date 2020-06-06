@@ -69,29 +69,33 @@ class SearchResults extends React.Component {
           </Link>
         </div>
         <div className={classes.searchContainer}>
-          <div className={classes.filterContainer}>
-            <span>Coach Type</span>
-            <label
-              className={classes.checkboxContainer}
-              onClick={this.toggle('eliteFilter')}
-              htmlFor="equipment"
-            >
-              <span>Elite Coach</span>
-              <input type="checkbox" name="elite" checked={eliteFilter} />
-              <span className={classes.checkmark} />
-            </label>
-            <label
-              className={classes.checkboxContainer}
-              onClick={this.toggle('equipmentFilter')}
-              htmlFor="equipment"
-            >
-              <span>Has Equipment</span>
-              <input type="checkbox" name="equipment" checked={equipmentFilter} />
-              <span className={classes.checkmark} />
-            </label>
+          <div className={classes.searchLeft}>
+            <div className={classes.filterContainer}>
+              <span>Coach Type</span>
+              <label
+                className={classes.checkboxContainer}
+                onClick={this.toggle('eliteFilter')}
+                htmlFor="equipment"
+              >
+                <span>Elite Coach</span>
+                <input type="checkbox" name="elite" checked={eliteFilter} />
+                <span className={classes.checkmark} />
+              </label>
+              <label
+                className={classes.checkboxContainer}
+                onClick={this.toggle('equipmentFilter')}
+                htmlFor="equipment"
+              >
+                <span>Has Equipment</span>
+                <input type="checkbox" name="equipment" checked={equipmentFilter} />
+                <span className={classes.checkmark} />
+              </label>
+            </div>
           </div>
-          <div className={classes.searchResults}>
-            {coaches.map((result) => <SearchResultItem result={result} key={result.id} />)}
+          <div className={classes.searchRight}>
+            <div className={classes.searchResults}>
+              {coaches.map((result) => <SearchResultItem result={result} key={result.id} />)}
+            </div>
             <div className={classes.redoSearch}>
               <Link to="/main" className={classes.redoSearchLink}>Search Again</Link>
             </div>

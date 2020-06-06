@@ -4,7 +4,7 @@ import classes from './coaching_sessions.module.css';
 function extractDate(fullDateTime) {
   const month = parseInt(fullDateTime.slice(5, 7), 10);
   const day = parseInt(fullDateTime.slice(8, 10), 10);
-  const months = ['nil', 'Jan', 'Feb,', 'Mar', 'Apr', 'May',
+  const months = ['nil', 'Jan', 'Feb', 'Mar', 'Apr', 'May',
     'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
   return [months[month], day];
 }
@@ -65,11 +65,6 @@ class CoachingSessionItem extends React.Component {
             {' '}
             {session.coach.lastName[0]}
           </li>
-          <li key={`${session.id}desc`}>
-            Description:
-            {' '}
-            {session.trainingDescription}
-          </li>
           <li key={`${session.id}dur`}>
             Duration:
             {' '}
@@ -80,6 +75,11 @@ class CoachingSessionItem extends React.Component {
           <li key={`${session.id}cost`}>
             Cost: $
             {session.trainingRate}
+          </li>
+          <li key={`${session.id}desc`}>
+            Description:
+            {' '}
+            {session.trainingDescription}
           </li>
           {(time === 'upcoming')
             ? <button type="button" onClick={this.handleClick}>Cancel</button>
