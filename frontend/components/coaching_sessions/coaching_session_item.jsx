@@ -38,7 +38,7 @@ class CoachingSessionItem extends React.Component {
   }
 
   render() {
-    const { session } = this.props;
+    const { session, time } = this.props;
 
     return (
       <div className={classes.coachingSessions}>
@@ -81,12 +81,9 @@ class CoachingSessionItem extends React.Component {
             Cost: $
             {session.trainingRate}
           </li>
-          <button
-            type="button"
-            onClick={this.handleClick}
-          >
-            Cancel
-          </button>
+          {(time === 'upcoming')
+            ? <button type="button" onClick={this.handleClick}>Cancel</button>
+            : <button type="button">Add review (soon)</button>}
         </ul>
       </div>
     );

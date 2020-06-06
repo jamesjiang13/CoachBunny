@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import SearchSelectItemContainer from '../coaching_session_search/search_select_item_container';
 import CancelConfirmContainer from '../coaching_sessions/cancel_confirm_container';
+import EditSessionContainer from '../coaching_sessions/edit_session_container';
 import classes from './modal.module.css';
 
 function Modal({ modal, closeModal }) {
@@ -16,6 +17,8 @@ function Modal({ modal, closeModal }) {
     case 'cancel':
       component = <CancelConfirmContainer session={modal.cancel} />;
       break;
+    case 'edit':
+      component = <EditSessionContainer session={modal.cancel} />;
     default:
       return null;
   }

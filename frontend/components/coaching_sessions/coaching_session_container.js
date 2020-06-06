@@ -6,6 +6,7 @@ import { openModal } from '../../actions/modal_actions';
 const mapState = (state, ownProps) => {
   return ({
     session: ownProps.session,
+    time: ownProps.time,
   });
 };
 

@@ -33,6 +33,7 @@ class SearchSelectItem extends React.Component {
         trainingDate,
         trainingDescription,
       };
+
       submitForm(finalSessionDetails);
       closeModal();
       location.href = '/#/main/mysessions';
