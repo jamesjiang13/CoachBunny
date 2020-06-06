@@ -30,8 +30,8 @@ class CancelConfirm extends React.Component {
             ?
           </span>
           <div className={classes.cancelButtons}>
-            <button type="button" onClick={() => this.handleClick()}>Cancel</button>
             <button type="button" onClick={() => closeModal()}>Go Back</button>
+            <button type="button" onClick={() => this.handleClick()}>Cancel</button>
           </div>
         </div>
       </div>
