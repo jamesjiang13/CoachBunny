@@ -15,6 +15,20 @@
   background-color: white;
 }
 
+.cancelBody > span {
+  display: flex;
+  width: 80%;
+  margin: 30px;
+  font-size: 25px;
+  line-height: 1.1;
+}
+
+.cancelButtons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .cancelButtons > button {
   display: flex;
   justify-content: center;
@@ -23,10 +37,10 @@
   background-color: #51af33;
   padding: 7px 22px;
   border-color: #86919d ;
-  width: 100%;
+  width: 35%;
   color: white;
   border-radius: 4px;
-  margin: 15px 0px;
+  margin: 15px;
   font-size: 17px;
   transition-property: background-color, color;
   transition-timing-function: ease;
@@ -37,3 +51,4 @@
   background-color: #438e29;
   cursor: pointer;
 }
+

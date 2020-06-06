@@ -15,7 +15,7 @@ class SearchResultItem extends React.Component {
     const { openModal } = this.props;
     const selected = {
       coach: {
-        id: this.props.result.id,
+        id: this.props.result.coachId,
         sportId: this.props.result.sportId,
         firstName: this.props.result.coach.firstName,
         lastName: this.props.result.coach.lastName,

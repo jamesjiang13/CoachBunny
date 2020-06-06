@@ -1,30 +1,34 @@
 import React from 'react';
 import classes from './coaching_sessions.module.css';
 
+function extractDate(fullDateTime) {
+  const month = parseInt(fullDateTime.slice(5, 7), 10);
+  const day = parseInt(fullDateTime.slice(8, 10), 10);
+  const months = ['nil', 'Jan', 'Feb,', 'Mar', 'Apr', 'May',
+    'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+  return [months[month], day];
+}
+
+function extractTime(fullDateTime) {
+  const hr = parseInt(fullDateTime.slice(11, 16), 10);
+  const min = parseInt(fullDateTime.slice(14, 16), 10);
+  let time;
+  if (hr === 0 && min === 0) {
+    time = '12:00AM';
+  } else if (hr >= 12 && min > 0) {
+    time = ((min < 10) ? `${hr % 12}:0${min}PM` : `${hr % 12}:${min}PM`)
+  } else if (hr < 12) {
+    time = ((min < 10) ? `${hr % 12}:0${min}AM` : `${hr % 12}:${min}AM`)
+  } else if (hr === 12 && min === 0) {
+    time = '12:00PM';
+  }
+  return time;
+}
+
 class CoachingSessionItem extends React.Component {
   constructor(props) {
     super(props);
-    this.extractDate = this.extractDate.bind(this);
-    this.extractTime = this.extractTime.bind(this);
     this.handleClick = this.handleClick.bind(this);
-  }
-
-  extractDate(fullDateTime) {
-    const month = parseInt(fullDateTime.slice(5, 7), 10);
-    const day = parseInt(fullDateTime.slice(8, 10), 10);
-    const months = ['nil', 'Jan', 'Feb,', 'Mar', 'Apr', 'May',
-      'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-    return [months[month], day];
-  }
-
-  extractTime(fullDateTime) {
-    const hours = parseInt(fullDateTime.slice(11, 16), 10);
-    if (hours > 12 ) {
-      return (`${hours % 12}:00PM`);
-    } else if ( hours === 12 ) {
-      return (`${hours}:00PM`);
-    }
-    return (`${hours}:00AM`);
   }
 
   handleClick(e) {
@@ -34,18 +38,18 @@ class CoachingSessionItem extends React.Component {
   }
 
   render() {
-    const { session } = this.props;
+    const { session, time } = this.props;
 
     return (
       <div className={classes.coachingSessions}>
         <ul className={classes.dateTime}>
           <li key={`${session.id}month`} className={classes.trainingMonth}>
-            {this.extractDate(session.trainingDate)[0]}
+            {extractDate(session.trainingDate)[0]}
             {' '}
-            {this.extractDate(session.trainingDate)[1]}
+            {extractDate(session.trainingDate)[1]}
           </li>
           <li key={`${session.id}time`} className={classes.trainingTime}>
-            {this.extractTime(session.trainingDate)}
+            {extractTime(session.trainingDate)}
           </li>
         </ul>
         <ul>
@@ -77,12 +81,9 @@ class CoachingSessionItem extends React.Component {
             Cost: $
             {session.trainingRate}
           </li>
-          <button
-            type="button"
-            onClick={this.handleClick}
-          >
-            Cancel
-          </button>
+          {(time === 'upcoming')
+            ? <button type="button" onClick={this.handleClick}>Cancel</button>
+            : <button type="button">Add review (soon)</button>}
         </ul>
       </div>
     );
