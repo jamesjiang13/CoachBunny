@@ -15,11 +15,39 @@
   margin: 15px;
   padding: 20px;
   line-height: 1.3;
+  font-size: 18px;
+}
+
+.timeToggle button {
+  width: 250px;
+  border: none;
+  border-bottom: 1px solid #51af33;
+  font-size: 22px;
+  background-color: inherit;
+  padding-bottom: 5px;
+}
+
+.timeToggle button:hover {
+  padding-bottom: 3px; 
+  border-bottom: 3px solid #438e29;
+  background-color: lightgray;
+}
+
+.timeToggle button::selection {
+  padding-bottom: 3px; 
+  border-bottom: 3px solid #438e29;
+  background: red;
+}
+
+.timeToggle.past {
+  border-left: 1px solid #51af33;
 }
 
 .dateTime {
+  width: 65px;
   padding-right: 10px;
 }
+
 .coachingSessions button {
   display: block;
   justify-content: center;
@@ -28,7 +56,7 @@
   background-color: #51af33;
   padding: 5px 20px;
   border-color: #86919d ;
-  width: 120px;
+  min-width: 130px;
   color: white;
   border-radius: 4px;
   margin: 15px 0px;

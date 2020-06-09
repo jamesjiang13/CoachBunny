@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 440px;
   margin-top: 40px;
 }
 
@@ -46,11 +47,26 @@
   background-color: #438e29;
   cursor: pointer;
 }
+
+.searchLeft {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 250px;
+}
+
+.searchRight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .searchContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: 80%;
 }
+
 .filterContainer {
   display: flex;
   flex-direction: column;
@@ -68,6 +84,19 @@
   margin-bottom: 10px;
   font-size: large;
 }
+
+/* .backgroundCheck {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  border: 1px solid gray;
+  border-radius: 4px;
+  margin: 5px 0;
+  width: 150px;
+  background-color: white;
+  height: 127px;
+  padding: 15px;
+} */
 
 /* Customize the label (the container) */
 .checkboxContainer {

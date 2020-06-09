@@ -38,17 +38,28 @@ class SearchResultItem extends React.Component {
       <div className={classes.coachMain}>
         <div className={classes.coachProfile}>
           <img src="https://res.cloudinary.com/taskrabbit-com/image/upload/c_fill,g_faces,h_108,w_108/v1408385393/default_avatar.jpg" alt="profile" />
+          <button type="button" className={classes.trainNow} onClick={this.handleClick}> Train now </button>
+          <span>
+            You can adjust training details, or change training time after booking.
+          </span>
         </div>
         <div className={classes.coachDetails}>
+          <div className={classes.coachNameContainer}>
+            <span className={classes.coachName}>{coach.firstName} {coach.lastName[0]}.</span>
+            <span className={classes.coachRate}>${coachingRate}/session</span>
+          </div>
           <ul>
-            <li key={`${coachId}name`}>{coach.firstName} {coach.lastName[0]} </li>
-            <li key={`${coachId}rate`}>Session Rate: ${coachingRate}</li>
+            {(eliteCoach)
+              ? <li key={`${coachId}elite`} className={classes.elite}>Elite</li>
+              : null}
+            <li key={`${coachId}equip`} className={classes.equipment}>{(equipment) ? 'Has Equipment' : null }</li>
             <li key={`${coachId}dur`}>Session Duration: {duration}mins</li>
-            <li key={`${coachId}elite`} className={classes.eliteStatus}>{(eliteCoach) ? 'Elite' : null}</li>
-            <li key={`${coachId}equip`}>{(equipment) ? 'Has Equipment' : null }</li>
+            <li key={`${coachId}desc`}>About Me: {coach.coachDescription}</li>
           </ul>
-          <div className={classes.trainNow}>
-            <button type="button" onClick={this.handleClick}> Train now </button>
+          <div className={classes.trainingDescription}>
+            <span>How I can help:</span>
+            <br />
+            <span>{coach.coachDescription}</span>
           </div>
         </div>
       </div>

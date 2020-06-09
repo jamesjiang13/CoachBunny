@@ -23,38 +23,36 @@ sport5 = Sport.create(sport: "golf")
 # create coaches
 # basketball
 coach1 = Coach.create(first_name: "Steve", last_name: "Nash", zip_code: "85002", 
-  coach_description: "2× NBA Most Valuable Player, 8× NBA All-Star, 3× All-NBA First Team, 
-  2× All-NBA Second Team, 5× NBA assists leader")
+  coach_description: "2x NBA Most Valuable Player, 8x NBA All-Star, 3x All-NBA First Team, 
+  2x All-NBA Second Team, 5x NBA assists leader")
 
 coach2 = Coach.create(first_name: "Steph", last_name: "Curry", zip_code: "94501", 
-  coach_description: "Wardell Stephen Curry II is an American professional basketball player 
-    for the Golden State Warriors of the National Basketball Association. A six-time NBA All-Star, 
-    Curry has been named the NBA Most Valuable Player twice and won three NBA championships with 
-    the Warriors.")
+  coach_description: "I'm a six-time NBA All-Star, 2x NBA MVP, and 3x NBA champ. I'm also pretty
+  good at 3-point shots. I've also been golfing all my life.")
 
 coach3 = Coach.create(first_name: "Byron", last_name: "Norris", zip_code: "97275", 
   coach_description: "I've coached AAU for the last 5 years")
 
 coach4 = Coach.create(first_name: "Connie", last_name: "Gardner", zip_code: "83778", 
-  coach_description: "Former NCAA DII player")
+  coach_description: "I'm a former NCAA DII player")
 
 coach5 = Coach.create(first_name: "Ed", last_name: "Waters", zip_code: "62474", 
   coach_description: "I'm a proven coach with proven methods that work")
 
 # football
 coach6 = Coach.create(first_name: "Charles", last_name: "Woodson", zip_code: "94501", 
-  coach_description: "Super Bowl champion (XLV), 9× Pro Bowl (1998–2001, 2008–2011, 2015), 4× First-team 
-    All-Pro (1999, 2001, 2009, 2011), 4× Second-team All-Pro (2000, 2008, 2010, 2015), NFL Defensive 
-    Player of the Year (2009), NFL Defensive Rookie of the Year (1998), 2× NFL interceptions leader (2009, 2011)") 
+  coach_description: "Super Bowl champion (XLV), 9x Pro Bowl (1998–2001, 2008–2011, 2015), 4x First-team 
+    All-Pro (1999, 2001, 2009, 2011), 4x Second-team All-Pro (2000, 2008, 2010, 2015), NFL Defensive 
+    Player of the Year (2009), NFL Defensive Rookie of the Year (1998), 2x NFL interceptions leader (2009, 2011)") 
 
 coach7 = Coach.create(first_name: "Vince", last_name: "Young", zip_code: "85002", 
-  coach_description: "The real Vince Young National Champion, 2X Pro Bowler, 06 ROY")
+  coach_description: "The OG Vince Young National Champion, 2X Pro Bowler, 06 ROTY")
 
 coach8 = Coach.create(first_name: "George", last_name: "Hamilton", zip_code: "75399", 
   coach_description: "I once caught a TD in 5th grade flag football")
  
 coach9 = Coach.create(first_name: "Byron", last_name: "Norris", zip_code: "66294", 
-  coach_description: "Rec league champ")
+  coach_description: "Rec league champion '17")
 
 coach10 = Coach.create(first_name: "Pat", last_name: "Barrett", zip_code: "29596", 
   coach_description: "I grew up with football in the house, I know what I'm doing")
@@ -64,7 +62,7 @@ coach11 = Coach.create(first_name: "Andy", last_name: "Roddick", zip_code: "6802
   coach_description: "I used to play tennis")
   
 coach12 = Coach.create(first_name: "Pamela", last_name: "McGuire", zip_code: "85264", 
-  coach_description: "Women Doubles preferred")
+  coach_description: "I grew up playing tennis, it's what I was born to do.")
 
 coach13 = Coach.create(first_name: "Archie", last_name: "Simon", zip_code: "73538", 
   coach_description: "CSS runner up '05")
