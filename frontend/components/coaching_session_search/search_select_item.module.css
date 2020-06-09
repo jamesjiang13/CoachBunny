@@ -27,6 +27,10 @@
   margin-right: 30px;
 }
 
+.mainSelect {
+  fonst-size: 20px;
+}
+
 .mainSelect div {
   padding: 4px 0px;
 }
@@ -37,9 +41,9 @@
   justify-content: flex-start;
 }
 
-.trainingTime {
+/* .trainingTime {
   margin-top: 8px;
-}
+} */
 
 .mainSelect > button {
   display: block;
@@ -52,7 +56,7 @@
   width: 100%;
   color: white;
   border-radius: 4px;
-  margin: 15px 0px;
+  margin: 10px 0 40px 0;
   font-size: 17px;
   transition-property: background-color, color;
   transition-timing-function: ease;
