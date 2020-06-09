@@ -16,15 +16,22 @@ class CoachingSessions extends React.PureComponent {
       return () => this.setState({ time: selection });
     }
   }
+  // click on tab, set classname === opposite of what it is. change inactive to active, vice versa
+  // need to reset other tab as well, active to inactive, vice versa
+  // add css to 'active' class
 
   filterDate(sessions) {
     const { time } = this.state;
     let timeFilter;
+    sessions.forEach(session => console.log(new Date(session.trainingDate)));
+    console.log(new Date());
 
     if (time === 'upcoming') {
       timeFilter = sessions.filter((session) => new Date(session.trainingDate) > new Date());
+      console.log(timeFilter);
     } else {
       timeFilter = sessions.filter((session) => new Date(session.trainingDate) < new Date());
+      console.log(timeFilter);
     }
     return timeFilter.sort((a, b) => (a.trainingDate > b.trainingDate) ? 1 : -1);
   }
