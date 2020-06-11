@@ -16,9 +16,11 @@ function extractTime(fullDateTime) {
   if (hr === 0 && min === 0) {
     time = '12:00AM';
   } else if (hr >= 12 && min > 0) {
-    time = ((min < 10) ? `${hr % 12}:0${min}PM` : `${hr % 12}:${min}PM`)
+    time = ((min < 10) ? `${hr % 12}:0${min}PM` : `${hr % 12}:${min}PM`);
+  } else if (hr > 12 && min === 0) {
+    time = (`${hr % 12}:00PM`);
   } else if (hr < 12) {
-    time = ((min < 10) ? `${hr % 12}:0${min}AM` : `${hr % 12}:${min}AM`)
+    time = ((min < 10) ? `${hr % 12}:0${min}AM` : `${hr % 12}:${min}AM`);
   } else if (hr === 12 && min === 0) {
     time = '12:00PM';
   }
@@ -34,7 +36,8 @@ class CoachingSessionItem extends React.Component {
   handleClick(e) {
     e.preventDefault();
     const { session, openModal } = this.props;
-    openModal({ cancel: session });
+    const type = e.target.value;
+    openModal({ [type]: session });
   }
 
   render() {
@@ -82,7 +85,12 @@ class CoachingSessionItem extends React.Component {
             {session.trainingDescription}
           </li>
           {(time === 'upcoming')
-            ? <button type="button" onClick={this.handleClick}>Cancel</button>
+            ? (
+              <div>
+                <button type="button" value="reschedule" onClick={this.handleClick}>Reschedule</button>
+                <button type="button" value="cancel" onClick={this.handleClick}>Cancel</button>
+              </div>
+            )
             : <button type="button">Add review (soon)</button>}
         </ul>
       </div>

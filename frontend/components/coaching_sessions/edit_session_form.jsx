@@ -1,17 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import classes from './search_select_item.module.css';
+import classes from '../coaching_session_search/search_select_item.module.css';
 
-class SearchSelectItem extends React.Component {
+class EditCoachingSession extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      trainingDate: '',
-      trainingDescription: this.props.description,
+      trainingDate: this.props.session.trainingDate,
+      trainingDescription: this.props.session.trainingDescription,
       errors: '',
     };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
@@ -46,9 +44,10 @@ class SearchSelectItem extends React.Component {
 
   render() {
     const {
-      firstName, lastName, coachingRate, duration, eliteCoach, equipment,
-    } = this.props.coach;
+      firstName, lastName, trainingRate, duration,
+    } = this.props.session;
     const { errors, trainingDate, trainingDescription } = this.state;
+    debugger;
     return (
       <div className={classes.selectMainContainer}>
         <div className={classes.selectCoachContainer}>
@@ -67,11 +66,11 @@ class SearchSelectItem extends React.Component {
                 {' '}
                 {lastName[0]}
               </div>
-              {(!eliteCoach ? null : <div className={classes.coachElite}>Elite</div>)}
-              {(!equipment ? null : <div className={classes.coachElite}>Has Equipment</div>)}
+              {/* {(!eliteCoach ? null : <div className={classes.coachElite}>Elite</div>)}
+              {(!equipment ? null : <div className={classes.coachElite}>Has Equipment</div>)} */}
               <div>
                 Price: $
-                {coachingRate}
+                {trainingRate}
                 /session
               </div>
               <div>
@@ -96,7 +95,7 @@ class SearchSelectItem extends React.Component {
               />
             </div>
             <div className={classes.errors}>{errors}</div>
-            <button type="submit"> Reserve this Coach </button>
+            <button type="submit"> Update </button>
           </form>
         </div>
       </div>
@@ -104,4 +103,4 @@ class SearchSelectItem extends React.Component {
   }
 }
 
-export default SearchSelectItem;
+export default EditCoachingSession;
