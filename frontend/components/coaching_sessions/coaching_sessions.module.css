@@ -48,12 +48,6 @@
   padding-right: 10px;
 }
 
-.scheduleButtons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
 .coachingSessions button {
   display: block;
   justify-content: center;
@@ -76,4 +70,10 @@
   background-color: #438e29;
   color: white;
   cursor: pointer;
+}
+
+.scheduleButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }

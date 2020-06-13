@@ -2,11 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classes from '../coaching_session_search/search_select_item.module.css';
 
+function currentDate() {
+  const now = new Date();
+  return now.toISOString().split('T')[0];
+}
+
 class EditCoachingSession extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       trainingDate: this.props.session.trainingDate,
+      trainingTime: '',
       trainingDescription: this.props.session.trainingDescription,
       errors: '',
     };
@@ -14,8 +20,8 @@ class EditCoachingSession extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { trainingDate, trainingDescription } = this.state;
-    if (trainingDate === '') {
+    const { trainingDate, trainingTime, trainingDescription } = this.state;
+    if (trainingDate === '' || trainingTime === '') {
       this.setState({ errors: 'Must select a time' });
     } else {
       const {
@@ -28,7 +34,7 @@ class EditCoachingSession extends React.Component {
         trainingDuration: coach.duration,
         trainingRate: coach.coachingRate,
         userId,
-        trainingDate,
+        trainingDate: new Date(`${trainingDate} ${trainingTime}`),
         trainingDescription,
       };
 
@@ -83,7 +89,7 @@ class EditCoachingSession extends React.Component {
             <div className={classes.trainingTime}>
               {' '}
               <span>Ideal training time:</span>
-              <input type="datetime-local" min={new Date()} value={trainingDate} onChange={this.update('trainingDate')} />
+              <input type="datetime-local" min={currentDate} value={trainingDate} onChange={this.update('trainingDate')} />
             </div>
             <div className={classes.trainingDescription}>
               <span>Confirm training details:</span>

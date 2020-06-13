@@ -2,6 +2,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classes from './search_select_item.module.css';
 
+function currentDate() {
+  const now = new Date();
+  let month = now.toLocaleDateString().split('/')[0];
+  let day = now.toLocaleDateString().split('/')[1];
+  const year = now.toLocaleDateString().split('/')[2];
+  (parseInt(month) < 10) ? month = `0${month}` : month;
+  (parseInt(day) < 10) ? day = `0${day}` : day;
+  return `${year}-${month}-${day}`;
+}
+
+function currentTime() {
+  const now = new Date();
+  let hour = now.toTimeString().split(":")[0];
+  let minute = now.toTimeString().split(":")[1];
+  (parseInt(hour) < 10) ? hour = `0${hour}` : hour;
+  (parseInt(minute) < 10) ? minute = `0${minute}` : minute;
+  return `${hour}:${minute}`;
+}
+
 class SearchSelectItem extends React.Component {
   constructor(props) {
     super(props);
@@ -84,9 +103,9 @@ class SearchSelectItem extends React.Component {
             </div>
             <div className={classes.trainingTime}>
               <span>Ideal training date:</span>
-              <input type="date" min="2020-06-10" value={trainingDate} onChange={this.update('trainingDate')} />
+              <input type="date" min={currentDate()} value={trainingDate} onChange={this.update('trainingDate')} />
               <span>Ideal training date:</span>
-              <input type="time" step="300" value={trainingTime} onChange={this.update('trainingTime')} />
+              <input type="time" min={currentTime()} step="300" value={trainingTime} onChange={this.update('trainingTime')} />
             </div>
 
             <div className={classes.trainingDescription}>

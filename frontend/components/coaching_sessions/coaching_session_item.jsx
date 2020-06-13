@@ -14,7 +14,6 @@ function extractTime(fullDateTime) {
   const hr = timeObj.toLocaleTimeString().split(':')[0];
   const min = timeObj.toLocaleTimeString().split(':')[1];
   const suffix = timeObj.toLocaleTimeString().split(' ')[1];
-
   return `${hr}:${min} ${suffix}`;
 }
 
