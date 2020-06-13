@@ -23,15 +23,12 @@ class CoachingSessions extends React.PureComponent {
   filterDate(sessions) {
     const { time } = this.state;
     let timeFilter;
-    sessions.forEach(session => console.log(new Date(session.trainingDate)));
-    console.log(new Date());
+    // sessions.forEach(session => console.log(new Date(session.trainingDate)));
 
     if (time === 'upcoming') {
       timeFilter = sessions.filter((session) => new Date(session.trainingDate) > new Date());
-      console.log(timeFilter);
     } else {
       timeFilter = sessions.filter((session) => new Date(session.trainingDate) < new Date());
-      console.log(timeFilter);
     }
     return timeFilter.sort((a, b) => (a.trainingDate > b.trainingDate) ? 1 : -1);
   }

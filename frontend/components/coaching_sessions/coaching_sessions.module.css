@@ -48,6 +48,12 @@
   padding-right: 10px;
 }
 
+.scheduleButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .coachingSessions button {
   display: block;
   justify-content: center;

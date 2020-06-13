@@ -10,21 +10,12 @@ function extractDate(fullDateTime) {
 }
 
 function extractTime(fullDateTime) {
-  const hr = parseInt(fullDateTime.slice(11, 16), 10);
-  const min = parseInt(fullDateTime.slice(14, 16), 10);
-  let time;
-  if (hr === 0 && min === 0) {
-    time = '12:00AM';
-  } else if (hr >= 12 && min > 0) {
-    time = ((min < 10) ? `${hr % 12}:0${min}PM` : `${hr % 12}:${min}PM`);
-  } else if (hr > 12 && min === 0) {
-    time = (`${hr % 12}:00PM`);
-  } else if (hr < 12) {
-    time = ((min < 10) ? `${hr % 12}:0${min}AM` : `${hr % 12}:${min}AM`);
-  } else if (hr === 12 && min === 0) {
-    time = '12:00PM';
-  }
-  return time;
+  const timeObj = new Date(fullDateTime);
+  const hr = timeObj.toLocaleTimeString().split(':')[0];
+  const min = timeObj.toLocaleTimeString().split(':')[1];
+  const suffix = timeObj.toLocaleTimeString().split(' ')[1];
+
+  return `${hr}:${min} ${suffix}`;
 }
 
 class CoachingSessionItem extends React.Component {
@@ -86,7 +77,7 @@ class CoachingSessionItem extends React.Component {
           </li>
           {(time === 'upcoming')
             ? (
-              <div>
+              <div className={classes.scheduleButtons}>
                 <button type="button" value="reschedule" onClick={this.handleClick}>Reschedule</button>
                 <button type="button" value="cancel" onClick={this.handleClick}>Cancel</button>
               </div>

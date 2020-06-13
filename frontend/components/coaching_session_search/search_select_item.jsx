@@ -7,6 +7,7 @@ class SearchSelectItem extends React.Component {
     super(props);
     this.state = {
       trainingDate: '',
+      trainingTime: '',
       trainingDescription: this.props.description,
       errors: '',
     };
@@ -16,9 +17,9 @@ class SearchSelectItem extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { trainingDate, trainingDescription } = this.state;
-    if (trainingDate === '') {
-      this.setState({ errors: 'Must select a time' });
+    const { trainingDate, trainingTime, trainingDescription } = this.state;
+    if (trainingDate === '' || trainingTime === '') {
+      this.setState({ errors: 'Must select a date and time' });
     } else {
       const {
         submitForm, closeModal, coach, userId,
@@ -30,7 +31,7 @@ class SearchSelectItem extends React.Component {
         trainingDuration: coach.duration,
         trainingRate: coach.coachingRate,
         userId,
-        trainingDate,
+        trainingDate: new Date(`${trainingDate} ${trainingTime}`),
         trainingDescription,
       };
 
@@ -48,7 +49,7 @@ class SearchSelectItem extends React.Component {
     const {
       firstName, lastName, coachingRate, duration, eliteCoach, equipment,
     } = this.props.coach;
-    const { errors, trainingDate, trainingDescription } = this.state;
+    const { errors, trainingDate, trainingTime, trainingDescription } = this.state;
     return (
       <div className={classes.selectMainContainer}>
         <div className={classes.selectCoachContainer}>
@@ -82,10 +83,12 @@ class SearchSelectItem extends React.Component {
               </div>
             </div>
             <div className={classes.trainingTime}>
-              {' '}
-              <span>Ideal training time:</span>
-              <input type="datetime-local" min={new Date()} value={trainingDate} onChange={this.update('trainingDate')} />
+              <span>Ideal training date:</span>
+              <input type="date" min="2020-06-10" value={trainingDate} onChange={this.update('trainingDate')} />
+              <span>Ideal training date:</span>
+              <input type="time" step="300" value={trainingTime} onChange={this.update('trainingTime')} />
             </div>
+
             <div className={classes.trainingDescription}>
               <span>Confirm training details:</span>
               <br />
