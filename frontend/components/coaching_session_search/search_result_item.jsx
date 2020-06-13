@@ -31,7 +31,7 @@ class SearchResultItem extends React.Component {
 
   render() {
     const {
-      coachId, coach, coachingRate, duration, eliteCoach, equipment,
+      coachId, coach, coachingRate, duration, eliteCoach, equipment, sessionDescription,
     } = this.props.result;
 
     return (
@@ -59,7 +59,7 @@ class SearchResultItem extends React.Component {
           <div className={classes.trainingDescription}>
             <span>How I can help:</span>
             <br />
-            <span>{coach.coachDescription}</span>
+            <span>{sessionDescription}</span>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import classes from './search_select_item.module.css';
+import classes from '../coaching_session_search/search_select_item.module.css';
 
 function currentDate() {
   const now = new Date();
@@ -21,24 +21,38 @@ function currentTime() {
   return `${hour}:${minute}`;
 }
 
-class SearchSelectItem extends React.Component {
+function extractDate(fullDateTime) {
+  const month = parseInt(fullDateTime.slice(5, 7), 10);
+  const day = parseInt(fullDateTime.slice(8, 10), 10);
+  const months = ['nil', 'Jan', 'Feb', 'Mar', 'Apr', 'May',
+    'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+  return [months[month], day];
+}
+
+function extractTime(fullDateTime) {
+  const timeObj = new Date(fullDateTime);
+  const hr = timeObj.toLocaleTimeString().split(':')[0];
+  const min = timeObj.toLocaleTimeString().split(':')[1];
+  const suffix = timeObj.toLocaleTimeString().split(' ')[1];
+  return `${hr}:${min} ${suffix}`;
+}
+
+class EditCoachingSession extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      trainingDate: '',
+      trainingDate: this.props.session.trainingDate,
       trainingTime: '',
-      trainingDescription: this.props.description,
+      trainingDescription: this.props.session.trainingDescription,
       errors: '',
     };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const { trainingDate, trainingTime, trainingDescription } = this.state;
     if (trainingDate === '' || trainingTime === '') {
-      this.setState({ errors: 'Must select a date and time' });
+      this.setState({ errors: 'Must select a time' });
     } else {
       const {
         submitForm, closeModal, coach, userId,
@@ -66,9 +80,10 @@ class SearchSelectItem extends React.Component {
 
   render() {
     const {
-      firstName, lastName, coachingRate, duration, eliteCoach, equipment,
-    } = this.props.coach;
+      firstName, lastName, trainingRate, duration,
+    } = this.props.session;
     const { errors, trainingDate, trainingTime, trainingDescription } = this.state;
+    debugger;
     return (
       <div className={classes.selectMainContainer}>
         <div className={classes.selectCoachContainer}>
@@ -87,11 +102,11 @@ class SearchSelectItem extends React.Component {
                 {' '}
                 {lastName[0]}
               </div>
-              {(!eliteCoach ? null : <div className={classes.coachElite}>Elite</div>)}
-              {(!equipment ? null : <div className={classes.coachElite}>Has Equipment</div>)}
+              {/* {(!eliteCoach ? null : <div className={classes.coachElite}>Elite</div>)}
+              {(!equipment ? null : <div className={classes.coachElite}>Has Equipment</div>)} */}
               <div>
                 Price: $
-                {coachingRate}
+                {trainingRate}
                 /session
               </div>
               <div>
@@ -102,12 +117,11 @@ class SearchSelectItem extends React.Component {
               </div>
             </div>
             <div className={classes.trainingTime}>
-              <span>Ideal training date:</span>
+              <span>Training date:</span>
               <input type="date" min={currentDate()} value={trainingDate} onChange={this.update('trainingDate')} />
-              <span>Ideal training date:</span>
-              <input type="time" min={currentTime()} step="300" value={trainingTime} onChange={this.update('trainingTime')} />
+              <span>Training time:</span>
+              <input type="time" min={currentTime()} value={trainingTime} onChange={this.update('trainingTime')} />
             </div>
-
             <div className={classes.trainingDescription}>
               <span>Confirm training details:</span>
               <br />
@@ -118,7 +132,7 @@ class SearchSelectItem extends React.Component {
               />
             </div>
             <div className={classes.errors}>{errors}</div>
-            <button type="submit"> Reserve this Coach </button>
+            <button type="submit"> Update </button>
           </form>
         </div>
       </div>
@@ -126,4 +140,4 @@ class SearchSelectItem extends React.Component {
   }
 }
 
-export default SearchSelectItem;
+export default EditCoachingSession;

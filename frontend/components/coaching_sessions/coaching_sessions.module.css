@@ -71,3 +71,9 @@
   color: white;
   cursor: pointer;
 }
+
+.scheduleButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
