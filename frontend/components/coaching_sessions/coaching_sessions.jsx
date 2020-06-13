@@ -5,7 +5,11 @@ import CoachingSessionItemContainer from './coaching_session_container';
 class CoachingSessions extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = { time: 'upcoming' };
+    this.state = {
+      time: 'upcoming',
+      // active: 'upcoming',
+      // inactive: 'past',
+    };
     this.handleClick = this.handleClick.bind(this);
     this.filterDate = this.filterDate.bind(this);
   }
@@ -16,7 +20,7 @@ class CoachingSessions extends React.PureComponent {
       return () => this.setState({ time: selection });
     }
   }
-  // click on tab, set classname === opposite of what it is. change inactive to active, vice versa
+  // click on tab, set classname === opposite of what it is: change inactive to active, vice versa
   // need to reset other tab as well, active to inactive, vice versa
   // add css to 'active' class
 
