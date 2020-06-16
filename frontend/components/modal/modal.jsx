@@ -17,8 +17,8 @@ function Modal({ modal, closeModal }) {
     case 'cancel':
       component = <CancelConfirmContainer session={modal.cancel} />;
       break;
-    case 'reschedule':
-      component = <EditCoachingSessionContainer session={modal.reschedule} />;
+    case 'edit':
+      component = <EditCoachingSessionContainer session={modal.edit} />;
       break;
     default:
       return null;

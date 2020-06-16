@@ -32,7 +32,6 @@
   cursor: pointer;
   background-color: #51af33;
   padding: 9.6px 26.5px;
-  border-color: #86919d ;
   width: 250px;
   color: white;
   border-radius: 4px;
@@ -50,7 +49,8 @@
 
 .searchLeft {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: flex-start;
   max-width: 250px;
 }
 
@@ -67,13 +67,29 @@
   width: 80%;
 }
 
+.backgroundCheck {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  box-shadow: 0px 2px 6px 0px #c4c4c4;
+  margin: 70px 15px 0 0;
+  width: 150px;
+  background-color: white;
+  height: 127px;
+  padding: 15px;
+  font-size: large;
+}
+
 .filterContainer {
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  border: 1px solid gray;
+  border: 1px solid lightgray;
   border-radius: 4px;
-  margin: 70px 15px 0 0;
+  box-shadow: 0px 2px 6px 0px #c4c4c4;
+  margin: 30px 15px 0 0;
   width: 150px;
   background-color: white;
   height: 127px;
@@ -84,19 +100,6 @@
   margin-bottom: 10px;
   font-size: large;
 }
-
-/* .backgroundCheck {
-  display: flex;
-  flex-direction: column;
-  align-items: baseline;
-  border: 1px solid gray;
-  border-radius: 4px;
-  margin: 5px 0;
-  width: 150px;
-  background-color: white;
-  height: 127px;
-  padding: 15px;
-} */
 
 /* Customize the label (the container) */
 .checkboxContainer {

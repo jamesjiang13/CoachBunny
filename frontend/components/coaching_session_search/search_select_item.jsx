@@ -12,14 +12,14 @@ function currentDate() {
   return `${year}-${month}-${day}`;
 }
 
-function currentTime() {
-  const now = new Date();
-  let hour = now.toTimeString().split(":")[0];
-  let minute = now.toTimeString().split(":")[1];
-  (parseInt(hour) < 10) ? hour = `0${hour}` : hour;
-  (parseInt(minute) < 10) ? minute = `0${minute}` : minute;
-  return `${hour}:${minute}`;
-}
+// function currentTime() {
+//   const now = new Date();
+//   let hour = now.toTimeString().split(":")[0];
+//   let minute = now.toTimeString().split(":")[1];
+//   (parseInt(hour) < 10) ? hour = `0${hour}` : hour;
+//   (parseInt(minute) < 10) ? minute = `0${minute}` : minute;
+//   return `${hour}:${minute}`;
+// }
 
 class SearchSelectItem extends React.Component {
   constructor(props) {
@@ -105,7 +105,7 @@ class SearchSelectItem extends React.Component {
               <span>Ideal training date:</span>
               <input type="date" min={currentDate()} value={trainingDate} onChange={this.update('trainingDate')} />
               <span>Ideal training date:</span>
-              <input type="time" min={currentTime()} step="300" value={trainingTime} onChange={this.update('trainingTime')} />
+              <input type="time" step="300" value={trainingTime} onChange={this.update('trainingTime')} />
             </div>
 
             <div className={classes.trainingDescription}>

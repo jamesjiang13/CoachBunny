@@ -70,11 +70,11 @@ class SearchResults extends React.Component {
         </div>
         <div className={classes.searchContainer}>
           <div className={classes.searchLeft}>
-            {/* <div className={classes.backgroundCheck}>
+            <div className={classes.backgroundCheck}>
               <span>
-                Always have peace of mind. All Coaches undergo ID and criminal background checks.
+                All Coaches undergo ID and criminal background checks.
               </span>
-            </div> */}
+            </div>
             <div className={classes.filterContainer}>
               <span>Coach Type</span>
               <label

@@ -77,7 +77,7 @@ class CoachingSessionItem extends React.Component {
           {(time === 'upcoming')
             ? (
               <div className={classes.scheduleButtons}>
-                <button type="button" value="reschedule" onClick={this.handleClick}>Reschedule</button>
+                <button type="button" value="edit" onClick={this.handleClick}>Edit</button>
                 <button type="button" value="cancel" onClick={this.handleClick}>Cancel</button>
               </div>
             )

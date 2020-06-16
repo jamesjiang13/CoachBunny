@@ -18,29 +18,23 @@
   font-size: 18px;
 }
 
-.timeToggle button {
+.timeToggle  {
   width: 250px;
   border: none;
-  border-bottom: 1px solid #51af33;
   font-size: 22px;
   background-color: inherit;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 
-.timeToggle button:hover {
-  padding-bottom: 3px; 
-  border-bottom: 3px solid #438e29;
+.timeToggle:hover {
   background-color: lightgray;
 }
 
-.timeToggle button::selection {
-  padding-bottom: 3px; 
-  border-bottom: 3px solid #438e29;
-  background: red;
-}
-
-.timeToggle.past {
-  border-left: 1px solid #51af33;
+.active {
+  padding-bottom: 7px;
+  font-weight: bold;
+  color: #438e29;
+  border-bottom: 2px solid #438e29;
 }
 
 .dateTime {
@@ -75,5 +69,9 @@
 .scheduleButtons {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+}
+
+.scheduleButtons button{
+  margin-right: 20px;
 }
