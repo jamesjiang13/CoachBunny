@@ -29,9 +29,10 @@ class Api::CoachingSessionsController < ApplicationController
 
   # get one session by ID, update params for that session
   def update 
-    @coaching_session = CoachingSession.where(user_id: current_user.id).where(id: params[:id])
+    @coaching_session = CoachingSession.find_by(id: params[:id])
 
     if @coaching_session.update(coaching_session_params)
+      @coaching_sessions = CoachingSession.where(user_id: current_user.id)
       render :index
     else
       render json: @coaching_session.errors.full_messages, status: 422

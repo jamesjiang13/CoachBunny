@@ -7,8 +7,6 @@ class CoachingSessions extends React.PureComponent {
     super(props);
     this.state = {
       time: 'upcoming',
-      // active: 'upcoming',
-      // inactive: 'past',
     };
     this.handleClick = this.handleClick.bind(this);
     this.filterDate = this.filterDate.bind(this);
@@ -20,9 +18,6 @@ class CoachingSessions extends React.PureComponent {
       return () => this.setState({ time: selection });
     }
   }
-  // click on tab, set classname === opposite of what it is: change inactive to active, vice versa
-  // need to reset other tab as well, active to inactive, vice versa
-  // add css to 'active' class
 
   filterDate(sessions) {
     const { time } = this.state;
@@ -43,9 +38,9 @@ class CoachingSessions extends React.PureComponent {
 
     return (
       <div className={classes.coachingSessionsMain}>
-        <div className={classes.timeToggle}>
-          <button type="button" className={classes.upcoming} onClick={this.handleClick('upcoming')}>Upcoming Sessions</button>
-          <button type="button" className={classes.past} onClick={this.handleClick('past')}>Past Sessions</button>
+        <div>
+          <button type="button" className={`${classes.timeToggle} ${(time === 'upcoming') ? classes.active : null}`} onClick={this.handleClick('upcoming')}>Upcoming Sessions</button>
+          <button type="button" className={`${classes.timeToggle} ${(time === 'past') ? classes.active : null}`} onClick={this.handleClick('past')}>Past Sessions</button>
         </div>
         {sorted.map((session) => {
           return <CoachingSessionItemContainer session={session} key={session.id} time={time} />;

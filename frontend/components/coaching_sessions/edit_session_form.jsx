@@ -31,21 +31,19 @@ function extractDate(fullDateTime) {
 
 function extractTime(fullDateTime) {
   const timeObj = new Date(fullDateTime);
-  const hr = timeObj.toLocaleTimeString().split(':')[0];
-  const min = timeObj.toLocaleTimeString().split(':')[1];
-  const suffix = timeObj.toLocaleTimeString().split(' ')[1];
-  return `${hr}:${min} ${suffix}`;
+  return timeObj.toTimeString().slice(0,5);
 }
 
 class EditCoachingSession extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      trainingDate: this.props.session.trainingDate,
-      trainingTime: '',
+      trainingDate: this.props.session.trainingDate.split('T')[0],
+      trainingTime: extractTime(this.props.session.trainingDate),
       trainingDescription: this.props.session.trainingDescription,
-      errors: '',
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
@@ -55,20 +53,20 @@ class EditCoachingSession extends React.Component {
       this.setState({ errors: 'Must select a time' });
     } else {
       const {
-        submitForm, closeModal, coach, userId,
+        updateSession, closeModal, session, userId,
       } = this.props;
-
       const finalSessionDetails = {
-        sportId: coach.sportId,
-        coachId: coach.id,
-        trainingDuration: coach.duration,
-        trainingRate: coach.coachingRate,
+        id: session.id,
+        sportId: session.sportId,
+        coachId: session.coachId,
+        trainingDuration: session.trainingDuration,
+        trainingRate: session.trainingRate,
         userId,
         trainingDate: new Date(`${trainingDate} ${trainingTime}`),
         trainingDescription,
       };
-
-      submitForm(finalSessionDetails);
+      console.log(finalSessionDetails);
+      updateSession(finalSessionDetails);
       closeModal();
       location.href = '/#/main/mysessions';
     }
@@ -80,10 +78,11 @@ class EditCoachingSession extends React.Component {
 
   render() {
     const {
-      firstName, lastName, trainingRate, duration,
+      coach, trainingRate, trainingDuration,
     } = this.props.session;
-    const { errors, trainingDate, trainingTime, trainingDescription } = this.state;
-    debugger;
+    const {
+      trainingDate, trainingTime, trainingDescription,
+    } = this.state;
     return (
       <div className={classes.selectMainContainer}>
         <div className={classes.selectCoachContainer}>
@@ -98,9 +97,9 @@ class EditCoachingSession extends React.Component {
                 <img src="https://res.cloudinary.com/taskrabbit-com/image/upload/c_fill,g_faces,h_108,w_108/v1408385393/default_avatar.jpg" alt="profile" />
               </div>
               <div className={classes.coachName}>
-                {firstName}
+                {coach.firstName}
                 {' '}
-                {lastName[0]}
+                {coach.lastName[0]}
               </div>
               {/* {(!eliteCoach ? null : <div className={classes.coachElite}>Elite</div>)}
               {(!equipment ? null : <div className={classes.coachElite}>Has Equipment</div>)} */}
@@ -112,7 +111,7 @@ class EditCoachingSession extends React.Component {
               <div>
                 Duration:
                 {' '}
-                {duration}
+                {trainingDuration}
                 mins
               </div>
             </div>
@@ -120,7 +119,7 @@ class EditCoachingSession extends React.Component {
               <span>Training date:</span>
               <input type="date" min={currentDate()} value={trainingDate} onChange={this.update('trainingDate')} />
               <span>Training time:</span>
-              <input type="time" min={currentTime()} value={trainingTime} onChange={this.update('trainingTime')} />
+              <input type="time" value={trainingTime} onChange={this.update('trainingTime')} />
             </div>
             <div className={classes.trainingDescription}>
               <span>Confirm training details:</span>
@@ -131,7 +130,7 @@ class EditCoachingSession extends React.Component {
                 className={classes.trainingDescriptionText}
               />
             </div>
-            <div className={classes.errors}>{errors}</div>
+            {/* <div className={classes.errors}>{errors}</div> */}
             <button type="submit"> Update </button>
           </form>
         </div>
