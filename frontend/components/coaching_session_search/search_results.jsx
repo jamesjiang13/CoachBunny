@@ -72,7 +72,7 @@ class SearchResults extends React.Component {
           <div className={classes.searchLeft}>
             <div className={classes.backgroundCheck}>
               <span>
-                All Coaches undergo ID and criminal background checks.
+                All our Coaches undergo ID and criminal background checks so that you can book and train with confidence.
               </span>
             </div>
             <div className={classes.filterContainer}>
