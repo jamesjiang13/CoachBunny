@@ -4,8 +4,11 @@
     <title>CoachBunny</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <meta property="og:image" content="<%= image_url('bunny_logo.png') %>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="CoachBunny" />
+    <meta property="og:image" content="<%= image_url('metalogo.png') %>" />
+    <meta property="og:description" content="Find experienced coaches to help improve your game!" />
+    <meta property="og:url" content="https://coachbunny.herokuapp.com/" />
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
@@ -16,6 +19,7 @@
       window.textLogo = "<%= image_url('text_logo.png') %>";
       window.fullLogo2 = "<%= image_url('full_logo.png') %>";
       window.bunnyLogo = "<%= image_url('bunny_logo.png') %>";
+      window.metaLogo = "<%= image_url('metalogo.png') %>";
       window.githubLogo = "<%= image_url('github.png') %>";
       window.linkedinLogo = "<%= image_url('linkedin.png') %>";
       window.magnifyingGlass = "<%= image_url('magnifying_glass.png') %>";

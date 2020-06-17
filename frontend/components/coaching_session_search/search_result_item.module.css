@@ -7,21 +7,24 @@
   justify-content: flex-start;
   padding: 15px 0px 15px 40px;
   margin-top: 30px;
-  min-width: 600px;
-  margin-left: 220px;
+  min-width: 750px;
+  min-height: 400px;
+  margin-left: 400px;
 }
 
 .coachProfile {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 30px;
   width: 50%;
+
 }
 
 .coachProfile img{
   border: 1px solid lightgray;
   border-radius: 50%;
-  /* margin-right: 30px; */
+  width: 70%;
 }
 
 .coachProfile span {
@@ -31,20 +34,21 @@
 
 }
 .elite, .equipment {
-  font-weight: bolder;
-  font-size: 1.2em;
+  font-weight: bold;
+  font-size: 1.4em;
   color: green;
 }
 
 .coachDetails {
   display: flex;
   flex-direction: column;
-  margin: 0 30px;
+  margin: 30px;
   width: -webkit-fill-available;
 }
 
 .coachDetails li {
   margin: 10px 0;
+  font-size: 18px;
 }
 
 .coachNameContainer {
@@ -66,6 +70,7 @@
   width: 100%;
   border-top: 1px solid lightgray;
   padding: 20px 0;
+  font-size: 18px;
 }
 
 .trainingDescription span:first-child {
