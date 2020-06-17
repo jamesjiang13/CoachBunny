@@ -7,9 +7,9 @@
   justify-content: flex-start;
   padding: 15px 0px 15px 40px;
   margin-top: 30px;
-  min-width: 750px;
-  min-height: 400px;
-  margin-left: 400px;
+  width: 750px;
+  height: 400px;
+  /* margin-left: 400px; */
 }
 
 .coachProfile {
