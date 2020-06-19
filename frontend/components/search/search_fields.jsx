@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import classes from './search_fields.module.css';
 
 class SearchFields extends React.Component {
@@ -8,6 +9,69 @@ class SearchFields extends React.Component {
     this.state = {
       search: '',
     };
+
+    this.getMatches = this.getMatches.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.checkSubmit = this.checkSubmit.bind(this);
+  }
+
+  getMatches() {
+    const matches = [];
+    const { search } = this.state;
+    const { allSports } = this.props;
+    const sports = Object.values(allSports).map((sport) => sport.sport);
+    if (search.length === 0) return allSports;
+
+    sports.forEach((sport) => {
+      const sub = sport.slice(0, search.length);
+      if (sub.toLowerCase() === search.toLowerCase()) matches.push(sport);
+    });
+
+    // if (matches.length === 0) matches.push('No matches');
+    return matches;
+  }
+
+  checkSubmit(sportName) {
+    const { allSports } = this.props;
+    const sports = Object.values(allSports).map((sport) => sport.sport);
+    if (sports.includes(sportName)) {
+      const selected = Object.values(allSports).filter((sport) => sport.sport === sportName);
+      return selected[0].id;
+    }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const { search } = this.state;
+    // const { allSports } = this.props;
+    // const sports = Object.values(allSports).map((sport) => sport.sport);
+    const sportId = this.checkSubmit(search);
+    if (sportId) {
+      debugger;
+      window.location.href = `#/sports/${sportId}`;
+    }
+    // if (sports.includes(search)) {
+    //   const selected = Object.values(allSports).filter((sport) => sport.sport === search);
+    //   const sportId = selected[0].id;
+    //   return <Redirect to={`/sports/${sportId}`} />; // how to get it to the right address...
+    // }
+  }
+
+  selectSport(event) {
+    e.preventDefault();
+    const selected = event.currentTarget.innerText;
+    const sportId = this.checkSubmit(selected);
+    if (sportId) {
+      debugger;
+      window.location.href = `#/sports/${sportId}`;
+    }
+    // const { allSports } = this.props;
+    // const sports = Object.values(allSports).map((sport) => sport.sport);
+    // if (sports.includes(search)) {
+    //   const selected = Object.values(allSports).filter((sport) => sport.sport === search);
+    //   const sportId = selected[0].id;
+    //   return <Redirect to={`/sports/${sportId}`} />; // how to get it to the right address...
+    // }
   }
 
   update() {
@@ -18,12 +82,13 @@ class SearchFields extends React.Component {
     };
   }
 
-  handleSubmit() {
-
-  }
-
   render() {
     const { search } = this.state;
+    // const results = this.getMatches().map((result, i) => {
+    //   return (
+    //     <li key={i} onClick={this.selectSport}>{result}</li>
+    //   );
+    // });
 
     return (
       <div className={classes.searchFieldMain}>
@@ -32,18 +97,18 @@ class SearchFields extends React.Component {
             <h1>Find Your Next Coach</h1>
           </div>
           <div className={classes.search}>
-            <form onSubmit={this.handleSubmit}>
+            <form className={classes.searchForm} onSubmit={this.handleSubmit}>
               <input
                 type="text"
                 placeholder="What sport would you like to work on"
+                value={search}
                 onChange={(e) => this.setState({ search: e.target.value })}
               />
-              <div>
-                <ul>
-
-                </ul>
-              </div>
+              {/* <button type="submit">Search</button> */}
             </form>
+            <ul>
+              {/* {results} */}
+            </ul>
           </div>
           <div className={classes.searchFieldButtons}>
             <div className={classes.buttonsR1}>
@@ -58,8 +123,17 @@ class SearchFields extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
-};
+}
 
-export default SearchFields;
+const mapState = (state) => ({
+  allSports: state.entities.sports,
+});
+
+const mapDispatch = (dispatch) => ({
+});
+
+export default connect(
+  mapState, mapDispatch,
+)(SearchFields);

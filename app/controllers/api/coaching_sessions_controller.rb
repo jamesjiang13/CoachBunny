@@ -1,7 +1,6 @@
 class Api::CoachingSessionsController < ApplicationController
   def index # return all ___ sessions
       @coaching_sessions = CoachingSession.where(user_id: current_user.id)
-
     render :index
   end
 
