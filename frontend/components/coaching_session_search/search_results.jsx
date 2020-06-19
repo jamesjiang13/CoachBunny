@@ -33,6 +33,10 @@ class SearchResults extends React.Component {
     this.sortSearchResults = this.sortSearchResults.bind(this);
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   setSort() {
     this.setState({
       sortStatus: event.target.value,
@@ -126,7 +130,7 @@ class SearchResults extends React.Component {
               <div className={classes.sortContainer}>
                 <span>SORTED BY:</span>
                 <select defaultValue={sortStatus} onChange={this.setSort} className={classes.sortDropdown}>
-                  <option value="options" disabled>Options</option>
+                  <option value="options" disabled>Recommended</option>
                   <option value="priceLowToHigh">Price: Low to High</option>
                   <option value="priceHighToLow">Price: High to Low</option>
                   <option value="durationLowToHigh">Duration: Low to High</option>

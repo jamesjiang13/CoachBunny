@@ -56,8 +56,3 @@ const mapDispatch = (dispatch) => {
 export default connect(
   null, mapDispatch,
 )(EntryPage);
-
-// selectively render loging page instead of posts dependings on login/logout
-// route utils - auth y protected
-// same process except instead of redirecting when theyre not logged in, return empty <div></div>
-// export that
