@@ -6,44 +6,51 @@ class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      description: '',
+      interest: '',
       location: '',
       duration: '',
-      errors: '',
-      interest: '',
+      description: '',
+      interestError: '',
+      locationError: '',
+      durationError: '',
+      descriptionError: '',
     };
     this.handleSearch = this.handleSearch.bind(this);
   }
 
   update(field) {
+    const errorString = field.concat('Error');
     return (e) => this.setState({
       [field]: e.target.value,
+      [errorString]: '',
     });
   }
 
   handleSearch() {
-    const { submitSearch, sportId, history } = this.props;
+    const { submitSearch, selectedSport, history } = this.props;
+    debugger;
     const {
       duration, location, description, interest,
     } = this.state;
 
     if (interest === '') {
       this.setState({
-        errors: 'Please enter an interest level.',
+        interestError: 'Please enter an interest level.',
       });
     } else if (location.length !== 5) {
       this.setState({
-        errors: 'Please enter a valid 5-digit zip code.',
+        locationError: 'Please enter a valid 5-digit zip code.',
       });
     } else if (duration === '') {
       this.setState({
-        errors: 'Must have a duration',
+        durationError: 'Must have a duration',
       });
     } else if (description === '') {
       this.setState({
-        errors: 'Please enter a description to help us show you the best coaches.',
+        descriptionError: 'Please enter a description to help us show you the best coaches.',
       });
     } else {
+      const sportId = selectedSport.id;
       submitSearch({ sportId, duration, description })
         .then(history.push('/results'));
     }
@@ -51,8 +58,11 @@ class SearchForm extends React.Component {
 
   render() {
     const {
-      location, duration, description, errors, interest,
+      location, duration, description, interest, interestError,
+      locationError, durationError, descriptionError,
     } = this.state;
+    const { selectedSport } = this.props;
+    debugger;
     return (
       <div className={classes.searchMain}>
         <div className={classes.searchHeader}>
@@ -69,6 +79,7 @@ class SearchForm extends React.Component {
             <Link to="/main" className={classes.leftNav}>
               <img className={classes.imgResponsive} src={window.textLogo} alt="logo" />
             </Link>
+            <div className={classes.selectedSport}>{selectedSport.sport}</div>
           </div>
           <section className={classes.interest}>
             <h4>TRAINING INTEREST</h4>
@@ -81,7 +92,7 @@ class SearchForm extends React.Component {
                 checked={interest === 'ready'}
                 onChange={this.update('interest')}
               />
-              I'm ready to book now
+              I&#39;m ready to book now
             </label>
             <label htmlFor="interest">
               <input
@@ -103,6 +114,7 @@ class SearchForm extends React.Component {
               />
               I'm just browsing
             </label>
+            <span className={classes.errors}>{interestError}</span>
           </section>
           <section className={classes.location}>
             <h4> YOUR TRAINING LOCATION </h4>
@@ -112,6 +124,7 @@ class SearchForm extends React.Component {
               onChange={this.update('location')}
               value={location}
             />
+            <span className={classes.errors}>{locationError}</span>
           </section>
           <section className={classes.duration}>
             <h4>TRAINING OPTIONS</h4>
@@ -146,6 +159,7 @@ class SearchForm extends React.Component {
               />
               +90 minutes
             </label>
+            <span className={classes.errors}>{durationError}</span>
           </section>
           <section className={classes.description}>
             <h4>TELL US THE DETAILS OF WHAT YOU WANT TO TRAIN</h4>
@@ -161,7 +175,7 @@ class SearchForm extends React.Component {
               that I need to be faster in changing directions. I don't like ladder/cone drills,
               but I know they help. I would prefer a coach who has these things handy since I do not."
             />
-            <span className={classes.errors}>{errors}</span>
+            <span className={classes.errors}>{descriptionError}</span>
             <div className={classes.searchButtonContainer}>
               <button type="submit" onClick={this.handleSearch}> Find a Coach </button>
             </div>

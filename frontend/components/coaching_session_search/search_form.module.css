@@ -17,6 +17,18 @@
 
 .textLogo {
   margin-top: 40px;
+  margin-bottom: 30px;
+  width: 250px;
+}
+
+.textLogo img {
+  width: 100%;
+}
+
+.selectedSport {
+  font-weight: bolder;
+  font-size: 20px;
+  margin-top:15px;
 }
 
 .searchHeader {
@@ -93,7 +105,7 @@ section.description {
 }
 
 .location input {
-  padding: 10px 16px;
+  padding: 10px 16px 10px 30px;
   font-size: 16px;
   border: 1px solid darkgray;
   border-radius: 4px;
