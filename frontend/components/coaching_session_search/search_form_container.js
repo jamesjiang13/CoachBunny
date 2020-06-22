@@ -3,8 +3,7 @@ import { withRouter } from 'react-router-dom';
 import SearchForm from './search_form';
 import { fetchCoachSearch } from '../../actions/coaching_sessions_search_actions';
 
-const mapState = (state, ownProps) => { 
-  debugger;
+const mapState = (state, ownProps) => {
   return (
     {
       selectedSport: state.entities.sports[ownProps.match.params.id],

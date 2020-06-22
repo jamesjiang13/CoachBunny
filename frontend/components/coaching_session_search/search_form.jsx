@@ -28,7 +28,7 @@ class SearchForm extends React.Component {
 
   handleSearch() {
     const { submitSearch, selectedSport, history } = this.props;
-    debugger;
+
     const {
       duration, location, description, interest,
     } = this.state;
@@ -62,7 +62,7 @@ class SearchForm extends React.Component {
       locationError, durationError, descriptionError,
     } = this.state;
     const { selectedSport } = this.props;
-    debugger;
+
     return (
       <div className={classes.searchMain}>
         <div className={classes.searchHeader}>
