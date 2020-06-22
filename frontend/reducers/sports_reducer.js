@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_SPORTS } from '../actions/sport_action';
+import { RECEIVE_ALL_SPORTS } from '../actions/sport_actions';
 
 const sportsReducer = (state = {}, action) => {
   Object.freeze(state);

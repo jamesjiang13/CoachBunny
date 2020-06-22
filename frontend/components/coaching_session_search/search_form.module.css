@@ -8,11 +8,33 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 520px
+  width: 70%;
+}
+
+.searchFields h4 {
+  margin-bottom: 25px;
 }
 
 .textLogo {
   margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+.textLogo img {
+  width: 250px;
+}
+
+.selectedSport {
+  font-size: 20px;
+  margin:15px 0;
+}
+
+.selectedSport > span {
+  font-weight: bolder;
+}
+
+.pickAnotherSport {
+  font-size: 15px;
 }
 
 .searchHeader {
@@ -35,11 +57,16 @@
   margin: 7px 0px;
   padding: 20px;
   background-color: white;
-  width: 480px;
-  box-shadow: 0px 2px 6px 0px #c4c4c4
+  width: 800px;
+  /* box-shadow: 0px 2px 6px 0px #c4c4c4 */
 }
 
-.searchFields > button {
+.searchButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.searchFields button {
   display: block;
   justify-content: center;
   text-align: center;
@@ -47,17 +74,17 @@
   background-color: #51af33;
   padding: 9.6px 26.5px;
   border-color: #86919d ;
-  width: 100%;
+  width: 200px;
   color: white;
   border-radius: 4px;
-  margin: 7px 0 10em 0;
+  margin: 15px;
   font-size: 19.2px;
   transition-property: background-color, color;
   transition-timing-function: ease;
   transition-duration: 0.16s;
 }
 
-.searchFields > button:hover {
+.searchFields button:hover {
   background-color: #438e29;
   cursor: pointer;
 }
@@ -65,6 +92,10 @@
 .interest, .location, .duration , .description {
   display: flex;
   flex-direction: column;
+}
+
+section.description {
+  margin-bottom: 7em;
 }
 
 .duration label {
@@ -80,21 +111,29 @@
 }
 
 .location input {
-  margin-top: 8px;
-  width: 100px;
-  padding: 3px;
+  padding: 10px 16px 10px 30px;
+  font-size: 16px;
+  border: 1px solid darkgray;
+  border-radius: 4px;
+}
+
+.location input:focus {
+  border: 1px solid #51af33;
+  border-radius: 4px;
+}
+
+.conversationStart {
+  line-height: 1.4;
 }
 
 .description textarea {
   margin-top: 8px;
   min-height: 120px;
   padding: 5px;
+  line-height: 1.5;
+  font-size: 15px;
 }
 
 .errors {
   color: red;
-}
-
-.searchFields > button {
-
 }

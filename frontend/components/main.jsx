@@ -7,14 +7,16 @@ import CoachingSessionsContainer from './coaching_sessions/coaching_sessions_con
 import { ProtectedRoute } from '../util/route_util';
 import AccountContainer from './account/account_container';
 import { fetchCoachingSessions } from '../actions/coaching_session_actions';
+import { receiveSports } from '../actions/sport_actions';
 import { logOut } from '../actions/session_actions';
 import classes from './main.module.css';
-import SearchFields from './search/search_fields';
+import SearchFieldsContainer from './search/search_fields';
 
 class Main extends React.Component {
   componentDidMount() {
-    const { fetchCoachingSessions } = this.props;
-    fetchCoachingSessions();
+    const { getCoachingSessions, getSports } = this.props;
+    getSports();
+    getCoachingSessions();
   }
 
   render() {
@@ -25,7 +27,7 @@ class Main extends React.Component {
           <Switch>
             <ProtectedRoute path="/main/account" component={AccountContainer} />
             <ProtectedRoute path="/main/mysessions" component={CoachingSessionsContainer} />
-            <ProtectedRoute path="/main" component={SearchFields} />
+            <ProtectedRoute path="/main" component={SearchFieldsContainer} />
           </Switch>
         </div>
         <Footer />
@@ -40,7 +42,8 @@ const mapState = (state) => ({
 
 const mapDispatch = (dispatch) => ({
   logout: () => dispatch(logOut()),
-  fetchCoachingSessions: () => dispatch(fetchCoachingSessions()),
+  getCoachingSessions: () => dispatch(fetchCoachingSessions()),
+  getSports: () => dispatch(receiveSports()),
 });
 
 export default connect(

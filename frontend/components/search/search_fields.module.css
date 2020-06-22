@@ -25,14 +25,68 @@
   margin-right: auto;
 }
 
+/* for dynamic search bar */
+.search {
+  width: 100%;
+  padding: 10px;
+  margin-top:25px;
+}
+
+.searchForm {
+  display: flex;
+  flex-direction: row;
+}
+
+.magGlass {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  margin: 15px;
+}
+
+.search input {
+  font-size: 18px;
+  border: 1px solid darkgray;
+  border-radius: 4px;
+  padding: 10px;
+  padding-left: 40px;
+  width: 100%;
+}
+
+.search input:focus {
+  border: 1px solid #51af33;
+}
+
+.dropdownContainer > ul{
+  display: block;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
+  width: 498px;
+  margin-top: -1px;
+
+}
+
+.sportSearchResult {
+  display: block;
+  box-sizing: border-box;
+  cursor: pointer;
+  width: 100%;
+  padding: 10px 0px 10px 20px;
+  color: #438e29;
+  font-size: 18px;
+}
+
+.sportSearchResult:hover {
+  background-color: #e3e3e3;
+}
+
 .searchFieldButtons a {
   display: flex;
   justify-content: center;
   flex-direction: row;
   margin: 0px 9px;
-}
-
-.searchFieldButtons a {
   padding: 0.5em 1.38em 0.5em;
   border-radius: 4px;
   font-size: 1.2rem;
@@ -51,14 +105,7 @@
   cursor: pointer;
 }
 
-.buttonsR1 {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 30px;
-  /* margin: 0px 9px 0px 9px; */
-}
-
-.buttonsR2 {
+.searchFieldButtons > div {
   display: flex;
   justify-content: center;
   margin-top: 15px;
