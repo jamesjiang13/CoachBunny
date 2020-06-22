@@ -17,18 +17,24 @@
 
 .textLogo {
   margin-top: 40px;
-  margin-bottom: 30px;
-  width: 250px;
+  margin-bottom: 15px;
 }
 
 .textLogo img {
-  width: 100%;
+  width: 250px;
 }
 
 .selectedSport {
-  font-weight: bolder;
   font-size: 20px;
-  margin-top:15px;
+  margin:15px 0;
+}
+
+.selectedSport > span {
+  font-weight: bolder;
+}
+
+.pickAnotherSport {
+  font-size: 15px;
 }
 
 .searchHeader {
@@ -51,8 +57,8 @@
   margin: 7px 0px;
   padding: 20px;
   background-color: white;
-  width: 100%;
-  box-shadow: 0px 2px 6px 0px #c4c4c4
+  width: 800px;
+  /* box-shadow: 0px 2px 6px 0px #c4c4c4 */
 }
 
 .searchButtonContainer {

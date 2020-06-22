@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import classes from './search_form.module.css';
 
+
 class SearchForm extends React.Component {
   constructor(props) {
     super(props);
@@ -76,10 +77,17 @@ class SearchForm extends React.Component {
         </div>
         <div className={classes.searchFields}>
           <div className={classes.textLogo}>
-            <Link to="/main" className={classes.leftNav}>
+            <Link to="/main">
               <img className={classes.imgResponsive} src={window.textLogo} alt="logo" />
             </Link>
-            <div className={classes.selectedSport}>{selectedSport.sport}</div>
+            <div className={classes.selectedSport}>
+              <span>{selectedSport.sport}</span>
+            </div>
+            <div className={classes.pickAnotherSport}>
+              <span>
+                {selectedSport.sport} not the right sport? <Link to="/">Pick another sport</Link>
+              </span>
+            </div>
           </div>
           <section className={classes.interest}>
             <h4>TRAINING INTEREST</h4>
