@@ -80,14 +80,14 @@ class SearchForm extends React.Component {
             <Link to="/main">
               <img className={classes.imgResponsive} src={window.textLogo} alt="logo" />
             </Link>
-            <div className={classes.selectedSport}>
+            {/* <div className={classes.selectedSport}>
               <span>{selectedSport.sport}</span>
             </div>
             <div className={classes.pickAnotherSport}>
               <span>
                 {selectedSport.sport} not the right sport? <Link to="/">Pick another sport</Link>
               </span>
-            </div>
+            </div> */}
           </div>
           <section className={classes.interest}>
             <h4>TRAINING INTEREST</h4>
@@ -128,7 +128,7 @@ class SearchForm extends React.Component {
             <h4> YOUR TRAINING LOCATION </h4>
             <input
               type="text"
-              placeholder="Enter street address"
+              placeholder="Enter your 5-digit zip code"
               onChange={this.update('location')}
               value={location}
             />
