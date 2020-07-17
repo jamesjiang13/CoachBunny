@@ -5,7 +5,6 @@ import { closeModal } from '../../actions/modal_actions';
 import SearchSelectItem from './search_select_item';
 
 const mapState = (state, ownProps) => {
-
   return ({
     coach: ownProps.coach,
     userId: state.session.currentUserId,

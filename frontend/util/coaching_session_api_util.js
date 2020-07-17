@@ -21,11 +21,11 @@ export const deleteCoachingSession = (id) => (
 );
 
 // create a new session
-export const createCoachingSession = (coachingSession) => (
+export const createCoachingSession = (coachingSessions) => (
   $.ajax({
     url: '/api/coaching_sessions',
     method: 'POST',
-    data: { coachingSession },
+    data: { coachingSessions },
   })
 );
 
