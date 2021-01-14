@@ -13,7 +13,7 @@ class EntryPage extends React.Component {
   handleClick(e) {
     e.preventDefault();
     const user = {
-      emailAddress: 'demo@demo.com',
+      email: 'demo@demo.com',
       password: 'demouser',
     };
     const { submitForm } = this.props;
@@ -28,8 +28,13 @@ class EntryPage extends React.Component {
             <img className={classes.imgResponsive} src={window.textLogo} alt="textLogo" />
           </div>
 
-          <a href="/users/auth/facebook" className={classes.facebook} type="button"> Facebook </a>
-          {/* <button className={classes.xanga} type="button"> Google (coming soon)</button> */}
+          {/* <a
+            href="/users/auth/facebook"
+            className={classes.facebook}
+            type="button"
+          >
+            Log in with Facebook
+          </a> */}
           <Link
             className={classes.demoUserLogin}
             onClick={this.handleClick}

@@ -20,7 +20,7 @@ class CancelConfirm extends React.Component {
   render() {
     const { session, closeModal } = this.props;
     const date = this.extractDate(session.trainingDate);
-    console.log(session);
+    // console.log(session);
     return (
       <div className={classes.cancelContainer}>
         <div className={classes.cancelBody}>

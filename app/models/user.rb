@@ -5,9 +5,9 @@
 #  id              :bigint           not null, primary key
 #  first_name      :string           not null
 #  last_name       :string           not null
-#  password_digest :string           not null
+#  pass_digest :string           not null
 #  session_token   :string           not null
-#  email_address   :string           not null
+#  email   :string           not null
 #  image_url       :string
 #  zip_code        :string           not null
 #  created_at      :datetime         not null
@@ -20,9 +20,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  validates :first_name, :last_name, :password_digest, :session_token, :email_address, :zip_code, presence: true
-  validates :session_token, :email_address, uniqueness: true
-  validates :email_address, format: { with: URI::MailTo::EMAIL_REGEXP } 
+  validates :first_name, :last_name, :pass_digest, :session_token, :email, :zip_code, presence: true
+  validates :session_token, :email, uniqueness: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
   validates :password, length: {minimum: 6, allow_nil: true}
 
   has_many :coaching_sessions
@@ -45,7 +45,7 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[7, 20]
-      user.password_digest = BCrypt::Password.create(user.password)
+      user.pass_digest = BCrypt::Password.create(user.password)
       user.image_url = auth.info.image # assuming the user model has an image
       user.first_name = auth.info.name.split[0]
       user.last_name = auth.info.name.split[-1]
@@ -57,18 +57,18 @@ class User < ApplicationRecord
   end
 
   def self.find_by_credentials(email, pw)
-    @user = User.find_by(email_address: email)
+    @user = User.find_by(email: email)
     return nil unless @user
     @user.is_password(pw) ? @user : nil
   end
 
   def password=(pw)
     @password = pw
-    self.password_digest = BCrypt::Password.create(pw)
+    self.pass_digest = BCrypt::Password.create(pw)
   end
 
   def is_password(pw)
-    BCrypt::Password.new(self.password_digest).is_password?(pw)
+    BCrypt::Password.new(self.pass_digest).is_password?(pw)
   end
 
   def reset_session_token!

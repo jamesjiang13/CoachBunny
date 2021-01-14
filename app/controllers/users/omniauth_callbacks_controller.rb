@@ -1,10 +1,11 @@
-class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  require 'uuidtools'
+
   def facebook
     @user = User.from_omniauth(request.env["omniauth.auth"])
-
     if @user.persisted?
-      log_in(@user)
-      redirect_to "/main"
+      login!(@user)
+      redirect_to "#/"
       sign_in @user, event: :authentication
       set_flash_message(:notice, :success, kind: "Facebook") if is_navigational_format?
     else
@@ -14,6 +15,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def failure
-    redirect_to root
+    redirect_to root_path
   end
+
 end

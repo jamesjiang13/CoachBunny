@@ -166,8 +166,7 @@ coach43 = Coach.create(first_name: "Lula", last_name: "Perez", zip_code: "83569"
   coach_description: "I played center mid for WVU.")
 
 # create users
-user1 = User.create(first_name: "Demo", last_name: "User", password: "demouser", email_address: "demo@demo.com", zip_code: "95070")
-user2 = User.create(first_name: "first", last_name: "last", password: "password", email_address: "test@test.com", zip_code: "95070")
+user1 = User.create(first_name: "Demo", last_name: "User", password: "demouser", email: "demo@demo.com", zip_code: "12345", image_url: 'https://i.stack.imgur.com/l60Hf.png')
 
 # create coach details
 CoachDetail.create(coach_id: coach1.id, sport_id: sport2.id, duration: 30, coaching_rate: 120, elite_coach: true, equipment: true, session_description: "I can share with you some of the skills and drills that brought me to where I am.")
@@ -226,10 +225,10 @@ CoachDetail.create(coach_id: coach42.id, sport_id: sport3.id, duration: 120, coa
 CoachDetail.create(coach_id: coach43.id, sport_id: sport3.id, duration: 120, coaching_rate: 220, elite_coach: false, equipment: false, session_description: "I grew up prioritizing field vision, and that's something I can help you with. From passing and footwork, to being a great distributor, I can bring out your potential as a center mid.")
 
 # create coach sessions
-CoachingSession.create(sport_id: sport1.id, coach_id: coach10.id, user_id: user1.id, training_date: "2020-09-29 17:00", training_duration: 60, training_rate: 400, training_description: "I would like to work on my power rush technique.")
-CoachingSession.create(sport_id: sport2.id, coach_id: coach2.id, user_id: user1.id, training_date: "2020-09-11 18:00", training_duration: 45, training_rate: 300, training_description: "I need help with my 3s")
-CoachingSession.create(sport_id: sport2.id, coach_id: coach4.id, user_id: user1.id, training_date: "2020-09-29 19:00", training_duration: 30, training_rate: 20, training_description: "I want to work on my ball handles")
-CoachingSession.create(sport_id: sport5.id, coach_id: coach15.id, user_id: user1.id, training_date: "2020-08-07 18:00", training_duration: 30, training_rate: 150, training_description: "I'm having issues on my swing follow through, would love some advice")
-CoachingSession.create(sport_id: sport4.id, coach_id: coach13.id, user_id: user1.id, training_date: "2020-10-05 23:00", training_duration: 60, training_rate: 70, training_description: "Just looking to get out and get some exercise")
-CoachingSession.create(sport_id: sport3.id, coach_id: coach21.id, user_id: user1.id, training_date: "2020-11-20 16:00", training_duration: 60, training_rate: 60, training_description: "passing drills please")
-CoachingSession.create(sport_id: sport2.id, coach_id: coach1.id, user_id: user1.id, training_date: "2020-10-05 20:00", training_duration: 30, training_rate: 120, training_description: "wanna learn court vision from the best")
+CoachingSession.create(sport_id: sport1.id, coach_id: coach10.id, user_id: user1.id, training_date: "2021-03-29 17:00", training_duration: 60, training_rate: 400, training_description: "I would like to work on my power rush technique.")
+CoachingSession.create(sport_id: sport2.id, coach_id: coach2.id, user_id: user1.id, training_date: "2021-02-11 18:00", training_duration: 45, training_rate: 300, training_description: "I need help with my 3s")
+CoachingSession.create(sport_id: sport2.id, coach_id: coach4.id, user_id: user1.id, training_date: "2021-05-29 19:00", training_duration: 30, training_rate: 20, training_description: "I want to work on my ball handles")
+CoachingSession.create(sport_id: sport5.id, coach_id: coach15.id, user_id: user1.id, training_date: "2021-01-07 18:00", training_duration: 30, training_rate: 150, training_description: "I'm having issues on my swing follow through, would love some advice")
+CoachingSession.create(sport_id: sport4.id, coach_id: coach13.id, user_id: user1.id, training_date: "2021-01-05 23:00", training_duration: 60, training_rate: 70, training_description: "Just looking to get out and get some exercise")
+CoachingSession.create(sport_id: sport3.id, coach_id: coach21.id, user_id: user1.id, training_date: "2021-06-20 16:00", training_duration: 60, training_rate: 60, training_description: "passing drills please")
+CoachingSession.create(sport_id: sport2.id, coach_id: coach1.id, user_id: user1.id, training_date: "2021-04-05 20:00", training_duration: 30, training_rate: 120, training_description: "wanna learn court vision from the best")

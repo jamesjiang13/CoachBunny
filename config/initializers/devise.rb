@@ -14,8 +14,10 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '347596c4863382abf3414886e0d896c029582cb64923bd2d73952e4b85b2c824fc1a785232a21e5594414f4290db9762716b87714928773679a9a30777fc85fa'
-  
+  # config.secret_key = '1f3ee286c4032d01fa13431b2c071266b40c95a3a4b25d72f7011c8ab7b141fdd7dc98e66a5c73555b2b2b06523b9030c8668b29602ddacb5509fef09e78e5c2'
+  config.omniauth :facebook, Rails.application.credentials.facebook[:app_id], Rails.application.credentials.facebook[:secret], scope: 'email', info_fields: 'email, name', callback_url: "https://coachbunny.herokuapp.com/users/auth/facebook/callback"
+  # ==> Controller configuration
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -74,7 +76,10 @@ Devise.setup do |config|
   # Tell if authentication through HTTP Auth is enabled. False by default.
   # It can be set to an array that will enable http authentication only for the
   # given strategies, for example, `config.http_authenticatable = [:database]` will
-  # enable it only for database authentication. The supported strategies are:
+  # enable it only for database authentication.
+  # For API-only applications to support authentication "out-of-the-box", you will likely want to
+  # enable this with :database unless you are using a custom strategy.
+  # The supported strategies are:
   # :database      = Support basic authentication with authentication key + password
   # config.http_authenticatable = false
 
@@ -109,18 +114,21 @@ Devise.setup do |config|
   # config.reload_routes = true
 
   # ==> Configuration for :database_authenticatable
-  # For bcrypt, this is the cost for hashing the password and defaults to 11. If
+  # For bcrypt, this is the cost for hashing the password and defaults to 12. If
   # using other algorithms, it sets how many times you want the password to be hashed.
+  # The number of stretches used for generating the hashed password are stored
+  # with the hashed password. This allows you to change the stretches without
+  # invalidating existing passwords.
   #
   # Limiting the stretches to just one in testing will increase the performance of
   # your test suite dramatically. However, it is STRONGLY RECOMMENDED to not use
   # a value less than 10 in other environments. Note that, for bcrypt (the default
   # algorithm), the cost increases exponentially with the number of stretches (e.g.
   # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
-  config.stretches = Rails.env.test? ? 1 : 11
+  config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '32cb275fc5ce17b00a98b69e3b065ca1da1a645a518cbf3a575abe1e54fe0cfcbda6962af5c2687a0a155ac123d91fb6e5092873b54ee6649254331940e6147f'
+  # config.pepper = 'fa3a2e17f2272e4da38b552d5a10cb189c92e405c11b0c20dc14234aee9ddd775fba4714fb0882171a4bc698bcf8e3b1a5af33d8e7d7a51ecc0192a97d814628'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -266,9 +274,6 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :facebook, Rails.application.credentials.facebook[:app_id] , Rails.application.credentials.facebook[:secret], scope: 'email', info_fields: 'email, name', callback_url: "https://coachbunny.herokuapp.com/users/auth/facebook/callback"
-
-
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
