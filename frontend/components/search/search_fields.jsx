@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import classes from './search_fields.module.css.scss';
+import classes from './search_fields.module.css';
 
 class SearchFields extends React.Component {
   constructor(props) {

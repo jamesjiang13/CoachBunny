@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import NavigationBarContainer from '../nav_bar/nav_bar_container';
 import Footer from '../footer/footer';
-import classes from './splash.module.css.scss';
+import classes from './splash.module.css';
 
 const Splash = () => (
   <div className={classes.splashContainer}>

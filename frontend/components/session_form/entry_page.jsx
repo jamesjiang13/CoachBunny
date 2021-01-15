@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logIn } from '../../actions/session_actions';
-import classes from './entry_page.module.css.scss';
+import classes from './entry_page.module.css';
 
 class EntryPage extends React.Component {
   constructor(props) {
