@@ -71,7 +71,7 @@ class SearchForm extends React.Component {
             <img className={classes.imgResponsive} src={window.bunnyLogo} alt="logo" />
           </Link>
           <span>
-            Tell us what you want to work on. We'll use these
+            Tell us what you want to work on. We&#39;ll use these
             details to show you Coaches in your area who fit your needs
           </span>
         </div>
@@ -110,7 +110,7 @@ class SearchForm extends React.Component {
                 checked={interest === 'interested'}
                 onChange={this.update('interest')}
               />
-              I'm interested in booking soon
+              I&#39;m interested in booking soon
             </label>
             <label htmlFor="interest">
               <input
@@ -120,7 +120,7 @@ class SearchForm extends React.Component {
                 checked={interest === 'browsing'}
                 onChange={this.update('interest')}
               />
-              I'm just browsing
+              I&#39;m just browsing
             </label>
             <span className={classes.errors}>{interestError}</span>
           </section>

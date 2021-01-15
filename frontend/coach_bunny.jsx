@@ -29,14 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // for testing
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.signUp = signUp;
-  window.logIn = logIn;
-  window.logOut = logOut;
-  window.fetchCoachingSessions = fetchCoachingSessions;
-  window.deleteCoachingSession = deleteCoachingSession;
-  window.createCoachingSession = createCoachingSession;
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
+  // window.signUp = signUp;
+  // window.logIn = logIn;
+  // window.logOut = logOut;
+  // window.fetchCoachingSessions = fetchCoachingSessions;
+  // window.deleteCoachingSession = deleteCoachingSession;
+  // window.createCoachingSession = createCoachingSession;
 
   // end testing
   ReactDOM.render(<Root store={store} />, root);

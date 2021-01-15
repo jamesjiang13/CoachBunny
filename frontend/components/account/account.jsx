@@ -6,7 +6,7 @@ class Account extends React.PureComponent {
   render() {
     const { logout } = this.props;
     const {
-      emailAddress, firstName, lastName, zipCode,
+      email, firstName, lastName, zipCode,
     } = this.props.currentUser;
     return (
       <div className={classes.accountContainer}>
@@ -14,12 +14,12 @@ class Account extends React.PureComponent {
           <h2>Account</h2>
           <div className={classes.userDetails}>
             <div className={classes.profilePhoto}>
-              <img src="https://res.cloudinary.com/taskrabbit-com/image/upload/c_fill,g_faces,h_108,w_108/v1408385393/default_avatar.jpg" alt="profile"></img>
+              <img src="https://i.pinimg.com/236x/c4/34/d8/c434d8c366517ca20425bdc9ad8a32de.jpg" alt="profile"></img>
             </div>
             <div className={classes.userAccount}>
               <ul>
                 <li>{firstName} {lastName}</li>
-                <li>Email: {emailAddress}</li>
+                <li>Email: {email}</li>
                 <li>Zip Code: {zipCode}</li>
               </ul>
               <Link className={classes.logoutButton} to="/" onClick={logout}> Log out </Link>

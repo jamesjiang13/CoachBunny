@@ -5,9 +5,9 @@
 #  id              :bigint           not null, primary key
 #  first_name      :string           not null
 #  last_name       :string           not null
-#  password_digest :string           not null
+#  pass_digest :string           not null
 #  session_token   :string           not null
-#  email_address   :string           not null
+#  email   :string           not null
 #  image_url       :string
 #  zip_code        :string           not null
 #  created_at      :datetime         not null

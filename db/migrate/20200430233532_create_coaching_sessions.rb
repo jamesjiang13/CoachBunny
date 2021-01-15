@@ -4,6 +4,7 @@ class CreateCoachingSessions < ActiveRecord::Migration[5.2]
       t.integer :sport_id, null: false
       t.integer :coach_id, null: false
       t.integer :user_id, null: false
+      
       t.timestamps
     end
     add_index :coaching_sessions, :sport_id
