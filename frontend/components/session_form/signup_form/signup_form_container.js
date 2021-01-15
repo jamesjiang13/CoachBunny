@@ -4,7 +4,7 @@ import SignupForm from './signup_form';
 
 
 const mapState = (state) => ({
-  errors: state.errors.sessionErrors,
+  errors: state.errors.session,
 });
 
 const mapDispatch = (dispatch) => ({

@@ -29,7 +29,7 @@ class SignupForm extends React.Component {
     const {
       firstName, lastName, email, password, zipCode,
     } = this.state;
-    // const { errors } = this.props;
+    const { errors } = this.props;
 
     return (
       <div className={classes.mainLoginBackground}>
@@ -71,7 +71,7 @@ class SignupForm extends React.Component {
             />
             <p />
             <span className={classes.disclaimer}>By clicking below and creating an account, I agree to CoachBunny's Terms of Service and Privacy Policy.</span>
-            {/* {errors.map((error) => <li className={classes.errors}>{error}</li>)} */}
+            {errors.map((error) => <li className={classes.errors}>{error}</li>)}
             <button className={classes.submitButton} type="submit"> Create Account </button>
           </form>
         </div>
