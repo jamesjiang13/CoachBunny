@@ -1,6 +1,13 @@
 import React from 'react';
 import classes from './cancel_confirm.module.css';
 
+function extractDate(fullDateTime) {
+  const month = parseInt(fullDateTime.slice(5, 7), 10);
+  const day = parseInt(fullDateTime.slice(8, 10), 10);
+  const months = ['nil', 'January ', 'February,', 'March', 'April', 'May ',
+    'June ', 'July ', 'August ', 'September', 'October', 'November', 'December'];
+  return [months[month], day];
+}
 
 class CancelConfirm extends React.Component {
   handleClick() {
@@ -9,17 +16,9 @@ class CancelConfirm extends React.Component {
     closeModal();
   }
 
-  extractDate(fullDateTime) {
-    const month = parseInt(fullDateTime.slice(5, 7), 10);
-    const day = parseInt(fullDateTime.slice(8, 10), 10);
-    const months = ['nil', 'January ', 'February,', 'March', 'April', 'May ',
-      'June ', 'July ', 'August ', 'September', 'October', 'November', 'December'];
-    return [months[month], day];
-  }
-
   render() {
     const { session, closeModal } = this.props;
-    const date = this.extractDate(session.trainingDate);
+    const date = extractDate(session.trainingDate);
     // console.log(session);
     return (
       <div className={classes.cancelContainer}>
