@@ -83,18 +83,19 @@ class EditCoachingSession extends React.Component {
     const {
       trainingDate, trainingTime, trainingDescription,
     } = this.state;
+
     return (
       <div className={classes.selectMainContainer}>
         <div className={classes.selectCoachContainer}>
           <div className={classes.textLogo}>
-            <Link to="/main">
+            <Link to="/main" >
               <img className={classes.imgResponsive} src={window.textLogo} alt="logo" />
             </Link>
           </div>
           <form onSubmit={this.handleSubmit} className={classes.mainSelect}>
             <div className={classes.coachConfirmDetails}>
               <div className={classes.coachProfile}>
-                <img src="https://i.pinimg.com/236x/c4/34/d8/c434d8c366517ca20425bdc9ad8a32de.jpg" alt="profile" />
+                <img src={window.defaultProfilePic} alt="profile" />
               </div>
               <div className={classes.coachName}>
                 {coach.firstName}

@@ -84,7 +84,7 @@ class SearchSelectItem extends React.Component {
           <form onSubmit={this.handleSubmit} className={classes.mainSelect}>
             <div className={classes.coachConfirmDetails}>
               <div className={classes.coachProfile}>
-                <img src="https://i.pinimg.com/236x/c4/34/d8/c434d8c366517ca20425bdc9ad8a32de.jpg" alt="profile" />
+                <img src={window.defaultProfilePic} alt="profile" />
               </div>
               <div className={classes.coachName}>
                 {firstName}

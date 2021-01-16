@@ -37,7 +37,7 @@ class SearchResultItem extends React.Component {
     return (
       <div className={classes.coachMain}>
         <div className={classes.coachProfile}>
-          <img src="https://i.pinimg.com/236x/c4/34/d8/c434d8c366517ca20425bdc9ad8a32de.jpg" alt="profile" />
+          <img src={window.defaultProfilePic} alt="profile" />
           <button type="button" className={classes.trainNow} onClick={this.handleClick}> Train now </button>
           <span>
             You can adjust training details, or change training time after booking.
