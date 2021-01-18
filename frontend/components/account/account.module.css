@@ -27,6 +27,7 @@
 .profilePhoto > img {
   border-radius: 50%;
   border: 1px solid gray;
+  width: 150px;
 }
 
 .userAccount {

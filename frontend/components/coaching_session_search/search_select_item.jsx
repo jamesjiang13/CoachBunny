@@ -84,7 +84,7 @@ class SearchSelectItem extends React.Component {
           <form onSubmit={this.handleSubmit} className={classes.mainSelect}>
             <div className={classes.coachConfirmDetails}>
               <div className={classes.coachProfile}>
-                <img src="https://res.cloudinary.com/taskrabbit-com/image/upload/c_fill,g_faces,h_108,w_108/v1408385393/default_avatar.jpg" alt="profile" />
+                <img src={window.profilePic} alt="profile" />
               </div>
               <div className={classes.coachName}>
                 {firstName}

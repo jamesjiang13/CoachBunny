@@ -14,7 +14,7 @@ class Account extends React.PureComponent {
           <h2>Account</h2>
           <div className={classes.userDetails}>
             <div className={classes.profilePhoto}>
-              <img src="https://res.cloudinary.com/taskrabbit-com/image/upload/c_fill,g_faces,h_108,w_108/v1408385393/default_avatar.jpg" alt="profile"></img>
+              <img src={window.profilePic} alt="profile"></img>
             </div>
             <div className={classes.userAccount}>
               <ul>

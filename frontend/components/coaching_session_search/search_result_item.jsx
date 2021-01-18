@@ -37,7 +37,7 @@ class SearchResultItem extends React.Component {
     return (
       <div className={classes.coachMain}>
         <div className={classes.coachProfile}>
-          <img src="https://res.cloudinary.com/taskrabbit-com/image/upload/c_fill,g_faces,h_108,w_108/v1408385393/default_avatar.jpg" alt="profile" />
+          <img src={window.profilePic} alt="profile" />
           <button type="button" className={classes.trainNow} onClick={this.handleClick}> Train now </button>
           <span>
             You can adjust training details, or change training time after booking.
