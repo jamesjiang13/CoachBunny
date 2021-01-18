@@ -18,6 +18,7 @@ class EntryPage extends React.Component {
     };
     const { submitForm } = this.props;
     submitForm(user);
+    window.location.href = '#/main';
   }
 
   render() {
@@ -28,15 +29,16 @@ class EntryPage extends React.Component {
             <img className={classes.imgResponsive} src={window.textLogo} alt="textLogo" />
           </div>
 
-          <button className={classes.myspace} type="button"> Facebook (coming soon)</button>
-          <button className={classes.xanga} type="button"> Google (coming soon)</button>
-          <Link
+          {/* <button className={classes.myspace} type="button"> Facebook (coming soon)</button>
+          <button className={classes.xanga} type="button"> Google (coming soon)</button> */}
+          <button onClick={this.handleClick} className={classes.demoUserLogin} type="button">Demo User</button>
+          {/* <Link
             className={classes.demoUserLogin}
             onClick={this.handleClick}
             to="/main"
           >
             Demo user
-          </Link>
+          </Link> */}
           <div className={classes.entrypageLinks}>
             <Link to="/login" className={classes.buttonFirst}> Log in </Link>
             <Link to="/signup" className={classes.buttonSecond}> Sign up </Link>
