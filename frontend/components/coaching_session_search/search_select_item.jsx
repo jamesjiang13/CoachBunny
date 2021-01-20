@@ -70,9 +70,12 @@ class SearchSelectItem extends React.Component {
 
   render() {
     const {
-      firstName, lastName, coachingRate, duration, eliteCoach, equipment,
+      firstName, lastName, coachingRate, duration, eliteCoach, equipment, imageUrl,
     } = this.props.coach;
-    const { errors, trainingDate, trainingTime, trainingDescription } = this.state;
+
+    const {
+      errors, trainingDate, trainingTime, trainingDescription,
+    } = this.state;
     return (
       <div className={classes.selectMainContainer}>
         <div className={classes.selectCoachContainer}>
@@ -84,7 +87,10 @@ class SearchSelectItem extends React.Component {
           <form onSubmit={this.handleSubmit} className={classes.mainSelect}>
             <div className={classes.coachConfirmDetails}>
               <div className={classes.coachProfile}>
-                <img src={window.profilePic} alt="profile" />
+                {(imageUrl
+                  ? <img src={imageUrl} alt="profile" />
+                  : <img src={window.profilePic} alt="profile" />
+                )}
               </div>
               <div className={classes.coachName}>
                 {firstName}

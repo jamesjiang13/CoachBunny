@@ -19,6 +19,7 @@ class SearchResultItem extends React.Component {
         sportId: this.props.result.sportId,
         firstName: this.props.result.coach.firstName,
         lastName: this.props.result.coach.lastName,
+        imageUrl: this.props.result.coach.imageUrl,
         duration: this.props.result.duration,
         coachingRate: this.props.result.coachingRate,
         eliteCoach: this.props.result.eliteCoach,
@@ -37,7 +38,10 @@ class SearchResultItem extends React.Component {
     return (
       <div className={classes.coachMain}>
         <div className={classes.coachProfile}>
-          <img src={window.profilePic} alt="profile" />
+          {(coach.imageUrl
+            ? <img src={coach.imageUrl} alt="profile" />
+            : <img src={window.profilePic} alt="profile" />
+          )}
           <button type="button" className={classes.trainNow} onClick={this.handleClick}> Train now </button>
           <span>
             You can adjust training details, or change training time after booking.
