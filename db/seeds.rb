@@ -71,7 +71,7 @@ coach6 = Coach.create(first_name: "Charles", last_name: "Woodson", zip_code: "94
     image_url: "https://www.gannett-cdn.com/-mm-/17b3c2d970a572c3bcc5f4bedc49c6ccb0601024/c=0-246-2862-1863/local/-/media/2015/11/22/DetroitFreePress/B9319793253Z.1_20151122021502_000_GKSCKL7QJ.1-0.jpg") 
 
 coach7 = Coach.create(first_name: "Vince", last_name: "Young", zip_code: "85002", 
-  coach_description: "The OG Vince Young National Champion, 2X Pro Bowler, 06 ROTY"
+  coach_description: "The OG Vince Young National Champion, 2X Pro Bowler, 06 ROTY",
   image_url: "https://i1.wp.com/nypost.com/wp-content/uploads/sites/2/2019/03/vince-young.jpg?quality=80&strip=all&ssl=1")
 
 coach8 = Coach.create(first_name: "George", last_name: "Hamilton", zip_code: "75399", 
@@ -135,7 +135,7 @@ coach34 = Coach.create(first_name: "Maria", last_name: "Sharapova", zip_code: "2
 
 # golf
 coach15 = Coach.create(first_name: "Lorena", last_name: "Ochoa", zip_code: "22434", 
-  coach_description: "Retired at #1. There is literally no one better than me. Ever."
+  coach_description: "Retired at #1. There is literally no one better than me. Ever.",
   image_url: "https://golfweek.usatoday.com/wp-content/uploads/sites/87/2017/05/20170504013-e1577743571854.jpg")
 
 coach16 = Coach.create(first_name: "Angel", last_name: "Johnson", zip_code: "90645", 

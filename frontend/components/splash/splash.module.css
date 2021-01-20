@@ -142,7 +142,8 @@
   justify-content: space-between;
 }
 .sportImagesContainer li {
-  padding: 30px 10px;
+  margin: 30px 10px;
+  box-shadow: 0px 2px 6px 0px #c4c4c4;
 }
 
 .cardContainer {
