@@ -53,7 +53,8 @@ class SearchForm extends React.Component {
         descriptionError: 'Please enter a description to help us show you the best coaches.',
       });
     } else {
-      submitSearch({ sportId, duration, description })
+      const sportIdInt = parseInt(sportId, 10);
+      submitSearch({ sportIdInt, duration, description })
         .then(history.push('/results'));
     }
   }
