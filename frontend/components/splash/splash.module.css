@@ -77,7 +77,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 10px 15px 10px;
+  padding: 15px 40px;
+  background-color: #eee;
 }
 
 .mainReviewSection p {
@@ -95,7 +96,7 @@
   height: 30px;
 }
 
-.deadButton {
+.splashButton {
   display: flex;
   justify-content: space-around;
   padding: 0.5em 1.38em 0.5em;
@@ -110,20 +111,77 @@
   margin-left: 15px;
 }
 
-.deadButton:hover {
+.splashButton:hover {
   color: white; 
   background-color: #51af33;
   cursor: pointer;
 }
 
-/* how it works  */
+/* featured sports section */
+.featuredSportsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.featuredSportsContainer > h2 {
+  font-size: 3rem;
+}
+
+.sportsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.sportImagesContainer ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sportImagesContainer li {
+  padding: 30px 10px;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sportImage {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.sportTitle {
+  font-size: 1.8em;
+  background-color: lightgray;
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.featuredSportsNav {
+  font-size: 3em;
+}
+
+.featuredSportsNav:hover {
+  cursor: pointer;
+  color:hsl(105, 55%, 44%)
+}
+/* how it works section */
 .howSectionContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: lightgray;
-  padding: 40px 20px;
+  padding: 40px 20px 70px 20px;
 }
 
 .howSectionTitle {
@@ -146,7 +204,7 @@
   justify-content: center;
   width: 300px;
   align-items: center;
-  padding: 10px;
+  padding: 30px 10px;
 }
 
 .howSectionUL > li > h3 {
@@ -161,3 +219,4 @@
 .howFontAwesome {
   font-size: 4rem;
 }
+
