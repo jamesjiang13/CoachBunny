@@ -130,7 +130,7 @@ coach33 = Coach.create(first_name: "Tommy", last_name: "Hughes", zip_code: "7353
  
 coach34 = Coach.create(first_name: "Maria", last_name: "Sharapova", zip_code: "24679", 
   coach_description: "Former professional tennis player",
-  image_url: "https://photoresources.wtatennis.com/photo-resources/2020/02/26/154fcaf1-b3d8-405c-8d69-50ea09b9f955/GettyImages-494457750.jpg"
+  image_url: "https://photoresources.wtatennis.com/photo-resources/2020/02/26/154fcaf1-b3d8-405c-8d69-50ea09b9f955/GettyImages-494457750.jpg?width=1440&height=797"
   )
 
 # golf

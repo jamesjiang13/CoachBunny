@@ -53,7 +53,6 @@ class SearchSelectItem extends React.Component {
         trainingDate: new Date(`${trainingDate} ${trainingTime}`),
         trainingDescription,
       };
-      debugger;
       submitForm(finalSessionDetails);
       closeModal();
       location.href = '/#/main/mysessions';

@@ -28,7 +28,9 @@ class SearchForm extends React.Component {
   }
 
   handleSearch() {
-    const { submitSearch, selectedSport, history } = this.props;
+    const {
+      submitSearch, history, sportId,
+    } = this.props;
 
     const {
       duration, location, description, interest,
@@ -51,7 +53,6 @@ class SearchForm extends React.Component {
         descriptionError: 'Please enter a description to help us show you the best coaches.',
       });
     } else {
-      const sportId = selectedSport.id;
       submitSearch({ sportId, duration, description })
         .then(history.push('/results'));
     }
@@ -62,6 +63,9 @@ class SearchForm extends React.Component {
       location, duration, description, interest, interestError,
       locationError, durationError, descriptionError,
     } = this.state;
+
+    console.log(this.props);
+
     const { selectedSport } = this.props;
 
     return (

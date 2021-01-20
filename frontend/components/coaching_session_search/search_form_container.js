@@ -7,6 +7,7 @@ import { receiveSports } from '../../actions/sport_actions';
 const mapState = (state, ownProps) => {
   return (
     {
+      sportId: ownProps.match.params.id,
       selectedSport: state.entities.sports[ownProps.match.params.id],
       currentUserId: state.session.currentUserId,
     }
