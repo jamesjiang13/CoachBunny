@@ -12,6 +12,11 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    const { clearErrors } = this.props;
+    clearErrors();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const { submitForm } = this.props;
@@ -37,7 +42,7 @@ class LoginForm extends React.Component {
               value={emailAddress}
               onChange={this.update('emailAddress')}
             />
-            <p />
+            <p className={classes.divider} />
             <label> Password </label>
             <input
               className={classes.loginInput}
@@ -45,13 +50,8 @@ class LoginForm extends React.Component {
               value={password}
               onChange={this.update('password')}
             />
-            <p />
-            {errors.map((error, idx) => <li className={classes.errors} key={idx}>{error}</li>)}
-            {/* <Link
-              className={classes.demoUserLogin}
-              onClick={this.handleClick}
-              to="/dashboard"
-            > */}
+            <p className={classes.divider} />
+            {errors.map((error, idx) => <li className={classes.redError} key={idx}>{error}</li>)}
             <button className={classes.submitButton} type="submit"> Log in </button>
           </form>
         </div>

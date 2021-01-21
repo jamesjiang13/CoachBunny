@@ -83,8 +83,6 @@ class EditCoachingSession extends React.Component {
       trainingDate, trainingTime, trainingDescription,
     } = this.state;
 
-    console.log(this.props);
-
     return (
       <div className={classes.selectMainContainer}>
         <div className={classes.selectCoachContainer}>

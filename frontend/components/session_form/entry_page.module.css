@@ -135,7 +135,7 @@
   border: 1px solid #86919d;
   border-radius: 4px;
   cursor: pointer;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .initialForm > input:focus {
@@ -175,7 +175,24 @@
   line-height: 1.4;
 }
 
+.divider {
+  height: 20px;
+}
+
 .errors {
   list-style-type: none;
   color: #349993;
+  padding-top: 3px;
+  padding-bottom: 15px;
 }
+
+.errorsContainer {
+  display:flex;
+  flex-direction: column;
+}
+
+.redError {
+  list-style-type: none;
+  color: red;
+  padding: 2px 0;
+};
