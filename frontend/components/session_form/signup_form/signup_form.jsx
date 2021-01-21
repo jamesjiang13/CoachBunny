@@ -33,8 +33,9 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // debugger;
-    if (Object.keys(this.currentErrors).length === 0) {
+    const emptyInput = Object.values(this.state).some((input) => input.length === 0);
+
+    if (Object.keys(this.currentErrors).length === 0 && !emptyInput) {
       this.existingErrors = '';
       const { submitForm } = this.props;
       submitForm(this.state);
