@@ -14,8 +14,6 @@ const receiveSearchCriteria = (criteria) => ({
 });
 
 export const fetchCoachSearch = ({ sportId, duration, description }) => (dispatch) => {
-  console.log(sportId);
-  console.log(typeof(sportId));
   return (SearchAPIUtil.coachingSessionSearch({ sportId, duration })
     .then((coaches) => {
       dispatch(receiveCoachSearch(coaches));

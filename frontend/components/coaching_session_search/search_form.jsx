@@ -53,9 +53,6 @@ class SearchForm extends React.Component {
         descriptionError: 'Please enter a description to help us show you the best coaches.',
       });
     } else {
-      console.log(this.props);
-      console.log(sportId);
-      console.log(typeof(sportId));
       submitSearch({ sportId, duration, description })
         .then(history.push('/results'));
     }

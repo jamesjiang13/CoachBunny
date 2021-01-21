@@ -65,7 +65,6 @@ class EditCoachingSession extends React.Component {
         trainingDate: new Date(`${trainingDate} ${trainingTime}`),
         trainingDescription,
       };
-      // console.log(finalSessionDetails);
       updateSession(finalSessionDetails);
       closeModal();
       location.href = '/#/main/mysessions';
