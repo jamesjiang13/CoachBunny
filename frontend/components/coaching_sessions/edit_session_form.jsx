@@ -65,7 +65,6 @@ class EditCoachingSession extends React.Component {
         trainingDate: new Date(`${trainingDate} ${trainingTime}`),
         trainingDescription,
       };
-      // console.log(finalSessionDetails);
       updateSession(finalSessionDetails);
       closeModal();
       location.href = '/#/main/mysessions';
@@ -83,6 +82,9 @@ class EditCoachingSession extends React.Component {
     const {
       trainingDate, trainingTime, trainingDescription,
     } = this.state;
+
+    console.log(this.props);
+
     return (
       <div className={classes.selectMainContainer}>
         <div className={classes.selectCoachContainer}>
@@ -94,7 +96,7 @@ class EditCoachingSession extends React.Component {
           <form onSubmit={this.handleSubmit} className={classes.mainSelect}>
             <div className={classes.coachConfirmDetails}>
               <div className={classes.coachProfile}>
-                <img src={window.profilePic} alt="profile" />
+                <img src={coach.imageUrl} alt="profile" />
               </div>
               <div className={classes.coachName}>
                 {coach.firstName}
