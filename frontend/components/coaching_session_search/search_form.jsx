@@ -53,8 +53,10 @@ class SearchForm extends React.Component {
         descriptionError: 'Please enter a description to help us show you the best coaches.',
       });
     } else {
-      const sportIdInt = parseInt(sportId, 10);
-      submitSearch({ sportIdInt, duration, description })
+      console.log(this.props);
+      console.log(sportId);
+      console.log(typeof(sportId));
+      submitSearch({ sportId, duration, description })
         .then(history.push('/results'));
     }
   }
@@ -64,8 +66,6 @@ class SearchForm extends React.Component {
       location, duration, description, interest, interestError,
       locationError, durationError, descriptionError,
     } = this.state;
-
-    console.log(this.props);
 
     const { selectedSport } = this.props;
 
