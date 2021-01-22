@@ -4,6 +4,7 @@ import {
   editCoachingSession,
   deleteCoachingSession,
 } from '../../actions/coaching_session_actions';
+import { closeModal } from '../../actions/modal_actions';
 
 const mapState = (state) => {
   return {
@@ -14,6 +15,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => ({
   deleteSession: (id) => dispatch(deleteCoachingSession(id)),
   editSession: (coachingSessionId) => dispatch(editCoachingSession(coachingSessionId)),
+  closeModal: () => dispatch(closeModal()),
 });
 
 export default connect(

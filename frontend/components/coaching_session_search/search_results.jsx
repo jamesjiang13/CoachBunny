@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import classes from './search_results.module.css';
 import SearchResultItem from './search_result_item';
 import NavBar from '../nav_bar/nav_bar_container';
+import { closeModal } from '../../actions/modal_actions';
 
 function noResults() {
   return (
@@ -35,6 +36,11 @@ class SearchResults extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
+  }
+
+  componentWillUnmount() {
+    const { closeModal } = this.props;
+    closeModal();
   }
 
   setSort() {
@@ -155,6 +161,10 @@ const mapState = (state) => ({
   results: Object.values(state.search.searchResults),
 });
 
+const mapDispatch = (dispatch) => ({
+  closeModal: () => dispatch(closeModal()),
+});
+
 export default connect(
-  mapState,
+  mapState, mapDispatch,
 )(SearchResults);
