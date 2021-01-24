@@ -117,7 +117,7 @@ class SearchResults extends React.Component {
                 htmlFor="equipment"
               >
                 <span>Elite Coach</span>
-                <input type="checkbox" name="elite" checked={eliteFilter} />
+                <input type="checkbox" name="elite" checked={eliteFilter} onChange={() => {}} />
                 <span className={classes.checkmark} />
               </label>
               <label
@@ -126,7 +126,7 @@ class SearchResults extends React.Component {
                 htmlFor="equipment"
               >
                 <span>Has Equipment</span>
-                <input type="checkbox" name="equipment" checked={equipmentFilter} />
+                <input type="checkbox" name="equipment" checked={equipmentFilter} onChange={() => {}} />
                 <span className={classes.checkmark} />
               </label>
             </div>
