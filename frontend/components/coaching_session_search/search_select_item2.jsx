@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaTimes, FaTasks } from 'react-icons/fa';
 import classes from './search_select_item2.module.css';
 
 function currentDate() {
@@ -17,10 +18,12 @@ class SearchSelectItem2 extends React.Component {
     this.state = {
       trainingDate: '',
       trainingTime: '',
+      showTime: '8:00 am',
       trainingDescription: this.props.description,
       errors: '',
     };
 
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -53,8 +56,30 @@ class SearchSelectItem2 extends React.Component {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
 
-  updateTime(time) {
-    this.setState({ trainingTime: time });
+  updateTime(newTime) {
+    const times = {
+      '08:00': '8:00 am',
+      '09:00': '9:00 am',
+      '10:00': '10:00 am',
+      '11:00': '11:00 am',
+      '12:00': '12:00 pm',
+      '13:00': '1:00 pm',
+      '14:00': '2:00 pm',
+      '15:00': '3:00 pm',
+      '16:00': '4:00 pm',
+      '17:00': '5:00 pm',
+      '18:00': '6:00 pm',
+    };
+
+    this.setState({
+      trainingTime: newTime,
+      showTime: times[newTime],
+    });
+  }
+
+  handleCancel() {
+    const { closeModal } = this.props;
+    closeModal();
   }
 
   render() {
@@ -63,11 +88,14 @@ class SearchSelectItem2 extends React.Component {
     } = this.props.coach;
 
     const {
-      errors, trainingDate, trainingTime, trainingDescription,
+      errors, trainingDate, trainingTime, showTime, trainingDescription,
     } = this.state;
 
     return (
       <div className={classes.selectMainContainer}>
+        <div className={classes.cancel}>
+          <FaTimes onClick={() => this.handleCancel()} />
+        </div>
         <div className={classes.top}>
           <span>Choose your training date and start time:</span>
         </div>
@@ -80,44 +108,37 @@ class SearchSelectItem2 extends React.Component {
                   : <img src={window.profilePic} alt="profile" />
                 )}
               </div>
-              <h4>{`${firstName} ${lastName[0]}'s Availbility`}</h4>
+              <h2>{`${firstName} ${lastName[0]}.'s Availbility`}</h2>
             </div>
             <div className={classes.trainingTime}>
               <input type="date" min={currentDate()} value={trainingDate} onChange={this.update('trainingDate')} />
               <select value={trainingTime} onChange={(e) => this.updateTime(e.target.value)}>
                 <option value="08:00">8:00 am</option>
-                <option value="08:30">8:30 am</option>
                 <option value="09:00">9:00 am</option>
-                <option value="09:30">9:30 am</option>
                 <option value="10:00">10:00 am</option>
-                <option value="10:30">10:30 am</option>
                 <option value="11:00">11:00 am</option>
-                <option value="11:30">11:30 am</option>
                 <option value="12:00">12:00 pm</option>
-                <option value="12:30">12:30 pm</option>
                 <option value="13:00">1:00 pm</option>
-                <option value="13:30">1:30 pm</option>
                 <option value="14:00">2:00 pm</option>
-                <option value="14:30">2:30 pm</option>
                 <option value="15:00">3:00 pm</option>
-                <option value="15:30">3:30 pm</option>
                 <option value="16:00">4:00 pm</option>
-                <option value="16:30">4:30 pm</option>
                 <option value="17:00">5:00 pm</option>
-                <option value="17:30">5:30 pm</option>
                 <option value="18:00">6:00 pm</option>
-                <option value="18:30">6:30 pm</option>
               </select>
-              <span>
-                You can chat to adjust training details or change start time after confirming.
-              </span>
             </div>
+            <span>
+              You can chat to adjust training details or change start time after confirming.
+            </span>
           </div>
           <div className={classes.rightContainer}>
-            <div>Request for:</div>
-            <div>{trainingTime}</div>
-            <button type="button" onClick={this.handleSubmit}> Reserve this Coach </button>
-            <div>Next, confirm your details to get connected with your Coach.</div>
+            <h2>Request for:</h2>
+            <h1 className={classes.timeConfirm}>{showTime}</h1>
+            <div className={classes.redError}>{errors}</div>
+            <button className={classes.trainNow} type="button" onClick={this.handleSubmit}> Reserve this Coach </button>
+            <div className={classes.nextConfirm}>
+              <FaTasks className={classes.taskIcon} />
+              <span>Next, confirm your details to get connected with your Coach.</span>
+            </div>
           </div>
         </div>
       </div>
