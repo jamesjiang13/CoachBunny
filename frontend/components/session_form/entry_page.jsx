@@ -39,11 +39,9 @@ class EntryPage extends React.Component {
   }
 }
 
-const mapDispatch = (dispatch) => {
-  return ({
-    submitForm: (user) => dispatch(logIn(user)),
-  });
-};
+const mapDispatch = (dispatch) => ({
+  submitForm: (user) => dispatch(logIn(user)),
+});
 
 export default connect(
   null, mapDispatch,
