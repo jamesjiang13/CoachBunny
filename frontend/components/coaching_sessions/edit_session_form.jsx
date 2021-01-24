@@ -82,7 +82,7 @@ class EditCoachingSession extends React.Component {
     const {
       trainingDate, trainingTime, trainingDescription,
     } = this.state;
-
+    debugger
     return (
       <div className={classes.selectMainContainer}>
         <div className={classes.selectCoachContainer}>

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { editCoachingSession } from '../../actions/coaching_session_actions';
 import { closeModal } from '../../actions/modal_actions';
-import EditCoachingSession from './edit_session_form';
+import EditCoachingSession2 from './edit_session_form2';
 
 const mapState = (state, ownProps) => {
   return ({
@@ -17,4 +17,4 @@ const mapDispatch = (dispatch) => ({
 
 export default connect(
   mapState, mapDispatch,
-)(EditCoachingSession);
+)(EditCoachingSession2);
