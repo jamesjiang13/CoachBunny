@@ -12,6 +12,10 @@ class CoachingSessions extends React.PureComponent {
     this.filterDate = this.filterDate.bind(this);
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   componentWillUnmount() {
     const { closeModal } = this.props;
     closeModal();

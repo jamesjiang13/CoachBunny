@@ -4,7 +4,7 @@ import classes from './footer.module.css';
 const Footer = () => (
   <footer className={classes.footerMain}>
     <div className={classes.footerMainDiv}>
-      <h2> Follow us, we're friendly: </h2>
+      <h4> Follow us, we're friendly: </h4>
       <a href="https://github.com/jamesjiang13/CoachBunny">
         <img className={classes.imgResponsive} src={window.githubLogo} alt="git" />
       </a>

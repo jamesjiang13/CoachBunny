@@ -31,7 +31,7 @@ class SearchSelectItem2 extends React.Component {
     e.preventDefault();
     const { trainingDate, trainingTime, trainingDescription } = this.state;
     if (trainingDate === '' || trainingTime === '') {
-      this.setState({ errors: 'Must select a date and time' });
+      this.setState({ errors: 'Please select a date' });
     } else {
       const {
         submitForm, closeModal, coach, userId,
