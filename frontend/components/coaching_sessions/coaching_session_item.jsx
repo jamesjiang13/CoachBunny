@@ -65,10 +65,10 @@ class CoachingSessionItem extends React.Component {
             {' '}
             minutes
           </li>
-          <li key={`${session.id}cost`}>
+          {/* <li key={`${session.id}cost`}>
             Cost: $
             {session.trainingRate}
-          </li>
+          </li> */}
           <li key={`${session.id}desc`}>
             Description:
             {' '}

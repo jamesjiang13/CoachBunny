@@ -12,7 +12,7 @@
   align-items: center;
 }
 
-.footerMainDiv > h2 {
+.footerMainDiv > h4 {
   display: flex;
   align-items: center;
   color: white;
