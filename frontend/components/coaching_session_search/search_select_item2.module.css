@@ -31,6 +31,7 @@
 .top {
   padding: 25px;
 }
+
 .top span {
   display: flex;
   justify-content: center;
@@ -46,7 +47,6 @@
   display: flex;
   flex-direction: column;
   padding-right: 20px;
-  border-right: 1px solid black
 }
 
 .coachAvailability {
@@ -79,6 +79,7 @@
   display: flex;
   flex-direction: column;
   margin-left: 20px;
+  border-left: 1px solid black
 }
 
 .timeConfirm {

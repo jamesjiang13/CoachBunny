@@ -21,45 +21,61 @@ function extractDate(fullDateTime) {
 }
 
 function extractTime(fullDateTime) {
+  const times = {
+    '08:00': '8:00 am',
+    '09:00': '9:00 am',
+    '10:00': '10:00 am',
+    '11:00': '11:00 am',
+    '12:00': '12:00 pm',
+    '13:00': '1:00 pm',
+    '14:00': '2:00 pm',
+    '15:00': '3:00 pm',
+    '16:00': '4:00 pm',
+    '17:00': '5:00 pm',
+    '18:00': '6:00 pm',
+  };
   const timeObj = new Date(fullDateTime);
-  return timeObj.toTimeString().slice(0, 5);
+  const milTime = timeObj.toTimeString().slice(0, 5);
+  return [milTime, times[milTime]];
 }
 
 class EditSessionForm2 extends React.Component {
   constructor(props) {
     super(props);
+    const { session } = this.props;
+    const timeObj = extractTime(session.trainingDate);
+
     this.state = {
-      showTime: '8:00 am',
-      trainingDate: this.props.session.trainingDate.split('T')[0],
-      trainingTime: extractTime(this.props.session.trainingDate),
-      trainingDescription: this.props.session.trainingDescription,
+      showTime: timeObj[1],
+      trainingDate: session.trainingDate.split('T')[0],
+      trainingTime: timeObj[0],
+      trainingDescription: session.trainingDescription,
       errors: '',
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const { trainingDate, trainingTime, trainingDescription } = this.state;
-    if (trainingDate === '' || trainingTime === '') {
-      this.setState({ errors: 'Please select a date' });
+    if (trainingDescription.length === 0) {
+      this.setState({ errors: 'Tell us what you want to work on' });
     } else {
       const {
-        submitForm, closeModal, coach, userId,
+        updateSession, closeModal, session, userId,
       } = this.props;
-
       const finalSessionDetails = {
-        sportId: coach.sportId,
-        coachId: coach.id,
-        trainingDuration: coach.duration,
-        trainingRate: coach.coachingRate,
+        id: session.id,
+        sportId: session.sportId,
+        coachId: session.coachId,
+        trainingDuration: session.trainingDuration,
+        trainingRate: session.trainingRate,
         userId,
         trainingDate: new Date(`${trainingDate} ${trainingTime}`),
         trainingDescription,
       };
-      submitForm(finalSessionDetails);
+      updateSession(finalSessionDetails);
       closeModal();
       location.href = '/#/main/mysessions';
     }
@@ -97,7 +113,7 @@ class EditSessionForm2 extends React.Component {
 
   render() {
     const { session } = this.props;
-
+    debugger
     const {
       trainingDate, trainingTime, showTime, trainingDescription, errors,
     } = this.state;
@@ -137,26 +153,21 @@ class EditSessionForm2 extends React.Component {
                 <option value="18:00">6:00 pm</option>
               </select>
             </div>
+            <div className={classes.trainingDescription}>
+              <span>Confirm training details:</span>
+              <textarea
+                value={trainingDescription}
+                onChange={this.update('trainingDescription')}
+                className={classes.trainingDescriptionText}
+              />
+            </div>
           </div>
           <div className={classes.rightContainer}>
             <h2>New training time:</h2>
             <h1 className={classes.timeConfirm}>{showTime}</h1>
             <div className={classes.redError}>{errors}</div>
-            <button className={classes.trainNow} type="button" onClick={this.handleSubmit}> Reserve this Coach </button>
-            <div className={classes.nextConfirm}>
-              <FaTasks className={classes.taskIcon} />
-              <span>Next, confirm your details to get connected with your Coach.</span>
-            </div>
+            <button className={classes.trainNow} type="button" onClick={this.handleSubmit}> Confirm </button>
           </div>
-        </div>
-        <div className={classes.trainingDescription}>
-          <span>Confirm training details:</span>
-          <br />
-          <textarea
-            value={trainingDescription}
-            onChange={this.update('trainingDescription')}
-            className={classes.trainingDescriptionText}
-          />
         </div>
       </div>
     );

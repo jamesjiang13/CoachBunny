@@ -46,7 +46,6 @@
   display: flex;
   flex-direction: column;
   padding-right: 20px;
-  border-right: 1px solid black
 }
 
 .coachAvailability {
@@ -78,7 +77,9 @@
 .rightContainer {
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
+  justify-content: center;
+  padding-left: 20px;
+  border-left: 1px solid black;
 }
 
 .timeConfirm {
@@ -125,9 +126,15 @@
   margin-top: 10px;
 };
 
-.trainingDescription > textarea {
-  min-height: 100px;
+.trainingDescription {
+  display: flex;
+  flex-direction: column;
+}
+
+.trainingDescriptionText {
+  box-sizing: border-box;
+  min-height: 80px;
   width: 100%;
-  margin-top: 8px;
+  margin-top: 5px;
   padding: 5px;
 }
