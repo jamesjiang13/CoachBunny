@@ -1,17 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Loader from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import classes from './search_results.module.css';
 import SearchResultItem from './search_result_item';
 import NavBar from '../nav_bar/nav_bar_container';
 import { closeModal } from '../../actions/modal_actions';
 
-function noResults() {
+function waitingResults() {
   return (
     <div className={classes.noCoaches}>
       <NavBar />
       <div className={classes.noCoachesBody}>
-        <span>We&apos;re sorry, your search did not return any coaches.</span>
+        <Loader type="Rings" color="#51af33" height={100} width={100} />
         <div className={classes.redoSearch}>
           <Link to="/main" className={classes.redoSearchLink}>Search Again</Link>
         </div>
@@ -43,9 +45,9 @@ class SearchResults extends React.Component {
     closeModal();
   }
 
-  setSort() {
+  setSort(e) {
     this.setState({
-      sortStatus: event.target.value,
+      sortStatus: e.target.value,
     });
   }
 
@@ -94,7 +96,7 @@ class SearchResults extends React.Component {
     coaches = this.sortSearchResults(coaches);
     const { eliteFilter, equipmentFilter, sortStatus } = this.state;
     const { results } = this.props;
-    if (results.length === 0) return noResults();
+    if (results.length === 0) return waitingResults();
     return (
       <div>
         <div className={classes.textLogo}>
@@ -106,7 +108,8 @@ class SearchResults extends React.Component {
           <div className={classes.searchLeft}>
             <div className={classes.backgroundCheck}>
               <span>
-                All of our Coaches undergo ID and criminal background checks so that you can book and train with confidence.
+                All of our Coaches undergo ID and criminal background checks so that
+                you can book and train with confidence.
               </span>
             </div>
             <div className={classes.filterContainer}>
@@ -135,7 +138,11 @@ class SearchResults extends React.Component {
             <div className={classes.sortContainerMain}>
               <div className={classes.sortContainer}>
                 <span>SORTED BY:</span>
-                <select defaultValue={sortStatus} onChange={this.setSort} className={classes.sortDropdown}>
+                <select
+                  defaultValue={sortStatus}
+                  onChange={(e) => this.setSort(e)}
+                  className={classes.sortDropdown}
+                >
                   <option value="options" disabled>Recommended</option>
                   <option value="priceLowToHigh">Price: Low to High</option>
                   <option value="priceHighToLow">Price: High to Low</option>

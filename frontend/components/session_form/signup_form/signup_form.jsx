@@ -124,18 +124,21 @@ class SignupForm extends React.Component {
               type="text"
               value={zipCode}
               name="zipCode"
+              id="zip"
               onChange={this.update('zipCode')}
               onBlur={this.handleBlur}
             />
             <span className={classes.errors}>{this.currentErrors.zipCode}</span>
             <p className={classes.divider} />
-            <span className={classes.disclaimer}>By clicking below and creating an account, I agree to CoachBunny&#39;s Terms of Service and Privacy Policy.</span>
+            <span className={classes.disclaimer}>
+              By clicking below and creating an account, I agree to CoachBunny&#39;s Terms of Service and Privacy Policy.
+            </span>
             <ul className={classes.errorsContainer}>
               {errors.map((error, idx) => <li className={classes.redError} key={idx}>{error}</li>)}
             </ul>
             <span className={classes.redError}>{this.existingErrors}</span>
             <button className={classes.submitButton} type="submit"> Create Account </button>
-            <Link to="/login" className={classes.buttonFirst}> Log in </Link>
+            <Link to="/login" className={classes.entryPageNav}> Log in </Link>
           </form>
         </div>
       </div>

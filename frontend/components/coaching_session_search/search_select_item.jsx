@@ -30,7 +30,7 @@ class SearchSelectItem extends React.Component {
       trainingDate: '',
       trainingTime: '08:00',
       showTime: '8:00 am',
-      showDate: setDate(),
+      showDate: '',
       trainingDescription: this.props.description,
       errors: '',
     };
@@ -96,7 +96,7 @@ class SearchSelectItem extends React.Component {
       'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
     this.setState({
       trainingDate: date,
-      showDate: `${months[month]} ${day}`,
+      showDate: `${months[month]} ${day},`,
     });
   }
 

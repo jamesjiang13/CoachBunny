@@ -54,7 +54,7 @@ class LoginForm extends React.Component {
             <p className={classes.divider} />
             {errors.map((error, idx) => <li className={classes.redError} key={idx}>{error}</li>)}
             <button className={classes.submitButton} type="submit"> Log in </button>
-            <Link to="/signup" className={classes.submitButton}> Sign up </Link>
+            <Link to="/signup" className={classes.entryPageNav}> Sign up </Link>
           </form>
         </div>
       </div>

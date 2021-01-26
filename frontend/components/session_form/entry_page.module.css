@@ -135,14 +135,13 @@
   border: 1px solid #86919d;
   border-radius: 4px;
   cursor: pointer;
-  /* margin-bottom: 20px; */
 }
 
 .initialForm > input:focus {
   border: 1px solid #51af33;
 }
 
-.initialForm > button, a {
+.initialForm > button {
   display: block;
   justify-content: center;
   text-align: center;
@@ -159,15 +158,15 @@
   transition-duration: 0.16s;
 } 
 
-.initialForm > button:hover, a:hover {
+.initialForm > button:hover {
   background-color: #438e29;
 }
 
-.submitButton, a {
+.submitButton {
   margin-top: 20px
 }
 
-.initialForm > a {
+.entryPageNav {
   display: block;
   justify-content: center;
   text-align: center;
@@ -185,7 +184,7 @@
   transition-duration: 0.16s;
 } 
 
-.initialForm > a:hover {
+.entryPageNav:hover {
   background-color: #438e29;
   color: white;
 }

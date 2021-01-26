@@ -19,14 +19,6 @@ class SearchForm extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
 
-  update(field) {
-    const errorString = field.concat('Error');
-    return (e) => this.setState({
-      [field]: e.target.value,
-      [errorString]: '',
-    });
-  }
-
   handleSearch() {
     const {
       submitSearch, history, sportId,
@@ -58,13 +50,19 @@ class SearchForm extends React.Component {
     }
   }
 
+  update(field) {
+    const errorString = field.concat('Error');
+    return (e) => this.setState({
+      [field]: e.target.value,
+      [errorString]: '',
+    });
+  }
+
   render() {
     const {
       location, duration, description, interest, interestError,
       locationError, durationError, descriptionError,
     } = this.state;
-
-    const { selectedSport } = this.props;
 
     return (
       <div className={classes.searchMain}>
@@ -82,14 +80,6 @@ class SearchForm extends React.Component {
             <Link to="/main">
               <img className={classes.imgResponsive} src={window.textLogo} alt="logo" />
             </Link>
-            {/* <div className={classes.selectedSport}>
-              <span>{selectedSport.sport}</span>
-            </div>
-            <div className={classes.pickAnotherSport}>
-              <span>
-                {selectedSport.sport} not the right sport? <Link to="/">Pick another sport</Link>
-              </span>
-            </div> */}
           </div>
           <section className={classes.interest}>
             <h4>TRAINING INTEREST</h4>
