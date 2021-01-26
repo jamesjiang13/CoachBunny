@@ -6,17 +6,14 @@ import Footer from './footer/footer';
 import CoachingSessionsContainer from './coaching_sessions/coaching_sessions_container';
 import { ProtectedRoute } from '../util/route_util';
 import AccountContainer from './account/account_container';
-import { fetchCoachingSessions } from '../actions/coaching_session_actions';
 import { receiveSports } from '../actions/sport_actions';
-import { logOut } from '../actions/session_actions';
 import classes from './main.module.css';
 import SearchFieldsContainer from './search/search_fields';
 
 class Main extends React.Component {
   componentDidMount() {
-    const { getCoachingSessions, getSports } = this.props;
+    const { getSports } = this.props;
     getSports();
-    getCoachingSessions();
   }
 
   render() {
@@ -41,8 +38,6 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
-  logout: () => dispatch(logOut()),
-  getCoachingSessions: () => dispatch(fetchCoachingSessions()),
   getSports: () => dispatch(receiveSports()),
 });
 

@@ -22,7 +22,7 @@ class Account extends React.PureComponent {
                 <li>Email: {emailAddress}</li>
                 <li>Zip Code: {zipCode}</li>
               </ul>
-              <Link className={classes.logoutButton} to="/" onClick={logout}> Log out </Link>
+              <Link className={classes.logoutButton} to="/#" onClick={logout}> Log out </Link>
             </div>
           </div>
         </div>

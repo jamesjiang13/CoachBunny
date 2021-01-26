@@ -13,6 +13,8 @@ class CoachingSessions extends React.PureComponent {
   }
 
   componentDidMount() {
+    const { getCoachingSessions } = this.props;
+    getCoachingSessions();
     window.scrollTo(0, 0);
   }
 
@@ -37,7 +39,7 @@ class CoachingSessions extends React.PureComponent {
     } else {
       timeFilter = sessions.filter((session) => new Date(session.trainingDate) < new Date());
     }
-    return timeFilter.sort((a, b) => (a.trainingDate > b.trainingDate) ? 1 : -1);
+    return timeFilter.sort((a, b) => (a.trainingDate > b.trainingDate ? 1 : -1));
   }
 
   render() {

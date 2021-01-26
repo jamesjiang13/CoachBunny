@@ -96,7 +96,7 @@ class EditSessionForm extends React.Component {
       'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
     this.setState({
       trainingDate: date,
-      showDate: `${months[month]} ${day},`,
+      showDate: `${months[month]} ${day}`,
     });
   }
 

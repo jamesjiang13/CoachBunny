@@ -13,25 +13,16 @@ function nextDate() {
   return `${year}-${month}-${day}`;
 }
 
-function setDate() {
-  const tomorrow = new Date();
-  tomorrow.setDate(new Date().getDate() + 1);
-  const month = tomorrow.toLocaleDateString().split('/')[0];
-  const day = tomorrow.toLocaleDateString().split('/')[1];
-  const months = ['nil', 'Jan', 'Feb', 'Mar', 'Apr', 'May',
-    'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-  return `${months[month]} ${day}`;
-}
-
 class SearchSelectItem extends React.Component {
   constructor(props) {
     super(props);
+    const { description } = this.props;
     this.state = {
       trainingDate: '',
       trainingTime: '08:00',
       showTime: '8:00 am',
       showDate: '',
-      trainingDescription: this.props.description,
+      trainingDescription: description,
       errors: '',
     };
 
@@ -96,7 +87,7 @@ class SearchSelectItem extends React.Component {
       'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
     this.setState({
       trainingDate: date,
-      showDate: `${months[month]} ${day},`,
+      showDate: `${months[month]} ${day}`,
     });
   }
 
@@ -148,7 +139,7 @@ class SearchSelectItem extends React.Component {
           </div>
           <div className={classes.rightContainer}>
             <h2>Request for:</h2>
-            <h1 className={classes.timeConfirm}>{`${showDate} ${showTime}`}</h1>
+            <h1 className={classes.timeConfirm}>{`${showDate}, ${showTime}`}</h1>
             <div className={classes.redError}>{errors}</div>
             <button className={classes.trainNow} type="button" onClick={this.handleSubmit}> Reserve this Coach </button>
             <div className={classes.nextConfirm}>
