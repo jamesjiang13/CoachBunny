@@ -2,11 +2,12 @@ import React from 'react';
 import { FaTimes } from 'react-icons/fa';
 import classes from './edit_session_form.module.css';
 
-function currentDate() {
-  const now = new Date();
-  let month = now.toLocaleDateString().split('/')[0];
-  let day = now.toLocaleDateString().split('/')[1];
-  const year = now.toLocaleDateString().split('/')[2];
+function nextDate() {
+  const tomorrow = new Date();
+  tomorrow.setDate(new Date().getDate() + 1);
+  let month = tomorrow.toLocaleDateString().split('/')[0];
+  let day = tomorrow.toLocaleDateString().split('/')[1];
+  const year = tomorrow.toLocaleDateString().split('/')[2];
   month = (parseInt(month, 10) < 10 ? `0${month}` : month);
   day = (parseInt(day, 10) < 10 ? `0${day}` : day);
   return `${year}-${month}-${day}`;
@@ -17,7 +18,7 @@ function extractDate(fullDateTime) {
   const day = parseInt(fullDateTime.slice(8, 10), 10);
   const months = ['nil', 'Jan', 'Feb', 'Mar', 'Apr', 'May',
     'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-  return [months[month], day];
+  return [fullDateTime.split('T')[0], `${months[month]} ${day}`];
 }
 
 function extractTime(fullDateTime) {
@@ -44,10 +45,12 @@ class EditSessionForm extends React.Component {
     super(props);
     const { session } = this.props;
     const timeObj = extractTime(session.trainingDate);
+    const dateObj = extractDate(session.trainingDate);
 
     this.state = {
       showTime: timeObj[1],
-      trainingDate: session.trainingDate.split('T')[0],
+      showDate: dateObj[1],
+      trainingDate: dateObj[0],
       trainingTime: timeObj[0],
       trainingDescription: session.trainingDescription,
       errors: '',
@@ -75,16 +78,26 @@ class EditSessionForm extends React.Component {
         trainingDate: new Date(`${trainingDate} ${trainingTime}`),
         trainingDescription,
       };
-      debugger;
       updateSession(finalSessionDetails);
       closeModal();
       location.href = '/#/main/mysessions';
     }
   }
 
-  update(field) {
-    debugger;
-    return (e) => this.setState({ [field]: e.currentTarget.value });
+  handleClose() {
+    const { closeModal } = this.props;
+    closeModal();
+  }
+
+  updateDate(date) {
+    const month = parseInt(date.slice(5, 7), 10);
+    const day = parseInt(date.slice(8, 10), 10);
+    const months = ['nil', 'Jan', 'Feb', 'Mar', 'Apr', 'May',
+      'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+    this.setState({
+      trainingDate: date,
+      showDate: `${months[month]} ${day},`,
+    });
   }
 
   updateTime(newTime) {
@@ -108,21 +121,22 @@ class EditSessionForm extends React.Component {
     });
   }
 
-  handleCancel() {
-    const { closeModal } = this.props;
-    closeModal();
+  updateDescription(desc) {
+    this.setState({
+      trainingDescription: desc,
+    });
   }
 
   render() {
     const { session } = this.props;
     const {
-      trainingDate, trainingTime, showTime, trainingDescription, errors,
+      trainingDate, trainingTime, showTime, showDate, trainingDescription, errors,
     } = this.state;
 
     return (
       <div className={classes.selectMainContainer}>
         <div className={classes.cancel}>
-          <FaTimes onClick={() => this.handleCancel()} />
+          <FaTimes onClick={() => this.handleClose()} />
         </div>
         <div className={classes.top}>
           <span>Edit your upcoming training details:</span>
@@ -139,7 +153,7 @@ class EditSessionForm extends React.Component {
               <h2>{`Your coach: ${session.coach.firstName} ${session.coach.lastName[0]}`}</h2>
             </div>
             <div className={classes.trainingTime}>
-              <input type="date" min={currentDate()} value={trainingDate} onChange={this.update('trainingDate')} />
+              <input type="date" min={nextDate()} value={trainingDate} onChange={(e) => this.updateDate(e.target.value)} />
               <select value={trainingTime} onChange={(e) => this.updateTime(e.target.value)}>
                 <option value="08:00">8:00 am</option>
                 <option value="09:00">9:00 am</option>
@@ -158,14 +172,14 @@ class EditSessionForm extends React.Component {
               <span>Confirm training details:</span>
               <textarea
                 value={trainingDescription}
-                onChange={this.update('trainingDescription')}
+                onChange={(e) => this.updateDescription(e.target.value)}
                 className={classes.trainingDescriptionText}
               />
             </div>
           </div>
           <div className={classes.rightContainer}>
             <h2>New training time:</h2>
-            <h1 className={classes.timeConfirm}>{showTime}</h1>
+            <h1 className={classes.timeConfirm}>{`${showDate}, ${showTime}`}</h1>
             <div className={classes.redError}>{errors}</div>
             <button className={classes.trainNow} type="button" onClick={this.handleSubmit}> Confirm </button>
           </div>
