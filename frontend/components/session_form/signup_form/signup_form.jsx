@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import classes from '../entry_page.module.css';
 
 function validateEmail(email) {
@@ -134,6 +135,7 @@ class SignupForm extends React.Component {
             </ul>
             <span className={classes.redError}>{this.existingErrors}</span>
             <button className={classes.submitButton} type="submit"> Create Account </button>
+            <Link to="/login" className={classes.buttonFirst}> Log in </Link>
           </form>
         </div>
       </div>

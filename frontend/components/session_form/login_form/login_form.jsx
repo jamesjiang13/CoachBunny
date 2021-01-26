@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import classes from '../entry_page.module.css';
 
 class LoginForm extends React.Component {
@@ -53,6 +54,7 @@ class LoginForm extends React.Component {
             <p className={classes.divider} />
             {errors.map((error, idx) => <li className={classes.redError} key={idx}>{error}</li>)}
             <button className={classes.submitButton} type="submit"> Log in </button>
+            <Link to="/signup" className={classes.submitButton}> Sign up </Link>
           </form>
         </div>
       </div>

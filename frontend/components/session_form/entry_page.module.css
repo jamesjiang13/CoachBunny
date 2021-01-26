@@ -142,7 +142,7 @@
   border: 1px solid #51af33;
 }
 
-.initialForm > button {
+.initialForm > button, a {
   display: block;
   justify-content: center;
   text-align: center;
@@ -159,12 +159,35 @@
   transition-duration: 0.16s;
 } 
 
-.initialForm > button:hover {
+.initialForm > button:hover, a:hover {
   background-color: #438e29;
 }
 
-.submitButton {
+.submitButton, a {
   margin-top: 20px
+}
+
+.initialForm > a {
+  display: block;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  background-color: white;
+  color: #51af33;
+  border: 1px solid #51af33 ;
+  border-radius: 4px;
+  padding: 9.6px 26.5px;
+  margin-top: 20px;
+  width: 100%;
+  font-size: 19.2px;
+  transition-property: background-color, color;
+  transition-timing-function: ease;
+  transition-duration: 0.16s;
+} 
+
+.initialForm > a:hover {
+  background-color: #438e29;
+  color: white;
 }
 
 .disclaimer {
