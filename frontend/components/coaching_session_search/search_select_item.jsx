@@ -2,14 +2,25 @@ import React from 'react';
 import { FaTimes, FaTasks } from 'react-icons/fa';
 import classes from './search_select_item.module.css';
 
-function currentDate() {
-  const now = new Date();
-  let month = now.toLocaleDateString().split('/')[0];
-  let day = now.toLocaleDateString().split('/')[1];
-  const year = now.toLocaleDateString().split('/')[2];
+function nextDate() {
+  const tomorrow = new Date();
+  tomorrow.setDate(new Date().getDate() + 1);
+  let month = tomorrow.toLocaleDateString().split('/')[0];
+  let day = tomorrow.toLocaleDateString().split('/')[1];
+  const year = tomorrow.toLocaleDateString().split('/')[2];
   month = (parseInt(month, 10) < 10 ? `0${month}` : month);
   day = (parseInt(day, 10) < 10 ? `0${day}` : day);
   return `${year}-${month}-${day}`;
+}
+
+function setDate() {
+  const tomorrow = new Date();
+  tomorrow.setDate(new Date().getDate() + 1);
+  const month = tomorrow.toLocaleDateString().split('/')[0];
+  const day = tomorrow.toLocaleDateString().split('/')[1];
+  const months = ['nil', 'Jan', 'Feb', 'Mar', 'Apr', 'May',
+    'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+  return `${months[month]} ${day}`;
 }
 
 class SearchSelectItem extends React.Component {
@@ -19,6 +30,7 @@ class SearchSelectItem extends React.Component {
       trainingDate: '',
       trainingTime: '08:00',
       showTime: '8:00 am',
+      showDate: setDate(),
       trainingDescription: this.props.description,
       errors: '',
     };
@@ -51,8 +63,9 @@ class SearchSelectItem extends React.Component {
     }
   }
 
-  update(field) {
-    return (e) => this.setState({ [field]: e.currentTarget.value });
+  handleCancel() {
+    const { closeModal } = this.props;
+    closeModal();
   }
 
   updateTime(newTime) {
@@ -76,16 +89,22 @@ class SearchSelectItem extends React.Component {
     });
   }
 
-  handleCancel() {
-    const { closeModal } = this.props;
-    closeModal();
+  updateDate(date) {
+    const month = parseInt(date.slice(5, 7), 10);
+    const day = parseInt(date.slice(8, 10), 10);
+    const months = ['nil', 'Jan', 'Feb', 'Mar', 'Apr', 'May',
+      'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+    this.setState({
+      trainingDate: date,
+      showDate: `${months[month]} ${day}`,
+    });
   }
 
   render() {
     const { coach } = this.props;
 
     const {
-      errors, trainingDate, trainingTime, showTime, trainingDescription,
+      errors, trainingDate, trainingTime, showTime, showDate, trainingDescription,
     } = this.state;
 
     return (
@@ -108,7 +127,7 @@ class SearchSelectItem extends React.Component {
               <h2>{`${coach.firstName} ${coach.lastName[0]}.'s Availability`}</h2>
             </div>
             <div className={classes.trainingTime}>
-              <input type="date" min={currentDate()} value={trainingDate} onChange={this.update('trainingDate')} />
+              <input type="date" min={nextDate()} value={trainingDate} onChange={(e) => this.updateDate(e.target.value)} />
               <select value={trainingTime} onChange={(e) => this.updateTime(e.target.value)}>
                 <option value="08:00">8:00 am</option>
                 <option value="09:00">9:00 am</option>
@@ -129,7 +148,7 @@ class SearchSelectItem extends React.Component {
           </div>
           <div className={classes.rightContainer}>
             <h2>Request for:</h2>
-            <h1 className={classes.timeConfirm}>{showTime}</h1>
+            <h1 className={classes.timeConfirm}>{`${showDate} ${showTime}`}</h1>
             <div className={classes.redError}>{errors}</div>
             <button className={classes.trainNow} type="button" onClick={this.handleSubmit}> Reserve this Coach </button>
             <div className={classes.nextConfirm}>
